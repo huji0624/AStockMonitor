@@ -1,0 +1,8 @@
+Pods
+AStockMonitor.xcodeproj/project.xcworkspace/xcuserdata
+AStockMonitor.xcodeproj/xcuserdata
+AStockMonitor.xcodeproj/xcuserdata
+AStockMonitor.xcodeproj/xcshareddata
+Podfile.lock
+*.xccheckout
+.DS_Store

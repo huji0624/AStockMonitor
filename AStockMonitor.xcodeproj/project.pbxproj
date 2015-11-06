@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C5C8B8D5942E108C5F50EF4 /* libPods-AStockMonitor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E197AAFAAE19618856FE189 /* libPods-AStockMonitor.a */; };
+		6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11021BEC4D6400569A77 /* AppDelegate.m */; };
+		6AFB11061BEC4D6400569A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11051BEC4D6400569A77 /* main.m */; };
+		6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11071BEC4D6400569A77 /* Assets.xcassets */; };
+		6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11091BEC4D6400569A77 /* MainMenu.xib */; };
+		6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11131BEC502500569A77 /* ASMonitorViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		29BDEE6BD0C8F32633051BCC /* Pods-AStockMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AStockMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor.release.xcconfig"; sourceTree = "<group>"; };
+		5E197AAFAAE19618856FE189 /* libPods-AStockMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AStockMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AFB10FE1BEC4D6400569A77 /* AStockMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AStockMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AFB11011BEC4D6400569A77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6AFB11021BEC4D6400569A77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6AFB11051BEC4D6400569A77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6AFB11071BEC4D6400569A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6AFB110A1BEC4D6400569A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6AFB110C1BEC4D6400569A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AFB11121BEC502500569A77 /* ASMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMonitorViewController.h; sourceTree = "<group>"; };
+		6AFB11131BEC502500569A77 /* ASMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMonitorViewController.m; sourceTree = "<group>"; };
+		CFFC2CE0BB1CA9201F8CCCFE /* Pods-AStockMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AStockMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6AFB10FB1BEC4D6400569A77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C5C8B8D5942E108C5F50EF4 /* libPods-AStockMonitor.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F5ADB3F9EA5FDBBABC67745 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E197AAFAAE19618856FE189 /* libPods-AStockMonitor.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AFB10F51BEC4D6400569A77 = {
+			isa = PBXGroup;
+			children = (
+				6AFB11001BEC4D6400569A77 /* AStockMonitor */,
+				6AFB10FF1BEC4D6400569A77 /* Products */,
+				F0502DA35C428CC799B65B7D /* Pods */,
+				3F5ADB3F9EA5FDBBABC67745 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6AFB10FF1BEC4D6400569A77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6AFB10FE1BEC4D6400569A77 /* AStockMonitor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AFB11001BEC4D6400569A77 /* AStockMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				6AFB11011BEC4D6400569A77 /* AppDelegate.h */,
+				6AFB11021BEC4D6400569A77 /* AppDelegate.m */,
+				6AFB11071BEC4D6400569A77 /* Assets.xcassets */,
+				6AFB11091BEC4D6400569A77 /* MainMenu.xib */,
+				6AFB110C1BEC4D6400569A77 /* Info.plist */,
+				6AFB11041BEC4D6400569A77 /* Supporting Files */,
+				6AFB11121BEC502500569A77 /* ASMonitorViewController.h */,
+				6AFB11131BEC502500569A77 /* ASMonitorViewController.m */,
+			);
+			path = AStockMonitor;
+			sourceTree = "<group>";
+		};
+		6AFB11041BEC4D6400569A77 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6AFB11051BEC4D6400569A77 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0502DA35C428CC799B65B7D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC2CE0BB1CA9201F8CCCFE /* Pods-AStockMonitor.debug.xcconfig */,
+				29BDEE6BD0C8F32633051BCC /* Pods-AStockMonitor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6AFB10FD1BEC4D6400569A77 /* AStockMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AFB110F1BEC4D6400569A77 /* Build configuration list for PBXNativeTarget "AStockMonitor" */;
+			buildPhases = (
+				4D352853119C341154BCB2EC /* Check Pods Manifest.lock */,
+				6AFB10FA1BEC4D6400569A77 /* Sources */,
+				6AFB10FB1BEC4D6400569A77 /* Frameworks */,
+				6AFB10FC1BEC4D6400569A77 /* Resources */,
+				D90E5071BD8CD03EE133A59F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AStockMonitor;
+			productName = AStockMonitor;
+			productReference = 6AFB10FE1BEC4D6400569A77 /* AStockMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AFB10F61BEC4D6400569A77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = huji;
+				TargetAttributes = {
+					6AFB10FD1BEC4D6400569A77 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 6AFB10F91BEC4D6400569A77 /* Build configuration list for PBXProject "AStockMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6AFB10F51BEC4D6400569A77;
+			productRefGroup = 6AFB10FF1BEC4D6400569A77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AFB10FD1BEC4D6400569A77 /* AStockMonitor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6AFB10FC1BEC4D6400569A77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
+				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D352853119C341154BCB2EC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D90E5071BD8CD03EE133A59F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AFB10FA1BEC4D6400569A77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AFB11061BEC4D6400569A77 /* main.m in Sources */,
+				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
+				6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6AFB11091BEC4D6400569A77 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AFB110A1BEC4D6400569A77 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6AFB110D1BEC4D6400569A77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6AFB110E1BEC4D6400569A77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6AFB11101BEC4D6400569A77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFFC2CE0BB1CA9201F8CCCFE /* Pods-AStockMonitor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AStockMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6AFB11111BEC4D6400569A77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29BDEE6BD0C8F32633051BCC /* Pods-AStockMonitor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AStockMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6AFB10F91BEC4D6400569A77 /* Build configuration list for PBXProject "AStockMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AFB110D1BEC4D6400569A77 /* Debug */,
+				6AFB110E1BEC4D6400569A77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AFB110F1BEC4D6400569A77 /* Build configuration list for PBXNativeTarget "AStockMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AFB11101BEC4D6400569A77 /* Debug */,
+				6AFB11111BEC4D6400569A77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6AFB10F61BEC4D6400569A77 /* Project object */;
+}
