@@ -4,5 +4,6 @@
 target 'AStockMonitor' do
 pod "AFNetworking"
 pod 'BlocksKit'
+pod 'Masonry'
 end
 

@@ -6,3 +6,5 @@ AStockMonitor.xcodeproj/xcshareddata
 Podfile.lock
 *.xccheckout
 .DS_Store
+
+*.xcuserstate

@@ -38,9 +38,10 @@
 }
 
 -(NSView *)view{
-    self.stackView = [[NSStackView alloc] initWithFrame:self.frame];
-    self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
-    
+    if (self.stackView == nil) {
+        self.stackView = [[NSStackView alloc] initWithFrame:self.frame];
+        self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
+    }
     return self.stackView;
 }
 
@@ -125,6 +126,7 @@
     
     for (NSString *info in array) {
         NSTextField *text = [[NSTextField alloc] init];
+        text.editable = NO;
         text.translatesAutoresizingMaskIntoConstraints = NO;
         text.stringValue = info;
         [text sizeToFit];
