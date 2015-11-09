@@ -13,6 +13,7 @@
 		6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11071BEC4D6400569A77 /* Assets.xcassets */; };
 		6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11091BEC4D6400569A77 /* MainMenu.xib */; };
 		6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11131BEC502500569A77 /* ASMonitorViewController.m */; };
+		6AFB111B1BF038E200569A77 /* ASEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB111A1BF038E200569A77 /* ASEditController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,9 @@
 		6AFB110C1BEC4D6400569A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AFB11121BEC502500569A77 /* ASMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMonitorViewController.h; sourceTree = "<group>"; };
 		6AFB11131BEC502500569A77 /* ASMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMonitorViewController.m; sourceTree = "<group>"; };
+		6AFB11191BF038E200569A77 /* ASEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASEditController.h; sourceTree = "<group>"; };
+		6AFB111A1BF038E200569A77 /* ASEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASEditController.m; sourceTree = "<group>"; };
+		6AFB111D1BF052B900569A77 /* ASConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASConstant.h; sourceTree = "<group>"; };
 		CFFC2CE0BB1CA9201F8CCCFE /* Pods-AStockMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AStockMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,9 @@
 				6AFB11041BEC4D6400569A77 /* Supporting Files */,
 				6AFB11121BEC502500569A77 /* ASMonitorViewController.h */,
 				6AFB11131BEC502500569A77 /* ASMonitorViewController.m */,
+				6AFB11191BF038E200569A77 /* ASEditController.h */,
+				6AFB111A1BF038E200569A77 /* ASEditController.m */,
+				6AFB111D1BF052B900569A77 /* ASConstant.h */,
 			);
 			path = AStockMonitor;
 			sourceTree = "<group>";
@@ -207,6 +214,7 @@
 				6AFB11061BEC4D6400569A77 /* main.m in Sources */,
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
 				6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */,
+				6AFB111B1BF038E200569A77 /* ASEditController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

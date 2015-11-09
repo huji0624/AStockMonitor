@@ -26,9 +26,6 @@
 {
     self = [super init];
     if (self) {
-        
-        self.stocks = @[@"sh000001",@"sz002339"];
-        
         self.timer = [NSTimer bk_scheduledTimerWithTimeInterval:2 block:^(NSTimer *timer) {
             [self requestForStocks];
         } repeats:YES];
@@ -100,15 +97,18 @@
             NSArray *parts = [line componentsSeparatedByString:@"\""];
             NSArray *item = [parts[1] componentsSeparatedByString:@","];
             
-            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-            dict[@"name"] = item[0];
-            dict[@"open"] = item[1];
-            dict[@"yclose"] = item[2];
-            dict[@"price"] = item[3];
-            dict[@"top"] = item[4];
-            dict[@"bottom"] = item[5];
+            if (item.count>1) {
+                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                dict[@"name"] = item[0];
+                dict[@"open"] = item[1];
+                dict[@"yclose"] = item[2];
+                dict[@"price"] = item[3];
+                dict[@"top"] = item[4];
+                dict[@"bottom"] = item[5];
+                
+                [array addObject:dict];
+            }
             
-            [array addObject:dict];
         }
     }
     
