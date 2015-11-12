@@ -10,6 +10,6 @@
 #define ASConstant_h
 
 #define ASEditTextKey @"asedit"
-#define ASDefaultStocks @"sh000001,sz399001,sz002339"
+#define ASDefaultStocks @"sh000001,sz399001,sz002138"
 
 #endif /* ASConstant_h */

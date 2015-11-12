@@ -123,7 +123,6 @@
         }
     }
     
-    
     for (NSString *info in array) {
         NSTextField *text = [[NSTextField alloc] init];
         text.editable = NO;

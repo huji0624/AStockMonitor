@@ -11,7 +11,6 @@
 #import "ASConstant.h"
 
 @interface ASEditController ()
-@property (strong) NSStackView *stack;
 @property (strong) NSTextView *text;
 @property (strong) NSButton *save;
 @end
@@ -34,30 +33,21 @@
     CGFloat margin = 50;
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    NSStackView *stack = [[NSStackView alloc] initWithFrame:self.window.contentView.bounds];
-    self.stack =stack;
-    stack.orientation = NSUserInterfaceLayoutOrientationVertical;
-    [self.window.contentView addSubview:stack];
+    NSView *stack = self.window.contentView;
     
-    [stack mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.window.contentView);
-    }];
-    
-    NSTextView *text = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, stack.bounds.size.width, stack.bounds.size.height - margin )];
+    NSTextView *text = [[NSTextView alloc] initWithFrame:self.window.contentView.bounds];
     text.editable = YES;
-    [stack addView:text inGravity:NSStackViewGravityTop];
     self.text = text;
-    
+    [stack addSubview:text];
     text.string = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
+    [self.window makeFirstResponder:text];
     
     NSButton *save = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, margin - 4 )];
-    save.bezelStyle = NSRoundedBezelStyle;
+    [save setTitle:@"保存"];
     [save  setTarget:self];
     [save setAction:@selector(saveClick:)];
-    
     self.save = save;
-    
-    [stack addView:save inGravity:NSStackViewGravityTop];
+    [stack addSubview:save];
 }
 
 -(void)saveClick:(id)sender{

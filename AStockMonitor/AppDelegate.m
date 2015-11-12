@@ -48,10 +48,14 @@
 }
 
 -(void)showEdit{
-    NSUInteger mask = NSTitledWindowMask | NSClosableWindowMask;
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 300, 300)) styleMask:mask backing:NSBackingStoreNonretained defer:YES];
-    window.title = @"调整股票";
+    if (self.editVC) {
+        [self.editVC close];
+        self.editVC = nil;
+    }
     
+    NSUInteger mask = NSTitledWindowMask | NSClosableWindowMask;
+    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 100, 100)) styleMask:mask backing:NSBackingStoreNonretained defer:YES];
+    window.title = @"调整股票";
     self.editVC = [[ASEditController alloc] initWithWindow:window];
     [self.editVC showWindow:nil];
 }
