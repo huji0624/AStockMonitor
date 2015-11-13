@@ -13,6 +13,7 @@
 @interface ASEditController ()
 @property (strong) NSTextView *text;
 @property (strong) NSButton *save;
+@property (strong) NSWindow *aWindow;
 @end
 
 @implementation ASEditController
@@ -20,6 +21,7 @@
 -(instancetype)initWithWindow:(NSWindow *)window{
     self = [super initWithWindow:window];
     if (self) {
+        self.aWindow = window;
         [self loadEditViews];
     }
     return self;
@@ -30,8 +32,6 @@
 }
 
 -(void)loadEditViews{
-    CGFloat margin = 50;
-    
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     NSView *stack = self.window.contentView;
     
@@ -42,7 +42,7 @@
     text.string = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
     [self.window makeFirstResponder:text];
     
-    NSButton *save = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, margin - 4 )];
+    NSButton *save = [[NSButton alloc] initWithFrame:NSMakeRect(self.window.contentView.bounds.size.width/2 - 40, 0, 80, 40 )];
     [save setTitle:@"保存"];
     [save  setTarget:self];
     [save setAction:@selector(saveClick:)];

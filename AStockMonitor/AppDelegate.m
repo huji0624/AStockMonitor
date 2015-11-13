@@ -54,9 +54,10 @@
     }
     
     NSUInteger mask = NSTitledWindowMask | NSClosableWindowMask;
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 100, 100)) styleMask:mask backing:NSBackingStoreNonretained defer:YES];
+    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 300, 300)) styleMask:mask backing:NSBackingStoreBuffered defer:YES];
     window.title = @"调整股票";
     self.editVC = [[ASEditController alloc] initWithWindow:window];
+    self.editVC.delegate = self;
     [self.editVC showWindow:nil];
 }
 
