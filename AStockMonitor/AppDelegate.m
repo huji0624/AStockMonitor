@@ -40,11 +40,20 @@
        make.edges.equalTo(self.window.contentView);
     }];
     
+    [self setUpMenu];
+}
+
+-(void)setUpMenu{
     NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"调整股票" action:@selector(showEdit) keyEquivalent:@"edit_stock"];
     item.target = self;
-    NSMenu *menu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"About"];;
+    NSMenu *menu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"功能"];
     [menu addItem:item];
-    [self.window.contentView setMenu:menu];
+    
+    NSMenuItem *mainSubItem = [[NSMenuItem alloc] initWithTitle:@"ss" action:nil keyEquivalent:@""];
+    mainSubItem.submenu = menu;
+    mainSubItem.target = menu;
+    
+    [[NSApp mainMenu] insertItem:mainSubItem atIndex:1];
 }
 
 -(void)showEdit{
