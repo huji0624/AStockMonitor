@@ -11,6 +11,7 @@
 #import <Masonry.h>
 #import "ASEditController.h"
 #import "ASConstant.h"
+#import <AFHTTPRequestOperationManager.h>
 
 @interface AppDelegate ()<ASEditDelegate>
 
@@ -23,6 +24,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    [self checkUpdate];
+    
     [self.window setLevel:NSFloatingWindowLevel];
     
     self.monitorVC = [[ASMonitorViewController alloc] init];
@@ -41,6 +44,22 @@
     }];
     
     [self setUpMenu];
+}
+
+#define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES 1
+
+-(void)checkUpdate{
+    NSString *fileUrl = @"https://github.com/huji0624/AStockMonitor/blob/master/Podfile";
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.securityPolicy.allowInvalidCertificates = YES;
+    [manager GET:fileUrl parameters:nil  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSData *data = responseObject;
+        
+        NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }];
 }
 
 -(void)setUpMenu{
