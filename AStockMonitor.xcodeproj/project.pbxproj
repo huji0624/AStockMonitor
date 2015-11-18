@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3C5C8B8D5942E108C5F50EF4 /* libPods-AStockMonitor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E197AAFAAE19618856FE189 /* libPods-AStockMonitor.a */; };
+		6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */; };
+		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
+		6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */; };
+		6A623A181BFC3EA300EDDE07 /* ASAppearanceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */; };
 		6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11021BEC4D6400569A77 /* AppDelegate.m */; };
 		6AFB11061BEC4D6400569A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11051BEC4D6400569A77 /* main.m */; };
 		6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11071BEC4D6400569A77 /* Assets.xcassets */; };
@@ -19,7 +23,13 @@
 /* Begin PBXFileReference section */
 		29BDEE6BD0C8F32633051BCC /* Pods-AStockMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AStockMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor.release.xcconfig"; sourceTree = "<group>"; };
 		5E197AAFAAE19618856FE189 /* libPods-AStockMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AStockMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AFB10FE1BEC4D6400569A77 /* AStockMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AStockMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
+		6A623A101BFC3B6000EDDE07 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
+		6A623A111BFC3B6000EDDE07 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
+		6A623A141BFC3EA300EDDE07 /* ASAppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAppearanceController.h; sourceTree = "<group>"; };
+		6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAppearanceController.m; sourceTree = "<group>"; };
+		6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASAppearanceController.xib; sourceTree = "<group>"; };
+		6AFB10FE1BEC4D6400569A77 /* 幽灵股票.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "幽灵股票.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFB11011BEC4D6400569A77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AFB11021BEC4D6400569A77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6AFB11051BEC4D6400569A77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,6 +64,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6A623A0E1BFC3B6000EDDE07 /* iVersion */ = {
+			isa = PBXGroup;
+			children = (
+				6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */,
+				6A623A101BFC3B6000EDDE07 /* iVersion.h */,
+				6A623A111BFC3B6000EDDE07 /* iVersion.m */,
+			);
+			path = iVersion;
+			sourceTree = "<group>";
+		};
 		6AFB10F51BEC4D6400569A77 = {
 			isa = PBXGroup;
 			children = (
@@ -67,7 +87,7 @@
 		6AFB10FF1BEC4D6400569A77 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AFB10FE1BEC4D6400569A77 /* AStockMonitor.app */,
+				6AFB10FE1BEC4D6400569A77 /* 幽灵股票.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +95,7 @@
 		6AFB11001BEC4D6400569A77 /* AStockMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				6A623A0E1BFC3B6000EDDE07 /* iVersion */,
 				6AFB11011BEC4D6400569A77 /* AppDelegate.h */,
 				6AFB11021BEC4D6400569A77 /* AppDelegate.m */,
 				6AFB11071BEC4D6400569A77 /* Assets.xcassets */,
@@ -86,6 +107,9 @@
 				6AFB11191BF038E200569A77 /* ASEditController.h */,
 				6AFB111A1BF038E200569A77 /* ASEditController.m */,
 				6AFB111D1BF052B900569A77 /* ASConstant.h */,
+				6A623A141BFC3EA300EDDE07 /* ASAppearanceController.h */,
+				6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */,
+				6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */,
 			);
 			path = AStockMonitor;
 			sourceTree = "<group>";
@@ -126,7 +150,7 @@
 			);
 			name = AStockMonitor;
 			productName = AStockMonitor;
-			productReference = 6AFB10FE1BEC4D6400569A77 /* AStockMonitor.app */;
+			productReference = 6AFB10FE1BEC4D6400569A77 /* 幽灵股票.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -167,7 +191,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
+				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,
 				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
+				6A623A181BFC3EA300EDDE07 /* ASAppearanceController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,8 +239,10 @@
 			files = (
 				6AFB11061BEC4D6400569A77 /* main.m in Sources */,
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
+				6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */,
 				6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */,
 				6AFB111B1BF038E200569A77 /* ASEditController.m in Sources */,
+				6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +348,7 @@
 				INFOPLIST_FILE = AStockMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "幽灵股票";
 			};
 			name = Debug;
 		};
@@ -333,7 +361,7 @@
 				INFOPLIST_FILE = AStockMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "幽灵股票";
 			};
 			name = Release;
 		};

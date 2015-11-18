@@ -12,25 +12,36 @@
 #import "ASEditController.h"
 #import "ASConstant.h"
 #import <AFHTTPRequestOperationManager.h>
+#import "ASAppearanceController.h"
 
 @interface AppDelegate ()<ASEditDelegate>
 
 @property (weak) IBOutlet NSWindow *window;
 @property (strong) ASMonitorViewController *monitorVC;
 @property (strong) ASEditController *editVC;
+@property (strong) ASAppearanceController *appearanceVC;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    [self checkUpdate];
-    
     [self.window setLevel:NSFloatingWindowLevel];
+    self.window.titleVisibility = NSWindowTitleHidden;
+    self.window.movableByWindowBackground = YES;
+    self.window.titlebarAppearsTransparent = YES;
+    self.window.styleMask = NSBorderlessWindowMask|NSResizableWindowMask;
     
     self.monitorVC = [[ASMonitorViewController alloc] init];
     self.monitorVC.frame = self.window.contentView.bounds;
     [self.window.contentView addSubview:self.monitorVC.view];
+    
+    NSNumber *alpha = [[NSUserDefaults standardUserDefaults] objectForKey:ASAlphaValueKey];
+    if (!alpha) {
+        alpha = @(1.0);
+        [[NSUserDefaults standardUserDefaults] setObject:alpha forKey:ASAlphaValueKey];
+    }
+    self.window.alphaValue = alpha.floatValue;
     
     NSString *st = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
     if (!st) {
@@ -46,33 +57,34 @@
     [self setUpMenu];
 }
 
-#define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES 1
-
--(void)checkUpdate{
-    NSString *fileUrl = @"https://github.com/huji0624/AStockMonitor/blob/master/Podfile";
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.securityPolicy.allowInvalidCertificates = YES;
-    [manager GET:fileUrl parameters:nil  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSData *data = responseObject;
-        
-        NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    }];
-}
-
 -(void)setUpMenu{
     NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"调整股票" action:@selector(showEdit) keyEquivalent:@"edit_stock"];
     item.target = self;
+    
+    NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"调整样式" action:@selector(showAppearance) keyEquivalent:@"edit_appearance"];
+    item2.target = self;
+    
     NSMenu *menu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"功能"];
     [menu addItem:item];
+    [menu addItem:item2];
     
     NSMenuItem *mainSubItem = [[NSMenuItem alloc] initWithTitle:@"ss" action:nil keyEquivalent:@""];
     mainSubItem.submenu = menu;
     mainSubItem.target = menu;
     
     [[NSApp mainMenu] insertItem:mainSubItem atIndex:1];
+}
+
+-(void)showAppearance{
+    if (self.appearanceVC) {
+        [self.appearanceVC close];
+        self.appearanceVC = nil;
+    }
+    
+    self.appearanceVC = [[ASAppearanceController alloc] initWithWindowNibName:@"ASAppearanceController"];
+    [self.appearanceVC showWindow:nil];
+    
+    self.appearanceVC.alphaTargetView = self.window;
 }
 
 -(void)showEdit{

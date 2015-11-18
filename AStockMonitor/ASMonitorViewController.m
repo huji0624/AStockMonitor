@@ -38,6 +38,7 @@
     if (self.stackView == nil) {
         self.stackView = [[NSStackView alloc] initWithFrame:self.frame];
         self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
+        self.stackView.spacing = 0;
     }
     return self.stackView;
 }
