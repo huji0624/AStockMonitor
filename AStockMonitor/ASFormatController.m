@@ -26,7 +26,21 @@
     self.formatKeysLabel.editable = NO;
     
     NSArray *keys = [[ASFormatCache cache] allKeys];
-    self.formatKeysLabel.string = [NSString stringWithFormat:@"可用字段：\n\n\n%@",[keys componentsJoinedByString:@"    "]];
+    
+    NSMutableString *string = [NSMutableString stringWithString:@"可用字段：\n\n"];
+    
+    int count = 0;
+    for (NSString *key in keys) {
+        [string appendString:key];
+        [string appendString:@"     "];
+        count++;
+        if (count>5) {
+            count = 0;
+            [string appendString:@"\n"];
+        }
+    }
+    
+    self.formatKeysLabel.string = string;
     
     self.formatEditor.stringValue = [[ASFormatCache cache] currentFormat];
 }
