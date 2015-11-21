@@ -12,6 +12,10 @@
 		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
 		6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */; };
 		6A623A181BFC3EA300EDDE07 /* ASAppearanceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */; };
+		6A6CF5971C00246800B44F75 /* ASFormatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF5951C00246800B44F75 /* ASFormatController.m */; };
+		6A6CF5981C00246800B44F75 /* ASFormatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF5961C00246800B44F75 /* ASFormatController.xib */; };
+		6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF5991C00278100B44F75 /* formatTable.plist */; };
+		6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF59C1C002AF600B44F75 /* ASFormatCache.m */; };
 		6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11021BEC4D6400569A77 /* AppDelegate.m */; };
 		6AFB11061BEC4D6400569A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11051BEC4D6400569A77 /* main.m */; };
 		6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11071BEC4D6400569A77 /* Assets.xcassets */; };
@@ -29,6 +33,12 @@
 		6A623A141BFC3EA300EDDE07 /* ASAppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAppearanceController.h; sourceTree = "<group>"; };
 		6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAppearanceController.m; sourceTree = "<group>"; };
 		6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASAppearanceController.xib; sourceTree = "<group>"; };
+		6A6CF5941C00246800B44F75 /* ASFormatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFormatController.h; sourceTree = "<group>"; };
+		6A6CF5951C00246800B44F75 /* ASFormatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFormatController.m; sourceTree = "<group>"; };
+		6A6CF5961C00246800B44F75 /* ASFormatController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASFormatController.xib; sourceTree = "<group>"; };
+		6A6CF5991C00278100B44F75 /* formatTable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = formatTable.plist; sourceTree = "<group>"; };
+		6A6CF59B1C002AF600B44F75 /* ASFormatCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFormatCache.h; sourceTree = "<group>"; };
+		6A6CF59C1C002AF600B44F75 /* ASFormatCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFormatCache.m; sourceTree = "<group>"; };
 		6AFB10FE1BEC4D6400569A77 /* 幽灵股票.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "幽灵股票.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFB11011BEC4D6400569A77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AFB11021BEC4D6400569A77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +120,12 @@
 				6A623A141BFC3EA300EDDE07 /* ASAppearanceController.h */,
 				6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */,
 				6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */,
+				6A6CF5941C00246800B44F75 /* ASFormatController.h */,
+				6A6CF5951C00246800B44F75 /* ASFormatController.m */,
+				6A6CF5961C00246800B44F75 /* ASFormatController.xib */,
+				6A6CF5991C00278100B44F75 /* formatTable.plist */,
+				6A6CF59B1C002AF600B44F75 /* ASFormatCache.h */,
+				6A6CF59C1C002AF600B44F75 /* ASFormatCache.m */,
 			);
 			path = AStockMonitor;
 			sourceTree = "<group>";
@@ -193,6 +209,8 @@
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
 				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,
 				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
+				6A6CF5981C00246800B44F75 /* ASFormatController.xib in Resources */,
+				6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */,
 				6A623A181BFC3EA300EDDE07 /* ASAppearanceController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,7 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFB11061BEC4D6400569A77 /* main.m in Sources */,
+				6A6CF5971C00246800B44F75 /* ASFormatController.m in Sources */,
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
+				6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */,
 				6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */,
 				6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */,
 				6AFB111B1BF038E200569A77 /* ASEditController.m in Sources */,

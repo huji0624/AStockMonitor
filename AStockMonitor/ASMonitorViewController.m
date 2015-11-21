@@ -9,6 +9,7 @@
 #import "ASMonitorViewController.h"
 #import <AFHTTPRequestOperationManager.h>
 #import <BlocksKit.h>
+#import "ASFormatCache.h"
 
 @interface ASMonitorViewController ()
 @property (strong) NSTimer *timer;
@@ -78,15 +79,21 @@
 -(NSArray*)format:(NSArray*)datas{
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *data in datas) {
-        NSString *price = data[@"price"];
-        NSString *yClose = data[@"yclose"];
+        NSMutableString *text = [NSMutableString string];
         
-        CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
+        NSArray *format = [self formats];
+        for (NSString *key in format) {
+            [text appendString:data[key]];
+            [text appendString:@" "];
+        }
         
-        NSString *text = [NSString stringWithFormat:@"%@ %.2f%%",data[@"name"],percent];
         [array addObject:text];
     }
     return array;
+}
+
+-(NSArray*)formats{
+    return [[[ASFormatCache cache] currentFormat] componentsSeparatedByString:ASFormatSep];
 }
 
 -(NSArray*)parse:(NSString*)text{
@@ -98,15 +105,26 @@
             NSArray *parts = [line componentsSeparatedByString:@"\""];
             NSArray *item = [parts[1] componentsSeparatedByString:@","];
             
+            NSString *first = parts[0];
+            NSString *code = [first substringWithRange:NSMakeRange(first.length-7, 6)];
+            
             if (item.count>1) {
                 NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-                dict[@"name"] = item[0];
-                dict[@"open"] = item[1];
-                dict[@"yclose"] = item[2];
-                dict[@"price"] = item[3];
-                dict[@"top"] = item[4];
-                dict[@"bottom"] = item[5];
                 
+                NSArray *keys = [[ASFormatCache cache] allKeys];
+                for (NSString *key in keys) {
+                    NSNumber *index = [[ASFormatCache cache] objectForKey:key];
+                    if (index.intValue>=0) {
+                        dict[key] = item[index.intValue];
+                    }
+                }
+                
+                dict[@"股票代码"] = code;
+                NSString *price = dict[@"当前价格"];
+                NSString *yClose = dict[@"昨日收盘价"];
+                CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
+                dict[@"当前涨幅"] = [NSString stringWithFormat:@"%.2f%%",percent];
+
                 [array addObject:dict];
             }
             
