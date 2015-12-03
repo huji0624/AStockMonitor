@@ -13,6 +13,7 @@
 #import "ASConstant.h"
 #import <AFHTTPRequestOperationManager.h>
 #import "ASAppearanceController.h"
+#import "ASFormatController.h"
 
 @interface AppDelegate ()<ASEditDelegate>
 
@@ -20,6 +21,7 @@
 @property (strong) ASMonitorViewController *monitorVC;
 @property (strong) ASEditController *editVC;
 @property (strong) ASAppearanceController *appearanceVC;
+@property (strong) ASFormatController *formatVC;
 @end
 
 @implementation AppDelegate
@@ -64,15 +66,29 @@
     NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"调整样式" action:@selector(showAppearance) keyEquivalent:@"edit_appearance"];
     item2.target = self;
     
+    NSMenuItem *item3 = [[NSMenuItem alloc] initWithTitle:@"调整格式" action:@selector(showFormat) keyEquivalent:@"edit_format"];
+    item3.target = self;
+    
     NSMenu *menu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"功能"];
     [menu addItem:item];
     [menu addItem:item2];
+    [menu addItem:item3];
     
     NSMenuItem *mainSubItem = [[NSMenuItem alloc] initWithTitle:@"ss" action:nil keyEquivalent:@""];
     mainSubItem.submenu = menu;
     mainSubItem.target = menu;
     
     [[NSApp mainMenu] insertItem:mainSubItem atIndex:1];
+}
+
+-(void)showFormat{
+    if (self.formatVC) {
+        [self.formatVC close];
+        self.formatVC = nil;
+    }
+    
+    self.formatVC = [[ASFormatController alloc] initWithWindowNibName:@"ASFormatController"];
+    [self.formatVC showWindow:nil];
 }
 
 -(void)showAppearance{
