@@ -83,8 +83,13 @@
         
         NSArray *format = [self formats];
         for (NSString *key in format) {
-            [text appendString:data[key]];
-            [text appendString:@" "];
+            NSString *v = data[key];
+            if (v) {
+                [text appendString:v];
+                [text appendString:@" "];
+            }else{
+                NSLog(@"format key %@ value %@ , %@",key,v,data);
+            }
         }
         
         [array addObject:text];
@@ -103,31 +108,32 @@
     for (NSString *line in lines) {
         if (line.length>0) {
             NSArray *parts = [line componentsSeparatedByString:@"\""];
-            NSArray *item = [parts[1] componentsSeparatedByString:@","];
-            
-            NSString *first = parts[0];
-            NSString *code = [first substringWithRange:NSMakeRange(first.length-7, 6)];
-            
-            if (item.count>1) {
-                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            if (parts.count>=2) {
+                NSArray *item = [parts[1] componentsSeparatedByString:@","];
                 
-                NSArray *keys = [[ASFormatCache cache] allKeys];
-                for (NSString *key in keys) {
-                    NSNumber *index = [[ASFormatCache cache] objectForKey:key];
-                    if (index.intValue>=0) {
-                        dict[key] = item[index.intValue];
+                NSString *first = parts[0];
+                NSString *code = [first substringWithRange:NSMakeRange(first.length-7, 6)];
+                
+                if (item.count>1) {
+                    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                    
+                    NSArray *keys = [[ASFormatCache cache] allKeys];
+                    for (NSString *key in keys) {
+                        NSNumber *index = [[ASFormatCache cache] objectForKey:key];
+                        if (index.intValue>=0) {
+                            dict[key] = item[index.intValue];
+                        }
                     }
+                    
+                    dict[@"股票代码"] = code;
+                    NSString *price = dict[@"当前价格"];
+                    NSString *yClose = dict[@"昨日收盘价"];
+                    CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
+                    dict[@"当前涨幅"] = [NSString stringWithFormat:@"%.2f%%",percent];
+                    
+                    [array addObject:dict];
                 }
-                
-                dict[@"股票代码"] = code;
-                NSString *price = dict[@"当前价格"];
-                NSString *yClose = dict[@"昨日收盘价"];
-                CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
-                dict[@"当前涨幅"] = [NSString stringWithFormat:@"%.2f%%",percent];
-
-                [array addObject:dict];
             }
-            
         }
     }
     

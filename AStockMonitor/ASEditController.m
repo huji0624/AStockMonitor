@@ -55,6 +55,11 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.delegate didSaveMonitorStock:self.text.string];
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = @"保存成功，将在下次刷新时生效";
+    [alert addButtonWithTitle:@"确定"];
+    [alert runModal];
 }
 
 @end

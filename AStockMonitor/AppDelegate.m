@@ -74,46 +74,59 @@
     [menu addItem:item2];
     [menu addItem:item3];
     
-    NSMenuItem *mainSubItem = [[NSMenuItem alloc] initWithTitle:@"ss" action:nil keyEquivalent:@""];
+    NSMenuItem *mainSubItem = [[NSMenuItem alloc] initWithTitle:@"功能" action:nil keyEquivalent:@""];
     mainSubItem.submenu = menu;
     mainSubItem.target = menu;
     
-    [[NSApp mainMenu] insertItem:mainSubItem atIndex:1];
+    [[NSApp mainMenu] insertItem:mainSubItem atIndex:[NSApp mainMenu].itemArray.count - 1];
+    
+    
+}
+
+-(void)setUpWindowMenu{
+    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"调整股票" action:@selector(showEdit) keyEquivalent:@"edit_stock"];
+    item.target = self;
+    
+    NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"调整样式" action:@selector(showAppearance) keyEquivalent:@"edit_appearance"];
+    item2.target = self;
+    
+    NSMenuItem *item3 = [[NSMenuItem alloc] initWithTitle:@"调整格式" action:@selector(showFormat) keyEquivalent:@"edit_format"];
+    item3.target = self;
+    for (NSMenuItem *temp in [NSApp mainMenu].itemArray) {
+        NSMenu *wmenu = temp.submenu;
+        if ([wmenu.title isEqualToString:@"Window"]) {
+            [wmenu addItem:item];
+            [wmenu addItem:item2];
+            [wmenu addItem:item3];
+        }
+    }
 }
 
 -(void)showFormat{
-    if (self.formatVC) {
-        [self.formatVC close];
-        self.formatVC = nil;
+    if (!self.formatVC) {
+        self.formatVC = [[ASFormatController alloc] initWithWindowNibName:@"ASFormatController"];
     }
     
-    self.formatVC = [[ASFormatController alloc] initWithWindowNibName:@"ASFormatController"];
     [self.formatVC showWindow:nil];
 }
 
 -(void)showAppearance{
-    if (self.appearanceVC) {
-        [self.appearanceVC close];
-        self.appearanceVC = nil;
+    if (!self.appearanceVC) {
+        self.appearanceVC = [[ASAppearanceController alloc] initWithWindowNibName:@"ASAppearanceController"];
+        self.appearanceVC.alphaTargetView = self.window;
     }
     
-    self.appearanceVC = [[ASAppearanceController alloc] initWithWindowNibName:@"ASAppearanceController"];
     [self.appearanceVC showWindow:nil];
-    
-    self.appearanceVC.alphaTargetView = self.window;
 }
 
 -(void)showEdit{
-    if (self.editVC) {
-        [self.editVC close];
-        self.editVC = nil;
+    if (!self.editVC) {
+        NSUInteger mask = NSTitledWindowMask | NSClosableWindowMask;
+        NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 300, 300)) styleMask:mask backing:NSBackingStoreBuffered defer:YES];
+        window.title = @"调整股票";
+        self.editVC = [[ASEditController alloc] initWithWindow:window];
+        self.editVC.delegate = self;
     }
-    
-    NSUInteger mask = NSTitledWindowMask | NSClosableWindowMask;
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 300, 300)) styleMask:mask backing:NSBackingStoreBuffered defer:YES];
-    window.title = @"调整股票";
-    self.editVC = [[ASEditController alloc] initWithWindow:window];
-    self.editVC.delegate = self;
     [self.editVC showWindow:nil];
 }
 
