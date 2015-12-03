@@ -41,6 +41,7 @@
 		6AFB11191BF038E200569A77 /* ASEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASEditController.h; sourceTree = "<group>"; };
 		6AFB111A1BF038E200569A77 /* ASEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASEditController.m; sourceTree = "<group>"; };
 		6AFB111D1BF052B900569A77 /* ASConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASConstant.h; sourceTree = "<group>"; };
+		A55D0B3E1BFCC4DB00E2325D /* 幽灵股票.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "幽灵股票.entitlements"; sourceTree = "<group>"; };
 		CFFC2CE0BB1CA9201F8CCCFE /* Pods-AStockMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AStockMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +96,7 @@
 		6AFB11001BEC4D6400569A77 /* AStockMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				A55D0B3E1BFCC4DB00E2325D /* 幽灵股票.entitlements */,
 				6A623A0E1BFC3B6000EDDE07 /* iVersion */,
 				6AFB11011BEC4D6400569A77 /* AppDelegate.h */,
 				6AFB11021BEC4D6400569A77 /* AppDelegate.m */,
@@ -164,6 +166,12 @@
 				TargetAttributes = {
 					6AFB10FD1BEC4D6400569A77 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = A48REQN6XP;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -344,11 +352,15 @@
 			baseConfigurationReference = CFFC2CE0BB1CA9201F8CCCFE /* Pods-AStockMonitor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AStockMonitor/幽灵股票.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = AStockMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;
 				PRODUCT_NAME = "幽灵股票";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -357,11 +369,15 @@
 			baseConfigurationReference = 29BDEE6BD0C8F32633051BCC /* Pods-AStockMonitor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AStockMonitor/幽灵股票.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = AStockMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;
 				PRODUCT_NAME = "幽灵股票";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
