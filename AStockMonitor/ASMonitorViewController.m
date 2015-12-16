@@ -120,7 +120,7 @@
                     NSArray *keys = [[ASFormatCache cache] allKeys];
                     for (NSString *key in keys) {
                         NSNumber *index = [[ASFormatCache cache] objectForKey:key];
-                        if (index.intValue>=0) {
+                        if (index.intValue>=0 && index.intValue < item.count) {
                             dict[key] = item[index.intValue];
                         }
                     }
