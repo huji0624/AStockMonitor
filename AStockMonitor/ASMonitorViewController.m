@@ -10,11 +10,13 @@
 #import <AFHTTPRequestOperationManager.h>
 #import <BlocksKit.h>
 #import "ASFormatCache.h"
+#import <DJProgressHUD.h>
 
 @interface ASMonitorViewController ()
 @property (strong) NSTimer *timer;
 @property (strong) NSStackView *stackView;
 @property (strong) AFHTTPRequestOperation *request;
+@property BOOL firstLoad;
 @end
 
 @implementation ASMonitorViewController
@@ -27,6 +29,7 @@
 {
     self = [super init];
     if (self) {
+        self.firstLoad = YES;
         self.timer = [NSTimer bk_scheduledTimerWithTimeInterval:2 block:^(NSTimer *timer) {
             [self requestForStocks];
         } repeats:YES];
@@ -46,6 +49,10 @@
 
 -(void)requestForStocks{
     if (self.stocks && self.request == nil) {
+        if (self.firstLoad) {
+            [DJProgressHUD showStatus:@"" FromView:self.stackView];
+        }
+        
         NSMutableString *url = [NSMutableString stringWithString:@"http://hq.sinajs.cn/list="];
         NSString *stockString = [self.stocks componentsJoinedByString:@","];
         [url appendString:stockString];
@@ -61,9 +68,13 @@
             [self updateResponse:responseString];
 
             self.request = nil;
+            [DJProgressHUD dismiss];
+            self.firstLoad = NO;
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@",[error localizedDescription]);
             self.request = nil;
+            [DJProgressHUD dismiss];
         }];
     }
 }

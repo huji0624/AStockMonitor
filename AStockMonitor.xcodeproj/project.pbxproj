@@ -174,6 +174,7 @@
 				6AFB10FB1BEC4D6400569A77 /* Frameworks */,
 				6AFB10FC1BEC4D6400569A77 /* Resources */,
 				D90E5071BD8CD03EE133A59F /* Copy Pods Resources */,
+				EA1AE6B86E7E8A2412845A31 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,6 +268,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA1AE6B86E7E8A2412845A31 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AStockMonitor/Pods-AStockMonitor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

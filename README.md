@@ -3,9 +3,6 @@ An Mac App to observe A stock market.
 
 # TODO:
 *1.在about中增加联系方式
-*2.没有任何数据时，提示正在刷新数据
-*3.修复偶现的crash
 *4.增加日线，月线，分时图
-*5.增加每日启动的统计
 *6.给涨跌增加颜色
 *7.优化ui

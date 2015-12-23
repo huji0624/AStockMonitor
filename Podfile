@@ -5,5 +5,6 @@ target 'AStockMonitor' do
 pod "AFNetworking"
 pod 'BlocksKit'
 pod 'Masonry'
+pod 'DJProgressHUD_OSX'
 end
 
