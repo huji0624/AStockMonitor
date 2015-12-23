@@ -14,6 +14,7 @@
 #import <AFHTTPRequestOperationManager.h>
 #import "ASAppearanceController.h"
 #import "ASFormatController.h"
+#import "LHRealTimeStatistics.h"
 
 @interface AppDelegate ()<ASEditDelegate>
 
@@ -57,6 +58,8 @@
     }];
     
     [self setUpMenu];
+    
+    LHS(@"launch");
 }
 
 -(void)setUpMenu{
@@ -120,6 +123,9 @@
 }
 
 -(void)showEdit{
+    
+    LHS(@"showEdit");
+    
     if (!self.editVC) {
         NSUInteger mask = NSTitledWindowMask | NSClosableWindowMask;
         NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 300, 300)) styleMask:mask backing:NSBackingStoreBuffered defer:YES];
