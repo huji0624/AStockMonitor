@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define ASDefaultFormat @"股票名字-当前涨幅"
+#define ASDefaultFormat @"股票名字"
 #define ASFormatSep @"-"
 
 @interface ASFormatCache : NSObject

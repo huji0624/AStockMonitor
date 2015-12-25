@@ -90,18 +90,36 @@
 -(NSArray*)format:(NSArray*)datas{
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *data in datas) {
-        NSMutableString *text = [NSMutableString string];
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] init];
         
         NSArray *format = [self formats];
         for (NSString *key in format) {
-            NSString *v = data[key];
+            id v = data[key];
             if (v) {
-                [text appendString:v];
-                [text appendString:@" "];
+                if ([v isKindOfClass:[NSAttributedString class]]) {
+                    [text appendAttributedString:v];
+                }else{
+                    [text appendAttributedString:[[NSAttributedString alloc] initWithString:v]];
+                }
+                [text appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
             }else{
                 NSLog(@"format key %@ value %@ , %@",key,v,data);
             }
         }
+        
+        //当前涨幅
+        NSString *price = data[@"当前价格"];
+        NSString *yClose = data[@"昨日收盘价"];
+        CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
+        NSAttributedString *perStr = nil;
+        if (percent>0) {
+            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor redColor]}];
+        }else if (percent<0){
+            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor greenColor]}];
+        }else{
+            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor blackColor]}];
+        }
+        [text appendAttributedString:perStr];
         
         [array addObject:text];
     }
@@ -137,10 +155,6 @@
                     }
                     
                     dict[@"股票代码"] = code;
-                    NSString *price = dict[@"当前价格"];
-                    NSString *yClose = dict[@"昨日收盘价"];
-                    CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
-                    dict[@"当前涨幅"] = [NSString stringWithFormat:@"%.2f%%",percent];
                     
                     [array addObject:dict];
                 }
@@ -159,11 +173,11 @@
         }
     }
     
-    for (NSString *info in array) {
+    for (NSMutableAttributedString *info in array) {
         NSTextField *text = [[NSTextField alloc] init];
         text.editable = NO;
         text.translatesAutoresizingMaskIntoConstraints = NO;
-        text.stringValue = info;
+        text.attributedStringValue = info;
         [text sizeToFit];
         text.tag = 24;
         

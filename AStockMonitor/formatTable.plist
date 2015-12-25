@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>当前涨幅</key>
-	<integer>-1</integer>
 	<key>股票代码</key>
 	<integer>-1</integer>
 	<key>时间</key>
