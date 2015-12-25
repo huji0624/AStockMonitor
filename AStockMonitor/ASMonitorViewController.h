@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol ASMonitorViewControllerDelegate <NSObject>
+-(void)didClickInfo:(id)tag;
+@end
+
 @interface ASMonitorViewController : NSObject
 
+@property (weak) id<ASMonitorViewControllerDelegate> delegate;
 @property NSRect frame;
 @property (strong) NSArray *stocks;//code like sz000213
 

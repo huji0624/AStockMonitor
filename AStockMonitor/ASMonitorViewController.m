@@ -11,8 +11,10 @@
 #import <BlocksKit.h>
 #import "ASFormatCache.h"
 #import <DJProgressHUD.h>
+#import "ASStockView.h"
+#import "LHRealTimeStatistics.h"
 
-@interface ASMonitorViewController ()
+@interface ASMonitorViewController ()<ASStockViewDelegate>
 @property (strong) NSTimer *timer;
 @property (strong) NSStackView *stackView;
 @property (strong) AFHTTPRequestOperation *request;
@@ -91,7 +93,6 @@
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *data in datas) {
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] init];
-        
         NSArray *format = [self formats];
         for (NSString *key in format) {
             id v = data[key];
@@ -121,7 +122,11 @@
         }
         [text appendAttributedString:perStr];
         
-        [array addObject:text];
+        NSMutableDictionary *finalInfo = [NSMutableDictionary dictionary];
+        finalInfo[@"text"] = text;
+        finalInfo[@"key"] = data[@"股票代码"];
+        
+        [array addObject:finalInfo];
     }
     return array;
 }
@@ -141,7 +146,7 @@
                 NSArray *item = [parts[1] componentsSeparatedByString:@","];
                 
                 NSString *first = parts[0];
-                NSString *code = [first substringWithRange:NSMakeRange(first.length-7, 6)];
+                NSString *code = [first substringWithRange:NSMakeRange(first.length-9, 8)];
                 
                 if (item.count>1) {
                     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -168,21 +173,27 @@
 -(void)refresh:(NSArray*)array{
     NSArray *subViews = [NSArray arrayWithArray:self.stackView.views];
     for (NSView *view in subViews) {
-        if (view.tag == 24) {
+        if (view.tag==24) {
             [self.stackView removeView:view];
         }
     }
     
-    for (NSMutableAttributedString *info in array) {
-        NSTextField *text = [[NSTextField alloc] init];
-        text.editable = NO;
-        text.translatesAutoresizingMaskIntoConstraints = NO;
-        text.attributedStringValue = info;
-        [text sizeToFit];
-        text.tag = 24;
+    for (NSDictionary *info in array) {
         
-        [self.stackView addView:text inGravity:NSStackViewGravityTop];
+        NSAttributedString *text = info[@"text"];
+        NSString *key = info[@"key"];
+        
+         ASStockView *container = [[ASStockView alloc] initWithInfo:text];
+        container.delegate = self;
+        container.stockTag = key;
+        [self.stackView addView:container inGravity:NSStackViewGravityTop];
     }
+}
+
+-(void)didClickInfo:(id)tag{
+    NSString *log = [NSString stringWithFormat:@"info_%@",tag];
+    LHS(log);
+    [self.delegate didClickInfo:tag];
 }
 
 @end

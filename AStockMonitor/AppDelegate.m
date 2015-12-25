@@ -15,14 +15,16 @@
 #import "ASAppearanceController.h"
 #import "ASFormatController.h"
 #import "LHRealTimeStatistics.h"
+#import "ASInfoController.h"
 
-@interface AppDelegate ()<ASEditDelegate>
+@interface AppDelegate ()<ASEditDelegate,ASMonitorViewControllerDelegate>
 
 @property (weak) IBOutlet NSWindow *window;
 @property (strong) ASMonitorViewController *monitorVC;
 @property (strong) ASEditController *editVC;
 @property (strong) ASAppearanceController *appearanceVC;
 @property (strong) ASFormatController *formatVC;
+@property (strong) ASInfoController *infoVC;
 @end
 
 @implementation AppDelegate
@@ -37,6 +39,7 @@
     
     self.monitorVC = [[ASMonitorViewController alloc] init];
     self.monitorVC.frame = self.window.contentView.bounds;
+    self.monitorVC.delegate = self;
     [self.window.contentView addSubview:self.monitorVC.view];
     
     NSNumber *alpha = [[NSUserDefaults standardUserDefaults] objectForKey:ASAlphaValueKey];
@@ -60,6 +63,15 @@
     [self setUpMenu];
     
     LHS(@"launch");
+}
+
+-(void)didClickInfo:(id)tag{
+    if (!self.infoVC) {
+        self.infoVC = [[ASInfoController alloc] initWithWindowNibName:@"ASInfoController"];
+    }
+    
+    self.infoVC.stockCode = tag;
+    [self.infoVC showWindow:nil];
 }
 
 -(void)setUpMenu{
