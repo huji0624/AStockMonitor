@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         
-        CGFloat hei = 30;
+        CGFloat hei = 20;
         NSTextField *text = [[NSTextField alloc] init];
         text.editable = NO;
         text.translatesAutoresizingMaskIntoConstraints = NO;
@@ -43,7 +43,10 @@
             make.left.equalTo(button.mas_right);
         }];
         
-        self.frame = CGRectMake(0, 0, text.frame.size.width+button.frame.size.width, hei);
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(text.mas_width).offset(hei);
+            make.height.equalTo(@(hei));
+        }];
     }
     return self;
 }

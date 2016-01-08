@@ -45,6 +45,7 @@
         self.stackView = [[NSStackView alloc] initWithFrame:self.frame];
         self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
         self.stackView.spacing = 0;
+        self.stackView.alignment = NSLayoutAttributeLeft;
     }
     return self.stackView;
 }
