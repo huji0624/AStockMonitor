@@ -46,8 +46,23 @@
         self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
         self.stackView.spacing = 0;
         self.stackView.alignment = NSLayoutAttributeLeft;
+        [self setBackground:self.stackView color:[NSColor whiteColor]];
     }
     return self.stackView;
+}
+
+- (void)setBackground:(NSView*)view color:(NSColor*)color
+{
+    if(![view wantsLayer])
+    {
+        CALayer* bgLayer = [CALayer layer];
+        [bgLayer setBackgroundColor:color.CGColor];
+        [view setWantsLayer:TRUE];
+        [view setLayer:bgLayer];
+    }
+    else {
+        [view.layer setBackgroundColor:color.CGColor];
+    }
 }
 
 -(void)requestForStocks{

@@ -8,6 +8,7 @@
 
 #import "ASStockView.h"
 #import <Masonry.h>
+#import "RSVerticallyCenteredTextFieldCell.h"
 
 @implementation ASStockView{
     NSButton *_button;
@@ -18,17 +19,21 @@
     self = [super init];
     if (self) {
         
-        CGFloat hei = 20;
+        CGFloat hei = 18;
         NSTextField *text = [[NSTextField alloc] init];
         text.editable = NO;
         text.translatesAutoresizingMaskIntoConstraints = NO;
         text.attributedStringValue = info;
+        text.alignment = NSTextAlignmentCenter;
+        text.bordered = NO;
+        [text setCell:[[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info]];
         _text = text;
         
         NSButton *button = [[NSButton alloc] init];
         [button setTitle:@"i"];
         [button  setTarget:self];
         [button setAction:@selector(infoClick:)];
+        button.bordered = NO;
         _button = button;
 
         [self addSubview:button];

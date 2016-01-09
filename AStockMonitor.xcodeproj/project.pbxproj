@@ -17,6 +17,7 @@
 		6A6CF5981C00246800B44F75 /* ASFormatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF5961C00246800B44F75 /* ASFormatController.xib */; };
 		6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF5991C00278100B44F75 /* formatTable.plist */; };
 		6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF59C1C002AF600B44F75 /* ASFormatCache.m */; };
+		6ABF8F6C1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */; };
 		6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C131C2D1D8500E65530 /* ASStockView.m */; };
 		6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C161C2D294700E65530 /* ASInfoController.m */; };
 		6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE30C171C2D294700E65530 /* ASInfoController.xib */; };
@@ -45,6 +46,8 @@
 		6A6CF5991C00278100B44F75 /* formatTable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = formatTable.plist; sourceTree = "<group>"; };
 		6A6CF59B1C002AF600B44F75 /* ASFormatCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFormatCache.h; sourceTree = "<group>"; };
 		6A6CF59C1C002AF600B44F75 /* ASFormatCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFormatCache.m; sourceTree = "<group>"; };
+		6ABF8F6A1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
+		6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
 		6AE30C121C2D1D8500E65530 /* ASStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStockView.h; sourceTree = "<group>"; };
 		6AE30C131C2D1D8500E65530 /* ASStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStockView.m; sourceTree = "<group>"; };
 		6AE30C151C2D294700E65530 /* ASInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASInfoController.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 		6A172DF41C2A8182000A25F0 /* LHToolKit */ = {
 			isa = PBXGroup;
 			children = (
+				6ABF8F6A1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.h */,
+				6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */,
 				6A172DF51C2A81D7000A25F0 /* LHRealTimeStatistics.h */,
 				6A172DF61C2A81D7000A25F0 /* LHRealTimeStatistics.m */,
 			);
@@ -315,6 +320,7 @@
 				6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */,
 				6AFB111B1BF038E200569A77 /* ASEditController.m in Sources */,
 				6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */,
+				6ABF8F6C1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m in Sources */,
 				6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */,
 				6A172DF71C2A81D7000A25F0 /* LHRealTimeStatistics.m in Sources */,
 			);
