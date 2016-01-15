@@ -67,6 +67,8 @@
     
     [[ASFormatCache cache] saveCurrentFormat:self.formatEditor.stringValue];
     
+    [LHRealTimeStatistics poke:[NSString stringWithFormat:@"saveFormat %@",self.formatEditor.stringValue]];
+    
     [self close];
 }
 

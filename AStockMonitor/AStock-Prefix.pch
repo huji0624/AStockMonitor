@@ -1,0 +1,17 @@
+//
+//  AStock-Prefix.pch
+//  AStockMonitor
+//
+//  Created by __huji on 15/1/2016.
+//  Copyright © 2016 huji. All rights reserved.
+//
+
+#ifndef AStock_Prefix_pch
+#define AStock_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "LHRealTimeStatistics.h"
+#import "MacDevTool.h"
+
+#endif /* AStock_Prefix_pch */

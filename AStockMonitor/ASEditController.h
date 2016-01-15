@@ -10,7 +10,7 @@
 
 @protocol ASEditDelegate <NSObject>
 
--(void)didSaveMonitorStock:(NSString*)string;
+-(void)didSaveMonitorStock:(NSArray*)stocks;
 
 @end
 

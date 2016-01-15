@@ -49,12 +49,12 @@
     }
     self.window.alphaValue = alpha.floatValue;
     
-    NSString *st = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
+    NSArray* st = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
     if (!st) {
-        st = ASDefaultStocks;
-        [[NSUserDefaults standardUserDefaults] setObject:ASDefaultStocks forKey:ASEditTextKey];
+        st = @[@"sh000001",@"sz399001"];
+        [[NSUserDefaults standardUserDefaults] setObject:st forKey:ASEditTextKey];
     }
-    [self setStockString:st];
+    self.monitorVC.stocks = st;
     
     [self.monitorVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
        make.edges.equalTo(self.window.contentView);
@@ -118,6 +118,8 @@
 }
 
 -(void)showFormat{
+    LHS(@"showFormat");
+    
     if (!self.formatVC) {
         self.formatVC = [[ASFormatController alloc] initWithWindowNibName:@"ASFormatController"];
     }
@@ -148,12 +150,8 @@
     [self.editVC showWindow:nil];
 }
 
--(void)setStockString:(NSString*)string{
-    self.monitorVC.stocks = [string componentsSeparatedByString:@","];
-}
-
--(void)didSaveMonitorStock:(NSString *)string{
-    [self setStockString:string];
+-(void)didSaveMonitorStock:(NSArray *)string{
+    self.monitorVC.stocks = string;
     
     [self.editVC close];
     self.editVC = nil;

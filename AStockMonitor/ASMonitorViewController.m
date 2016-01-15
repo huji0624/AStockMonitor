@@ -19,6 +19,7 @@
 @property (strong) NSStackView *stackView;
 @property (strong) AFHTTPRequestOperation *request;
 @property BOOL firstLoad;
+@property (strong) NSMutableArray *stockViews;
 @end
 
 @implementation ASMonitorViewController
@@ -36,6 +37,7 @@
             [self requestForStocks];
         } repeats:YES];
         
+        self.stockViews = [NSMutableArray array];
     }
     return self;
 }
@@ -46,23 +48,9 @@
         self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
         self.stackView.spacing = 0;
         self.stackView.alignment = NSLayoutAttributeLeft;
-        [self setBackground:self.stackView color:[NSColor whiteColor]];
+        [MacDevTool setBackground:self.stackView color:[NSColor whiteColor]];
     }
     return self.stackView;
-}
-
-- (void)setBackground:(NSView*)view color:(NSColor*)color
-{
-    if(![view wantsLayer])
-    {
-        CALayer* bgLayer = [CALayer layer];
-        [bgLayer setBackgroundColor:color.CGColor];
-        [view setWantsLayer:TRUE];
-        [view setLayer:bgLayer];
-    }
-    else {
-        [view.layer setBackgroundColor:color.CGColor];
-    }
 }
 
 -(void)requestForStocks{
@@ -187,22 +175,31 @@
 }
 
 -(void)refresh:(NSArray*)array{
-    NSArray *subViews = [NSArray arrayWithArray:self.stackView.views];
-    for (NSView *view in subViews) {
-        if (view.tag==24) {
-            [self.stackView removeView:view];
-        }
-    }
+    
+    NSMutableArray *tmp = [NSMutableArray arrayWithArray:self.stockViews];
     
     for (NSDictionary *info in array) {
         
         NSAttributedString *text = info[@"text"];
         NSString *key = info[@"key"];
         
-         ASStockView *container = [[ASStockView alloc] initWithInfo:text];
-        container.delegate = self;
-        container.stockTag = key;
-        [self.stackView addView:container inGravity:NSStackViewGravityTop];
+        ASStockView *stock = [tmp firstObject];
+        if (stock) {
+            [stock setTag:key info:text];
+            [tmp removeObjectAtIndex:0];
+        }else{
+            ASStockView *container = [[ASStockView alloc] init];
+            container.delegate = self;
+            [container setTag:key info:text];
+            [self.stackView addView:container inGravity:NSStackViewGravityTop];
+            [self.stockViews addObject:container];
+        }
+    }
+    
+    for (ASStockView *view in tmp) {
+        view.delegate = nil;
+        [view removeFromSuperview];
+        [self.stockViews removeObject:view];
     }
 }
 

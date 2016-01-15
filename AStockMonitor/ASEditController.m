@@ -39,7 +39,8 @@
     text.editable = YES;
     self.text = text;
     [stack addSubview:text];
-    text.string = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
+    NSArray *stocks = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
+    text.string = [stocks componentsJoinedByString:@","];
     [self.window makeFirstResponder:text];
     
     NSButton *save = [[NSButton alloc] initWithFrame:NSMakeRect(self.window.contentView.bounds.size.width/2 - 40, 0, 80, 40 )];
@@ -51,10 +52,13 @@
 }
 
 -(void)saveClick:(id)sender{
-    [[NSUserDefaults standardUserDefaults] setObject:self.text.string forKey:ASEditTextKey];
+    
+    NSArray *strings = [self.text.string componentsSeparatedByString:@","];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:strings forKey:ASEditTextKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [self.delegate didSaveMonitorStock:self.text.string];
+    [self.delegate didSaveMonitorStock:strings];
     
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = @"保存成功，将在下次刷新时生效";

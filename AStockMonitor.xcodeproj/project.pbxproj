@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C5C8B8D5942E108C5F50EF4 /* libPods-AStockMonitor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E197AAFAAE19618856FE189 /* libPods-AStockMonitor.a */; };
 		6A172DF71C2A81D7000A25F0 /* LHRealTimeStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A172DF61C2A81D7000A25F0 /* LHRealTimeStatistics.m */; };
+		6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A35059C1C48FA1A0042D82B /* MacDevTool.m */; };
 		6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */; };
 		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
 		6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */; };
@@ -34,6 +35,9 @@
 		5E197AAFAAE19618856FE189 /* libPods-AStockMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AStockMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A172DF51C2A81D7000A25F0 /* LHRealTimeStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHRealTimeStatistics.h; sourceTree = "<group>"; };
 		6A172DF61C2A81D7000A25F0 /* LHRealTimeStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHRealTimeStatistics.m; sourceTree = "<group>"; };
+		6A35059A1C48D1450042D82B /* AStock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AStock-Prefix.pch"; sourceTree = "<group>"; };
+		6A35059B1C48FA1A0042D82B /* MacDevTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacDevTool.h; sourceTree = "<group>"; };
+		6A35059C1C48FA1A0042D82B /* MacDevTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacDevTool.m; sourceTree = "<group>"; };
 		6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		6A623A101BFC3B6000EDDE07 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		6A623A111BFC3B6000EDDE07 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */,
 				6A172DF51C2A81D7000A25F0 /* LHRealTimeStatistics.h */,
 				6A172DF61C2A81D7000A25F0 /* LHRealTimeStatistics.m */,
+				6A35059B1C48FA1A0042D82B /* MacDevTool.h */,
+				6A35059C1C48FA1A0042D82B /* MacDevTool.m */,
 			);
 			path = LHToolKit;
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				6AFB11051BEC4D6400569A77 /* main.m */,
+				6A35059A1C48D1450042D82B /* AStock-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -314,6 +321,7 @@
 				6AFB11061BEC4D6400569A77 /* main.m in Sources */,
 				6A6CF5971C00246800B44F75 /* ASFormatController.m in Sources */,
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
+				6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */,
 				6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */,
 				6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */,
 				6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */,
@@ -428,6 +436,8 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AStockMonitor/AStock-Prefix.pch";
 				INFOPLIST_FILE = AStockMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;
@@ -445,6 +455,8 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AStockMonitor/AStock-Prefix.pch";
 				INFOPLIST_FILE = AStockMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huji.AStockMonitor;

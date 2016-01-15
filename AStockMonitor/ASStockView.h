@@ -13,7 +13,7 @@
 @end
 
 @interface ASStockView : NSView
-@property id stockTag;
 @property (weak) id<ASStockViewDelegate> delegate;
--(instancetype)initWithInfo:(NSAttributedString*)info;
+
+-(void)setTag:(id)stockTag info:(NSAttributedString*)info;
 @end
