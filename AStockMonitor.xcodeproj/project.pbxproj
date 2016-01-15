@@ -11,6 +11,8 @@
 		6A172DF71C2A81D7000A25F0 /* LHRealTimeStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A172DF61C2A81D7000A25F0 /* LHRealTimeStatistics.m */; };
 		6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A35059C1C48FA1A0042D82B /* MacDevTool.m */; };
 		6A3505A21C491E7F0042D82B /* StocksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A11C491E7F0042D82B /* StocksManager.m */; };
+		6A3505A51C492B440042D82B /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3505A41C492B440042D82B /* delete.png */; };
+		6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A71C4931310042D82B /* ToolBoxController.m */; };
 		6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */; };
 		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
 		6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */; };
@@ -41,6 +43,9 @@
 		6A35059C1C48FA1A0042D82B /* MacDevTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacDevTool.m; sourceTree = "<group>"; };
 		6A3505A01C491E7F0042D82B /* StocksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StocksManager.h; sourceTree = "<group>"; };
 		6A3505A11C491E7F0042D82B /* StocksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StocksManager.m; sourceTree = "<group>"; };
+		6A3505A41C492B440042D82B /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		6A3505A61C4931310042D82B /* ToolBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBoxController.h; sourceTree = "<group>"; };
+		6A3505A71C4931310042D82B /* ToolBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBoxController.m; sourceTree = "<group>"; };
 		6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		6A623A101BFC3B6000EDDE07 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		6A623A111BFC3B6000EDDE07 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
@@ -131,6 +136,8 @@
 				6AE30C151C2D294700E65530 /* ASInfoController.h */,
 				6AE30C161C2D294700E65530 /* ASInfoController.m */,
 				6AE30C171C2D294700E65530 /* ASInfoController.xib */,
+				6A3505A61C4931310042D82B /* ToolBoxController.h */,
+				6A3505A71C4931310042D82B /* ToolBoxController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -142,6 +149,14 @@
 				6A3505A11C491E7F0042D82B /* StocksManager.m */,
 			);
 			name = Module;
+			sourceTree = "<group>";
+		};
+		6A3505A31C492B440042D82B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A3505A41C492B440042D82B /* delete.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		6A623A0E1BFC3B6000EDDE07 /* iVersion */ = {
@@ -175,6 +190,7 @@
 		6AFB11001BEC4D6400569A77 /* AStockMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				6A3505A31C492B440042D82B /* Resources */,
 				6A35059F1C491E510042D82B /* Module */,
 				6A35059E1C491E340042D82B /* Controllers */,
 				6A172DF41C2A8182000A25F0 /* LHToolKit */,
@@ -274,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3505A51C492B440042D82B /* delete.png in Resources */,
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
 				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,
 				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
@@ -342,6 +359,7 @@
 				6A3505A21C491E7F0042D82B /* StocksManager.m in Sources */,
 				6AFB11061BEC4D6400569A77 /* main.m in Sources */,
 				6A6CF5971C00246800B44F75 /* ASFormatController.m in Sources */,
+				6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */,
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
 				6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */,
 				6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */,

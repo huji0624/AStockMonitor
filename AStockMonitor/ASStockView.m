@@ -46,13 +46,9 @@
         [_delete setAction:@selector(deleteClick:)];
         _delete.bordered = NO;
         _delete.hidden = YES;
-        NSImage *img = [NSImage imageNamed:@"delete"];
+        NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"delete" ofType:@"png"]];
         [_delete setImage:img];
         
-//        [MacDevTool setBackground:_delete color:[NSColor redColor]];
-//        [_delete setCell:[[NSButtonCell alloc] initImageCell:<#(nullable NSImage *)#>]]
-//        [MacDevTool setButtonTitleFor:_delete toString:@"删除" withColor:[NSColor whiteColor]];
-
         [self addSubview:button];
         [self addSubview:text];
         [self addSubview:_delete];
@@ -103,7 +99,7 @@
     [self.delegate didClickInfo:self.stockTag];
 }
 
--(void)deleteClick:(id)sender{
+-(void)deleteClick:(id)sender{    
     NSAttributedString *string = _text.attributedStringValue;
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = [NSString stringWithFormat:@"确定要删除 %@ 吗?",string.string];

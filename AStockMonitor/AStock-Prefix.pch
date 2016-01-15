@@ -13,5 +13,6 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "LHRealTimeStatistics.h"
 #import "MacDevTool.h"
+#import <Masonry.h>
 
 #endif /* AStock_Prefix_pch */

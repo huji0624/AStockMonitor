@@ -40,7 +40,7 @@
     text.editable = YES;
     self.text = text;
     [stack addSubview:text];
-    NSArray *stocks = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
+    NSArray *stocks = [[StocksManager manager] stocks];
     text.string = [stocks componentsJoinedByString:@","];
     [self.window makeFirstResponder:text];
     
