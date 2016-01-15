@@ -46,8 +46,12 @@
         [_delete setAction:@selector(deleteClick:)];
         _delete.bordered = NO;
         _delete.hidden = YES;
-        [MacDevTool setBackground:_delete color:[NSColor redColor]];
-        [MacDevTool setButtonTitleFor:_delete toString:@"删除" withColor:[NSColor whiteColor]];
+        NSImage *img = [NSImage imageNamed:@"delete"];
+        [_delete setImage:img];
+        
+//        [MacDevTool setBackground:_delete color:[NSColor redColor]];
+//        [_delete setCell:[[NSButtonCell alloc] initImageCell:<#(nullable NSImage *)#>]]
+//        [MacDevTool setButtonTitleFor:_delete toString:@"删除" withColor:[NSColor whiteColor]];
 
         [self addSubview:button];
         [self addSubview:text];
@@ -63,6 +67,8 @@
         }];
         [_delete mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.mas_right);
+            make.height.equalTo(self.mas_height);
+            make.width.equalTo(self.mas_height).multipliedBy(2);
         }];
         
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -110,7 +116,8 @@
 }
 
 -(void)confirmDelete{
-    
+    [self.delegate didDeleteStock:self.stockTag];
+    [NSApp stopModal];
 }
 
 -(NSInteger)tag{

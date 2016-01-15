@@ -9,6 +9,7 @@
 #import "ASEditController.h"
 #import <Masonry.h>
 #import "ASConstant.h"
+#import "StocksManager.h"
 
 @interface ASEditController ()
 @property (strong) NSTextView *text;
@@ -55,8 +56,8 @@
     
     NSArray *strings = [self.text.string componentsSeparatedByString:@","];
     
-    [[NSUserDefaults standardUserDefaults] setObject:strings forKey:ASEditTextKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[StocksManager manager] clean];
+    [[StocksManager manager] addStocks:strings];
     
     [self.delegate didSaveMonitorStock:strings];
     

@@ -16,6 +16,7 @@
 #import "ASFormatController.h"
 #import "LHRealTimeStatistics.h"
 #import "ASInfoController.h"
+#import "StocksManager.h"
 
 @interface AppDelegate ()<ASEditDelegate,ASMonitorViewControllerDelegate>
 
@@ -49,12 +50,7 @@
     }
     self.window.alphaValue = alpha.floatValue;
     
-    NSArray* st = [[NSUserDefaults standardUserDefaults] objectForKey:ASEditTextKey];
-    if (!st) {
-        st = @[@"sh000001",@"sz399001"];
-        [[NSUserDefaults standardUserDefaults] setObject:st forKey:ASEditTextKey];
-    }
-    self.monitorVC.stocks = st;
+    self.monitorVC.stocks = [[StocksManager manager] stocks];
     
     [self.monitorVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
        make.edges.equalTo(self.window.contentView);

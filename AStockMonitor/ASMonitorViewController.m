@@ -13,6 +13,7 @@
 #import <DJProgressHUD.h>
 #import "ASStockView.h"
 #import "LHRealTimeStatistics.h"
+#import "StocksManager.h"
 
 @interface ASMonitorViewController ()<ASStockViewDelegate>
 @property (strong) NSTimer *timer;
@@ -208,5 +209,8 @@
     LHS(log);
     [self.delegate didClickInfo:tag];
 }
-
+-(void)didDeleteStock:(id)tag{
+    [[StocksManager manager] removeStock:tag];
+    self.stocks = [[StocksManager manager] stocks];
+}
 @end
