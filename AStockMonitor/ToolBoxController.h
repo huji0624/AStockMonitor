@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ToolBoxController : NSViewController
+#define TOOLBOXHEI 12
+#define TOOLBOXEDITHEI 20
 
+@interface ToolBoxController : NSObject
+-(NSView*)view;
 @end

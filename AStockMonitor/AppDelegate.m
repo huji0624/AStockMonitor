@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "ASMonitorViewController.h"
 #import <Masonry.h>
-#import "ASEditController.h"
 #import "ASConstant.h"
 #import <AFHTTPRequestOperationManager.h>
 #import "ASAppearanceController.h"
@@ -18,11 +17,10 @@
 #import "ASInfoController.h"
 #import "StocksManager.h"
 
-@interface AppDelegate ()<ASEditDelegate,ASMonitorViewControllerDelegate>
+@interface AppDelegate ()<ASMonitorViewControllerDelegate>
 
 @property (weak) IBOutlet NSWindow *window;
 @property (strong) ASMonitorViewController *monitorVC;
-@property (strong) ASEditController *editVC;
 @property (strong) ASAppearanceController *appearanceVC;
 @property (strong) ASFormatController *formatVC;
 @property (strong) ASInfoController *infoVC;
@@ -36,12 +34,11 @@
     self.window.titleVisibility = NSWindowTitleHidden;
     self.window.movableByWindowBackground = YES;
     self.window.titlebarAppearsTransparent = YES;
-    self.window.styleMask = NSBorderlessWindowMask|NSResizableWindowMask;
+    self.window.styleMask = NSBorderlessWindowMask;
     
     self.monitorVC = [[ASMonitorViewController alloc] init];
-    self.monitorVC.frame = self.window.contentView.bounds;
     self.monitorVC.delegate = self;
-    [self.window.contentView addSubview:self.monitorVC.view];
+    [self.monitorVC setUpMainWindow:self.window];
     
     NSNumber *alpha = [[NSUserDefaults standardUserDefaults] objectForKey:ASAlphaValueKey];
     if (!alpha) {
@@ -49,12 +46,6 @@
         [[NSUserDefaults standardUserDefaults] setObject:alpha forKey:ASAlphaValueKey];
     }
     self.window.alphaValue = alpha.floatValue;
-    
-    self.monitorVC.stocks = [[StocksManager manager] stocks];
-    
-    [self.monitorVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-       make.edges.equalTo(self.window.contentView);
-    }];
     
     [self setUpMenu];
     
@@ -71,8 +62,6 @@
 }
 
 -(void)setUpMenu{
-    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"调整股票" action:@selector(showEdit) keyEquivalent:@"edit_stock"];
-    item.target = self;
     
     NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"调整样式" action:@selector(showAppearance) keyEquivalent:@"edit_appearance"];
     item2.target = self;
@@ -81,7 +70,6 @@
     item3.target = self;
     
     NSMenu *menu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"功能"];
-    [menu addItem:item];
     [menu addItem:item2];
     [menu addItem:item3];
     
@@ -95,8 +83,6 @@
 }
 
 -(void)setUpWindowMenu{
-    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"调整股票" action:@selector(showEdit) keyEquivalent:@"edit_stock"];
-    item.target = self;
     
     NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"调整样式" action:@selector(showAppearance) keyEquivalent:@"edit_appearance"];
     item2.target = self;
@@ -106,7 +92,6 @@
     for (NSMenuItem *temp in [NSApp mainMenu].itemArray) {
         NSMenu *wmenu = temp.submenu;
         if ([wmenu.title isEqualToString:@"Window"]) {
-            [wmenu addItem:item];
             [wmenu addItem:item2];
             [wmenu addItem:item3];
         }
@@ -130,27 +115,6 @@
     }
     
     [self.appearanceVC showWindow:nil];
-}
-
--(void)showEdit{
-    
-    LHS(@"showEdit");
-    
-    if (!self.editVC) {
-        NSUInteger mask = NSTitledWindowMask | NSClosableWindowMask;
-        NSWindow *window = [[NSWindow alloc] initWithContentRect:NSRectFromCGRect(CGRectMake(0, 0, 300, 300)) styleMask:mask backing:NSBackingStoreBuffered defer:YES];
-        window.title = @"调整股票";
-        self.editVC = [[ASEditController alloc] initWithWindow:window];
-        self.editVC.delegate = self;
-    }
-    [self.editVC showWindow:nil];
-}
-
--(void)didSaveMonitorStock:(NSArray *)string{
-    self.monitorVC.stocks = string;
-    
-    [self.editVC close];
-    self.editVC = nil;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

@@ -16,8 +16,7 @@
 
 @property (weak) id<ASMonitorViewControllerDelegate> delegate;
 @property NSRect frame;
-@property (strong) NSArray *stocks;//code like sz000213
 
--(NSView*)view;
+-(void)setUpMainWindow:(NSWindow*)window;
 
 @end

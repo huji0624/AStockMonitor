@@ -14,6 +14,8 @@
 #import "ASStockView.h"
 #import "LHRealTimeStatistics.h"
 #import "StocksManager.h"
+#import "ToolBoxController.h"
+#import "GetStockRequest.h"
 
 @interface ASMonitorViewController ()<ASStockViewDelegate>
 @property (strong) NSTimer *timer;
@@ -21,6 +23,8 @@
 @property (strong) AFHTTPRequestOperation *request;
 @property BOOL firstLoad;
 @property (strong) NSMutableArray *stockViews;
+@property (strong) ToolBoxController *toolBox;
+@property (strong) NSWindow *window;
 @end
 
 @implementation ASMonitorViewController
@@ -43,55 +47,70 @@
     return self;
 }
 
--(NSView *)view{
-    if (self.stackView == nil) {
-        self.stackView = [[NSStackView alloc] initWithFrame:self.frame];
-        self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
-        self.stackView.spacing = 0;
-        self.stackView.alignment = NSLayoutAttributeLeft;
-        [MacDevTool setBackground:self.stackView color:[NSColor whiteColor]];
-    }
-    return self.stackView;
+-(void)setUpMainWindow:(NSWindow *)window{
+    NSView *view = [[NSView alloc] init];
+    [MacDevTool setBackground:view color:[NSColor whiteColor]];
+    [window.contentView addSubview:view];
+    
+    CGFloat hei = TOOLBOXHEI;
+    
+    self.stackView = [[NSStackView alloc] init];
+    self.stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
+    self.stackView.spacing = 0;
+    self.stackView.alignment = NSLayoutAttributeLeft;
+    [MacDevTool setBackground:self.stackView color:[NSColor whiteColor]];
+    [view addSubview:self.stackView];
+    [self.stackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view.mas_left);
+        make.top.equalTo(view.mas_top);
+    }];
+    
+    self.toolBox = [[ToolBoxController alloc] init];
+    [MacDevTool setBackground:self.toolBox.view color:[NSColor lightGrayColor]];
+    [view addSubview:self.toolBox.view];
+    [self.toolBox.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view.mas_left);
+        make.right.equalTo(view.mas_right);
+        make.top.equalTo(self.stackView.mas_bottom);
+        make.height.equalTo(@(hei));
+    }];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(window.contentView);
+    }];
+
+    self.window = window;
 }
 
 -(void)requestForStocks{
-    if (self.stocks && self.request == nil) {
+    NSArray *stockslist = [[StocksManager manager] stocks];
+    if (stockslist && self.request == nil) {
         if (self.firstLoad) {
             [DJProgressHUD showStatus:@"" FromView:self.stackView];
         }
         
-        NSMutableString *url = [NSMutableString stringWithString:@"http://hq.sinajs.cn/list="];
-        NSString *stockString = [self.stocks componentsJoinedByString:@","];
-        [url appendString:stockString];
-        
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        self.request = [manager GET:url parameters:nil  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSData *data = responseObject;
+        GetStockRequest *req = [[GetStockRequest alloc] init];
+        self.request = [req requestForStocks:stockslist block:^(NSArray *stocks) {
+            if (stocks) {
+                [self updateResponse:stocks];
+            }
             
-            NSStringEncoding enc =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-            
-            NSString *responseString = [[NSString alloc] initWithData:data encoding:enc];
-            [self updateResponse:responseString];
-
             self.request = nil;
             [DJProgressHUD dismiss];
             self.firstLoad = NO;
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"%@",[error localizedDescription]);
-            self.request = nil;
-            [DJProgressHUD dismiss];
         }];
     }
 }
 
--(void)updateResponse:(NSString*)text{
-    NSArray *datas = [self parse:text];
+-(void)updateResponse:(NSArray*)datas{
     
     NSArray *formats = [self format:datas];
     
     [self refresh:formats];
+    
+    NSRect frame = self.window.frame;
+    frame.size = NSMakeSize(self.stackView.frame.size.width, self.stackView.frame.size.height + self.toolBox.view.frame.size.height);
+    [self.window setFrame:frame display:YES animate:YES];
 }
 
 -(NSArray*)format:(NSArray*)datas{
@@ -211,6 +230,5 @@
 }
 -(void)didDeleteStock:(id)tag{
     [[StocksManager manager] removeStock:tag];
-    self.stocks = [[StocksManager manager] stocks];
 }
 @end
