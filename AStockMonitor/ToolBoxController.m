@@ -63,12 +63,17 @@
 }
 
 -(void)valideAndAddStock:(NSString*)sh sz:(NSString*)sz{
+    self.addButton.enabled = NO;
+    self.codeField.editable = NO;
+    [self.window makeFirstResponder:nil];
+    
     GetStockRequest *req = [[GetStockRequest alloc] init];
     [req requestForStocks:@[sh,sz] block:^(NSArray *stocks) {
         if (stocks) {
-            if (stocks.count==1) {
-                NSDictionary *info = stocks.lastObject;
-                [[StocksManager manager] addStocks:@[info[@"股票代码"]]];
+            if (stocks.count>0) {
+                for (NSDictionary *info in stocks) {
+                     [[StocksManager manager] addStocks:@[info[@"股票代码"]]];
+                }
                 [self cleanup];
             }else{
                 [self error:@"股票代码有误"];
@@ -76,11 +81,17 @@
         }else{
             [self error:@"网络错误，请重试"];
         }
+        
+        self.addButton.enabled = YES;
+        self.codeField.editable = YES;
     }];
 }
 
 -(void)error:(NSString*)err{
-    self.codeField.stringValue = err;
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = err;
+    [alert addButtonWithTitle:@"确定"];
+    [alert runModal];
 }
 
 -(void)addStock{
@@ -103,7 +114,10 @@
             make.right.equalTo(self.contentView.mas_right);
             make.height.equalTo(@(TOOLBOXEDITHEI));
         }];
+        [self.window makeFirstResponder:field];
         self.codeField = field;
+        
+        [self.delegate didRefresh];
     }else{
         [self cleanup];
     }
@@ -118,6 +132,8 @@
     
     [self.addButton setTitle:@"+"];
     self.addButton.tag = 0;
+    
+    [self.delegate didRefresh];
 }
 
 @end

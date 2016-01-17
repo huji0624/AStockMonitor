@@ -14,6 +14,7 @@
 		6A3505A51C492B440042D82B /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3505A41C492B440042D82B /* delete.png */; };
 		6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A71C4931310042D82B /* ToolBoxController.m */; };
 		6A3505AB1C4A4CC80042D82B /* GetStockRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AA1C4A4CC80042D82B /* GetStockRequest.m */; };
+		6A3505AE1C4B51ED0042D82B /* ASMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */; };
 		6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */; };
 		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
 		6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */; };
@@ -48,6 +49,8 @@
 		6A3505A71C4931310042D82B /* ToolBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBoxController.m; sourceTree = "<group>"; };
 		6A3505A91C4A4CC80042D82B /* GetStockRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStockRequest.h; sourceTree = "<group>"; };
 		6A3505AA1C4A4CC80042D82B /* GetStockRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStockRequest.m; sourceTree = "<group>"; };
+		6A3505AC1C4B51ED0042D82B /* ASMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainWindow.h; sourceTree = "<group>"; };
+		6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainWindow.m; sourceTree = "<group>"; };
 		6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		6A623A101BFC3B6000EDDE07 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		6A623A111BFC3B6000EDDE07 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				6A3505A11C491E7F0042D82B /* StocksManager.m */,
 				6A3505A91C4A4CC80042D82B /* GetStockRequest.h */,
 				6A3505AA1C4A4CC80042D82B /* GetStockRequest.m */,
+				6A3505AC1C4B51ED0042D82B /* ASMainWindow.h */,
+				6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */,
 				6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */,
 				6A3505AB1C4A4CC80042D82B /* GetStockRequest.m in Sources */,
+				6A3505AE1C4B51ED0042D82B /* ASMainWindow.m in Sources */,
 				6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */,
 				6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */,
 				6ABF8F6C1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m in Sources */,

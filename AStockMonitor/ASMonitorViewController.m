@@ -17,7 +17,7 @@
 #import "ToolBoxController.h"
 #import "GetStockRequest.h"
 
-@interface ASMonitorViewController ()<ASStockViewDelegate>
+@interface ASMonitorViewController ()<ASStockViewDelegate,ToolBoxDelegate>
 @property (strong) NSTimer *timer;
 @property (strong) NSStackView *stackView;
 @property (strong) AFHTTPRequestOperation *request;
@@ -66,7 +66,9 @@
     }];
     
     self.toolBox = [[ToolBoxController alloc] init];
-    [MacDevTool setBackground:self.toolBox.view color:[NSColor lightGrayColor]];
+    self.toolBox.delegate = self;
+    self.toolBox.window = window;
+    [MacDevTool setBackground:self.toolBox.view color:[NSColor colorWithWhite:0.95 alpha:1.0]];
     [view addSubview:self.toolBox.view];
     [self.toolBox.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view.mas_left);
@@ -80,6 +82,7 @@
     }];
 
     self.window = window;
+    NSLog(@"window %@",self.window);
 }
 
 -(void)requestForStocks{
@@ -108,9 +111,28 @@
     
     [self refresh:formats];
     
-    NSRect frame = self.window.frame;
-    frame.size = NSMakeSize(self.stackView.frame.size.width, self.stackView.frame.size.height + self.toolBox.view.frame.size.height);
-    [self.window setFrame:frame display:YES animate:YES];
+    [self setWindowFrameRight];
+    
+    NSLog(@"keywindow %@",NSApp.keyWindow);
+}
+
+-(void)setWindowFrameRight{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.stackView.frame.size.width!=0) {
+            NSRect frame = self.window.frame;
+            frame.size = NSMakeSize(self.stackView.frame.size.width, self.stackView.frame.size.height + self.toolBox.view.frame.size.height);
+            [self.window setFrame:frame display:YES animate:YES];
+        }
+    });
+    
+    if (NSApp.keyWindow!=self.window) {
+        NSLog(@"need set window");
+        [self.window makeKeyAndOrderFront:nil];
+    }
+}
+
+-(void)didRefresh{
+    [self setWindowFrameRight];
 }
 
 -(NSArray*)format:(NSArray*)datas{
