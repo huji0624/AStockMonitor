@@ -82,7 +82,6 @@
     }];
 
     self.window = window;
-    NSLog(@"window %@",self.window);
 }
 
 -(void)requestForStocks{
@@ -112,8 +111,6 @@
     [self refresh:formats];
     
     [self setWindowFrameRight];
-    
-    NSLog(@"keywindow %@",NSApp.keyWindow);
 }
 
 -(void)setWindowFrameRight{
@@ -126,7 +123,6 @@
     });
     
     if (NSApp.keyWindow!=self.window) {
-        NSLog(@"need set window");
         [self.window makeKeyAndOrderFront:nil];
     }
 }

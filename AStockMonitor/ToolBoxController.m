@@ -50,7 +50,7 @@
         if (code.length == 6){
             [self valideStock:code];
         }else{
-            [self error:@"股票代码错误"];
+            [self error:[NSString stringWithFormat:@"股票代码错误,%@",code]];
         }
         
         return YES;
@@ -59,10 +59,10 @@
 }
 
 -(void)valideStock:(NSString*)code{
-   [self valideAndAddStock:[NSString stringWithFormat:@"sh%@",code] sz:[NSString stringWithFormat:@"sz%@",code]];
+   [self valideAndAddStock:code sz:[NSString stringWithFormat:@"sz%@",code] sh:[NSString stringWithFormat:@"sh%@",code]];
 }
 
--(void)valideAndAddStock:(NSString*)sh sz:(NSString*)sz{
+-(void)valideAndAddStock:(NSString*)ori sz:(NSString*)sz sh:(NSString*)sh{
     self.addButton.enabled = NO;
     self.codeField.editable = NO;
     [self.window makeFirstResponder:nil];
@@ -76,7 +76,7 @@
                 }
                 [self cleanup];
             }else{
-                [self error:@"股票代码有误"];
+                [self error:[NSString stringWithFormat:@"股票代码有误,%@",ori]];
             }
         }else{
             [self error:@"网络错误，请重试"];
@@ -92,10 +92,14 @@
     alert.messageText = err;
     [alert addButtonWithTitle:@"确定"];
     [alert runModal];
+    
+    LHS(err);
 }
 
 -(void)addStock{
     if (self.addButton.tag == 0) {
+        LHS(@"showaddstock");
+        
         [self.addButton setTitle:@"x"];
         self.addButton.tag = 1;
         
