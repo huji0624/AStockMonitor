@@ -55,6 +55,10 @@ static StocksManager *_instance = nil;
     
     [self synchronize];
 }
+-(void)makeTop:(NSString *)stock{
+    [self removeStock:stock];
+    [self addStocks:@[stock]];
+}
 -(NSArray *)stocks{
     return [NSArray arrayWithArray:self.cacheStocks];
 }

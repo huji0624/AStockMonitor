@@ -11,6 +11,7 @@
 @protocol ASStockViewDelegate <NSObject>
 -(void)didClickInfo:(id)tag;
 -(void)didDeleteStock:(id)tag;
+-(void)didDownClick:(id)tag;
 @end
 
 @interface ASStockView : NSView

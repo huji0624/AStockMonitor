@@ -18,6 +18,7 @@
     NSButton *_button;
     NSTextField *_text;
     NSButton *_delete;
+    NSButton *_down;
 }
 
 -(instancetype)init{
@@ -49,9 +50,19 @@
         NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"delete" ofType:@"png"]];
         [_delete setImage:img];
         
+        _down = [[NSButton alloc] init];
+        [_down setTarget:self];
+        [_down setAction:@selector(downClick:)];
+        _down.bordered = NO;
+        _down.hidden = YES;
+        NSImage *downimg = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"down" ofType:@"png"]];
+        [_down setImage:downimg];
+        
         [self addSubview:button];
         [self addSubview:text];
         [self addSubview:_delete];
+        [self addSubview:_down];
+        
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(self.mas_height);
             make.left.equalTo(self.mas_left);
@@ -64,8 +75,14 @@
         [_delete mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.mas_right);
             make.height.equalTo(self.mas_height);
-            make.width.equalTo(self.mas_height).multipliedBy(2);
+            make.width.equalTo(self.mas_height).multipliedBy(1.5f);
         }];
+        [_down mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(_delete.mas_left).offset(-1);
+            make.height.equalTo(self.mas_height);
+            make.width.equalTo(self.mas_height);
+        }];
+        
         
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(text.mas_width).offset(hei);
@@ -89,10 +106,12 @@
 
 -(void)mouseEntered:(NSEvent *)theEvent{
     _delete.hidden = NO;
+    _down.hidden = NO;
 }
 
 -(void)mouseExited:(NSEvent *)theEvent{
     _delete.hidden = YES;
+    _down.hidden = YES;
 }
 
 -(void)infoClick:(id)sender{
@@ -109,6 +128,10 @@
     bt.target = self;
     bt.action = @selector(confirmDelete);
     [alert runModal];
+}
+
+-(void)downClick:(id)sender{
+    [self.delegate didDownClick:self.stockTag];
 }
 
 -(void)confirmDelete{

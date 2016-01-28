@@ -25,6 +25,7 @@
 		6AB2367C1C5A11F900F49990 /* ASHelpController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AB2367A1C5A11F900F49990 /* ASHelpController.xib */; };
 		6AB2367E1C5A14DE00F49990 /* 幽灵股票-帮助.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */; };
 		6AB236811C5A164300F49990 /* ExcuteTimesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB236801C5A164300F49990 /* ExcuteTimesCache.m */; };
+		6AB236831C5A26F300F49990 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AB236821C5A26F300F49990 /* down.png */; };
 		6ABF8F6C1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */; };
 		6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C131C2D1D8500E65530 /* ASStockView.m */; };
 		6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C161C2D294700E65530 /* ASInfoController.m */; };
@@ -68,6 +69,7 @@
 		6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "幽灵股票-帮助.html"; sourceTree = "<group>"; };
 		6AB2367F1C5A164300F49990 /* ExcuteTimesCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExcuteTimesCache.h; sourceTree = "<group>"; };
 		6AB236801C5A164300F49990 /* ExcuteTimesCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcuteTimesCache.m; sourceTree = "<group>"; };
+		6AB236821C5A26F300F49990 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		6ABF8F6A1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
 		6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
 		6AE30C121C2D1D8500E65530 /* ASStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStockView.h; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		6A3505A31C492B440042D82B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6AB236821C5A26F300F49990 /* down.png */,
 				6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */,
 				6A3505A41C492B440042D82B /* delete.png */,
 			);
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A3505A51C492B440042D82B /* delete.png in Resources */,
+				6AB236831C5A26F300F49990 /* down.png in Resources */,
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
 				6AB2367E1C5A14DE00F49990 /* 幽灵股票-帮助.html in Resources */,
 				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,

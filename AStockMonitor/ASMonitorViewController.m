@@ -249,4 +249,8 @@
 -(void)didDeleteStock:(id)tag{
     [[StocksManager manager] removeStock:tag];
 }
+-(void)didDownClick:(id)tag{
+    [[StocksManager manager] makeTop:tag];
+    [self requestForStocks];
+}
 @end

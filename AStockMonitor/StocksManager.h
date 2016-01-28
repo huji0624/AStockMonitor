@@ -15,6 +15,7 @@
 
 -(void)addStocks:(NSArray*)stocks;
 -(void)removeStock:(NSString*)stock;
+-(void)makeTop:(NSString*)stock;
 
 -(NSArray*)stocks;
 
