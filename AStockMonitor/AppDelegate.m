@@ -11,17 +11,17 @@
 #import <Masonry.h>
 #import "ASConstant.h"
 #import <AFHTTPRequestOperationManager.h>
-#import "ASAppearanceController.h"
 #import "ASFormatController.h"
 #import "LHRealTimeStatistics.h"
 #import "ASInfoController.h"
 #import "StocksManager.h"
+#import "ASMainWindow.h"
+#import "ExcuteTimesCache.h"
 
 @interface AppDelegate ()<ASMonitorViewControllerDelegate>
 
-@property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet ASMainWindow *window;
 @property (strong) ASMonitorViewController *monitorVC;
-@property (strong) ASAppearanceController *appearanceVC;
 @property (strong) ASFormatController *formatVC;
 @property (strong) ASInfoController *infoVC;
 @end
@@ -35,6 +35,10 @@
     self.window.movableByWindowBackground = YES;
     self.window.titlebarAppearsTransparent = YES;
     self.window.styleMask = NSBorderlessWindowMask;
+    [ExcuteTimesCache excute:@"showHelp" showTimes:1 action:^BOOL(NSUInteger timesIndex) {
+        [self.window showHelp:nil];
+        return YES;
+    }];
     
     self.monitorVC = [[ASMonitorViewController alloc] init];
     self.monitorVC.delegate = self;
@@ -63,14 +67,10 @@
 
 -(void)setUpMenu{
     
-    NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"调整样式" action:@selector(showAppearance) keyEquivalent:@"edit_appearance"];
-    item2.target = self;
-    
     NSMenuItem *item3 = [[NSMenuItem alloc] initWithTitle:@"调整格式" action:@selector(showFormat) keyEquivalent:@"edit_format"];
     item3.target = self;
     
     NSMenu *menu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"功能"];
-    [menu addItem:item2];
     [menu addItem:item3];
     
     NSMenuItem *mainSubItem = [[NSMenuItem alloc] initWithTitle:@"功能" action:nil keyEquivalent:@""];
@@ -79,20 +79,9 @@
     
     [[NSApp mainMenu] insertItem:mainSubItem atIndex:[NSApp mainMenu].itemArray.count - 1];
     
-    
-}
-
--(void)setUpWindowMenu{
-    
-    NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"调整样式" action:@selector(showAppearance) keyEquivalent:@"edit_appearance"];
-    item2.target = self;
-    
-    NSMenuItem *item3 = [[NSMenuItem alloc] initWithTitle:@"调整格式" action:@selector(showFormat) keyEquivalent:@"edit_format"];
-    item3.target = self;
     for (NSMenuItem *temp in [NSApp mainMenu].itemArray) {
         NSMenu *wmenu = temp.submenu;
         if ([wmenu.title isEqualToString:@"Window"]) {
-            [wmenu addItem:item2];
             [wmenu addItem:item3];
         }
     }
@@ -106,15 +95,6 @@
     }
     
     [self.formatVC showWindow:nil];
-}
-
--(void)showAppearance{
-    if (!self.appearanceVC) {
-        self.appearanceVC = [[ASAppearanceController alloc] initWithWindowNibName:@"ASAppearanceController"];
-        self.appearanceVC.alphaTargetView = self.window;
-    }
-    
-    [self.appearanceVC showWindow:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

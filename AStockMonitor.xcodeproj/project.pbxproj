@@ -17,12 +17,14 @@
 		6A3505AE1C4B51ED0042D82B /* ASMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */; };
 		6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */; };
 		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
-		6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */; };
-		6A623A181BFC3EA300EDDE07 /* ASAppearanceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */; };
 		6A6CF5971C00246800B44F75 /* ASFormatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF5951C00246800B44F75 /* ASFormatController.m */; };
 		6A6CF5981C00246800B44F75 /* ASFormatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF5961C00246800B44F75 /* ASFormatController.xib */; };
 		6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF5991C00278100B44F75 /* formatTable.plist */; };
 		6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF59C1C002AF600B44F75 /* ASFormatCache.m */; };
+		6AB2367B1C5A11F900F49990 /* ASHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB236791C5A11F900F49990 /* ASHelpController.m */; };
+		6AB2367C1C5A11F900F49990 /* ASHelpController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AB2367A1C5A11F900F49990 /* ASHelpController.xib */; };
+		6AB2367E1C5A14DE00F49990 /* 幽灵股票-帮助.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */; };
+		6AB236811C5A164300F49990 /* ExcuteTimesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB236801C5A164300F49990 /* ExcuteTimesCache.m */; };
 		6ABF8F6C1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */; };
 		6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C131C2D1D8500E65530 /* ASStockView.m */; };
 		6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C161C2D294700E65530 /* ASInfoController.m */; };
@@ -54,15 +56,18 @@
 		6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		6A623A101BFC3B6000EDDE07 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		6A623A111BFC3B6000EDDE07 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
-		6A623A141BFC3EA300EDDE07 /* ASAppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAppearanceController.h; sourceTree = "<group>"; };
-		6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAppearanceController.m; sourceTree = "<group>"; };
-		6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASAppearanceController.xib; sourceTree = "<group>"; };
 		6A6CF5941C00246800B44F75 /* ASFormatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFormatController.h; sourceTree = "<group>"; };
 		6A6CF5951C00246800B44F75 /* ASFormatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFormatController.m; sourceTree = "<group>"; };
 		6A6CF5961C00246800B44F75 /* ASFormatController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASFormatController.xib; sourceTree = "<group>"; };
 		6A6CF5991C00278100B44F75 /* formatTable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = formatTable.plist; sourceTree = "<group>"; };
 		6A6CF59B1C002AF600B44F75 /* ASFormatCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFormatCache.h; sourceTree = "<group>"; };
 		6A6CF59C1C002AF600B44F75 /* ASFormatCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFormatCache.m; sourceTree = "<group>"; };
+		6AB236781C5A11F900F49990 /* ASHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHelpController.h; sourceTree = "<group>"; };
+		6AB236791C5A11F900F49990 /* ASHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHelpController.m; sourceTree = "<group>"; };
+		6AB2367A1C5A11F900F49990 /* ASHelpController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASHelpController.xib; sourceTree = "<group>"; };
+		6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "幽灵股票-帮助.html"; sourceTree = "<group>"; };
+		6AB2367F1C5A164300F49990 /* ExcuteTimesCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExcuteTimesCache.h; sourceTree = "<group>"; };
+		6AB236801C5A164300F49990 /* ExcuteTimesCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcuteTimesCache.m; sourceTree = "<group>"; };
 		6ABF8F6A1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
 		6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
 		6AE30C121C2D1D8500E65530 /* ASStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStockView.h; sourceTree = "<group>"; };
@@ -107,6 +112,8 @@
 		6A172DF41C2A8182000A25F0 /* LHToolKit */ = {
 			isa = PBXGroup;
 			children = (
+				6AB2367F1C5A164300F49990 /* ExcuteTimesCache.h */,
+				6AB236801C5A164300F49990 /* ExcuteTimesCache.m */,
 				6ABF8F6A1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.h */,
 				6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */,
 				6A172DF51C2A81D7000A25F0 /* LHRealTimeStatistics.h */,
@@ -123,9 +130,6 @@
 				6AFB11121BEC502500569A77 /* ASMonitorViewController.h */,
 				6AFB11131BEC502500569A77 /* ASMonitorViewController.m */,
 				6AFB111D1BF052B900569A77 /* ASConstant.h */,
-				6A623A141BFC3EA300EDDE07 /* ASAppearanceController.h */,
-				6A623A151BFC3EA300EDDE07 /* ASAppearanceController.m */,
-				6A623A161BFC3EA300EDDE07 /* ASAppearanceController.xib */,
 				6A6CF5941C00246800B44F75 /* ASFormatController.h */,
 				6A6CF5951C00246800B44F75 /* ASFormatController.m */,
 				6A6CF5961C00246800B44F75 /* ASFormatController.xib */,
@@ -139,6 +143,9 @@
 				6AE30C171C2D294700E65530 /* ASInfoController.xib */,
 				6A3505A61C4931310042D82B /* ToolBoxController.h */,
 				6A3505A71C4931310042D82B /* ToolBoxController.m */,
+				6AB236781C5A11F900F49990 /* ASHelpController.h */,
+				6AB236791C5A11F900F49990 /* ASHelpController.m */,
+				6AB2367A1C5A11F900F49990 /* ASHelpController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 		6A3505A31C492B440042D82B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */,
 				6A3505A41C492B440042D82B /* delete.png */,
 			);
 			path = Resources;
@@ -297,11 +305,12 @@
 			files = (
 				6A3505A51C492B440042D82B /* delete.png in Resources */,
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
+				6AB2367E1C5A14DE00F49990 /* 幽灵股票-帮助.html in Resources */,
 				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,
 				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
 				6A6CF5981C00246800B44F75 /* ASFormatController.xib in Resources */,
 				6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */,
-				6A623A181BFC3EA300EDDE07 /* ASAppearanceController.xib in Resources */,
+				6AB2367C1C5A11F900F49990 /* ASHelpController.xib in Resources */,
 				6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,11 +370,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB2367B1C5A11F900F49990 /* ASHelpController.m in Sources */,
 				6A3505A21C491E7F0042D82B /* StocksManager.m in Sources */,
 				6AFB11061BEC4D6400569A77 /* main.m in Sources */,
 				6A6CF5971C00246800B44F75 /* ASFormatController.m in Sources */,
 				6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */,
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
+				6AB236811C5A164300F49990 /* ExcuteTimesCache.m in Sources */,
 				6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */,
 				6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */,
 				6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */,
@@ -375,7 +386,6 @@
 				6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */,
 				6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */,
 				6ABF8F6C1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m in Sources */,
-				6A623A171BFC3EA300EDDE07 /* ASAppearanceController.m in Sources */,
 				6A172DF71C2A81D7000A25F0 /* LHRealTimeStatistics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
