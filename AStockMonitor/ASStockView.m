@@ -78,9 +78,9 @@
             make.width.equalTo(self.mas_height).multipliedBy(1.5f);
         }];
         [_down mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(_delete.mas_left).offset(-1);
+            make.right.equalTo(_delete.mas_left).offset(-2);
             make.height.equalTo(self.mas_height);
-            make.width.equalTo(self.mas_height);
+            make.width.equalTo(self.mas_height).multipliedBy(1.2f);
         }];
         
         
