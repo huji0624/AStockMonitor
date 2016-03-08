@@ -6,5 +6,7 @@ pod "AFNetworking"
 pod 'BlocksKit'
 pod 'Masonry'
 pod 'DJProgressHUD_OSX'
+pod 'JSONModel'
+pod 'BlocksKit'
 end
 

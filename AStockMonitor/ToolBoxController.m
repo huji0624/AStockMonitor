@@ -9,6 +9,7 @@
 #import "ToolBoxController.h"
 #import "StocksManager.h"
 #import "GetStockRequest.h"
+#import "ASConfig.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
@@ -23,6 +24,20 @@
     if (self) {
         self.contentView = [[NSView alloc] init];
         
+        NSImage *chatimg = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"chat" ofType:@"png"]];
+        NSButton *chatbt = [[NSButton alloc] init];
+        [chatbt setImage:chatimg];
+        [chatbt  setTarget:self];
+        [chatbt setAction:@selector(chatClick)];
+        chatbt.bordered = NO;
+        [self.contentView addSubview:chatbt];
+        [chatbt mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left);
+            make.top.equalTo(self.contentView.mas_top);
+            make.width.equalTo(@(30));
+            make.height.equalTo(@(TOOLBOXHEI));
+        }];
+        
         NSButton *button = [[NSButton alloc] init];
         [button setTitle:@"+"];
         [button  setTarget:self];
@@ -30,7 +45,7 @@
         button.bordered = NO;
         [self.contentView addSubview:button];
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView.mas_left);
+            make.left.equalTo(chatbt.mas_right);
             make.top.equalTo(self.contentView.mas_top);
             make.right.equalTo(self.contentView.mas_right);
             make.height.equalTo(@(TOOLBOXHEI));
@@ -41,6 +56,14 @@
     }
     return self;
 }
+
+-(void)chatClick{
+    NSString *url = [ASConfig chat_url];
+    if (url) {
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+    }
+}
+
 -(NSView *)view{
     return self.contentView;
 }

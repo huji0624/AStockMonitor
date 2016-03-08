@@ -17,6 +17,7 @@
 #import "StocksManager.h"
 #import "ASMainWindow.h"
 #import "ExcuteTimesCache.h"
+#import "ASConfig.h"
 
 @interface AppDelegate ()<ASMonitorViewControllerDelegate>
 
@@ -29,6 +30,8 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [ASConfig startGetConifg];
+    
     // Insert code here to initialize your application
     [self.window setLevel:NSFloatingWindowLevel];
     self.window.titleVisibility = NSWindowTitleHidden;
