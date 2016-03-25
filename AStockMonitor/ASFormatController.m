@@ -11,7 +11,7 @@
 
 @interface ASFormatController ()
 @property (strong) IBOutlet NSTextView *formatKeysLabel;
-@property (weak) IBOutlet NSTextField *formatEditor;
+@property (strong) IBOutlet NSTextField *formatEditor;
 @end
 
 @implementation ASFormatController
