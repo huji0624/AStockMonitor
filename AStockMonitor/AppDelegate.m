@@ -33,6 +33,7 @@
     [ASConfig startGetConifg];
     
     // Insert code here to initialize your application
+    self.window.backgroundColor = [NSColor colorWithWhite:0.95 alpha:1];
     [self.window setLevel:NSFloatingWindowLevel];
     self.window.titleVisibility = NSWindowTitleHidden;
     self.window.movableByWindowBackground = YES;
