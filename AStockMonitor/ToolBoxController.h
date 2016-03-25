@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define TOOLBOXHEI 30
+#define TOOLBOXHEI 14
 #define TOOLBOXEDITHEI 20
 
 @protocol ToolBoxDelegate <NSObject>

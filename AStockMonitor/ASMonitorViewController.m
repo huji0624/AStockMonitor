@@ -49,7 +49,7 @@
 
 -(void)setUpMainWindow:(NSWindow *)window{
     NSView *view = [[NSView alloc] init];
-    [MacDevTool setBackground:view color:[NSColor whiteColor]];
+    [MacDevTool setBackground:view color:[NSColor clearColor]];
     [window.contentView addSubview:view];
     
     CGFloat hei = TOOLBOXHEI;
@@ -68,7 +68,7 @@
     self.toolBox = [[ToolBoxController alloc] init];
     self.toolBox.delegate = self;
     self.toolBox.window = window;
-    [MacDevTool setBackground:self.toolBox.view color:[NSColor colorWithWhite:0.95 alpha:1.0]];
+    [MacDevTool setBackground:self.toolBox.view color:[NSColor colorWithWhite:1 alpha:0]];
     [view addSubview:self.toolBox.view];
     [self.toolBox.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view.mas_left);

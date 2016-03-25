@@ -15,6 +15,8 @@
 		6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A71C4931310042D82B /* ToolBoxController.m */; };
 		6A3505AB1C4A4CC80042D82B /* GetStockRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AA1C4A4CC80042D82B /* GetStockRequest.m */; };
 		6A3505AE1C4B51ED0042D82B /* ASMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */; };
+		6A49F3671CA50FEC007A4043 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A49F3651CA50FEC007A4043 /* add.png */; };
+		6A49F3681CA50FEC007A4043 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A49F3661CA50FEC007A4043 /* close.png */; };
 		6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */; };
 		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
 		6A66F1421C8ED88F003BB640 /* ASConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A66F1411C8ED88F003BB640 /* ASConfig.m */; };
@@ -54,6 +56,8 @@
 		6A3505AA1C4A4CC80042D82B /* GetStockRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStockRequest.m; sourceTree = "<group>"; };
 		6A3505AC1C4B51ED0042D82B /* ASMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainWindow.h; sourceTree = "<group>"; };
 		6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainWindow.m; sourceTree = "<group>"; };
+		6A49F3651CA50FEC007A4043 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		6A49F3661CA50FEC007A4043 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		6A623A101BFC3B6000EDDE07 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		6A623A111BFC3B6000EDDE07 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 		6A3505A31C492B440042D82B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A49F3651CA50FEC007A4043 /* add.png */,
+				6A49F3661CA50FEC007A4043 /* close.png */,
 				6A66F1431C8EE59B003BB640 /* chat.png */,
 				6AB236821C5A26F300F49990 /* down.png */,
 				6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */,
@@ -317,9 +323,11 @@
 				6A3505A51C492B440042D82B /* delete.png in Resources */,
 				6AB236831C5A26F300F49990 /* down.png in Resources */,
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
+				6A49F3671CA50FEC007A4043 /* add.png in Resources */,
 				6A66F1441C8EE59B003BB640 /* chat.png in Resources */,
 				6AB2367E1C5A14DE00F49990 /* 幽灵股票-帮助.html in Resources */,
 				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,
+				6A49F3681CA50FEC007A4043 /* close.png in Resources */,
 				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
 				6A6CF5981C00246800B44F75 /* ASFormatController.xib in Resources */,
 				6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */,

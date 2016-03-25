@@ -15,6 +15,8 @@
 @property (strong) NSView *contentView;
 @property (strong) NSButton *addButton;
 @property (strong) NSTextField *codeField;
+
+@property (strong) NSView *lastAddButton;
 @end
 
 @implementation ToolBoxController
@@ -24,41 +26,37 @@
     if (self) {
         self.contentView = [[NSView alloc] init];
         
-        NSImage *chatimg = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"chat" ofType:@"png"]];
-        NSButton *chatbt = [[NSButton alloc] init];
-        [chatbt setImage:chatimg];
-        [chatbt  setTarget:self];
-        [chatbt setAction:@selector(chatClick)];
-        chatbt.bordered = NO;
-        [self.contentView addSubview:chatbt];
-        [chatbt mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView.mas_left);
-            make.top.equalTo(self.contentView.mas_top);
-            make.width.equalTo(@(30));
-            make.height.equalTo(@(TOOLBOXHEI));
-        }];
-        
-        NSButton *button = [[NSButton alloc] init];
-        [button setTitle:@"+"];
-        [button  setTarget:self];
-        [button setAction:@selector(addStock)];
-        button.bordered = NO;
-        [self.contentView addSubview:button];
-        [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(chatbt.mas_right);
-            make.top.equalTo(self.contentView.mas_top);
-            make.right.equalTo(self.contentView.mas_right);
-            make.height.equalTo(@(TOOLBOXHEI));
-        }];
-        self.addButton = button;
+        self.addButton = [self addButton:@"add" action:@selector(addStock)];
         self.addButton.tag = 0;
+        
+        [self addButton:@"chat" action:@selector(chatClick)];
         
     }
     return self;
 }
 
+-(NSButton*)addButton:(NSString*)imageName action:(SEL)action{
+    NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageName ofType:@"png"]];
+    NSButton *button = [[NSButton alloc] init];
+    [button setImage:img];
+    [button  setTarget:self];
+    [button setAction:action];
+    button.bordered = NO;
+    [self.contentView addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.lastAddButton?self.lastAddButton.mas_right:self.contentView.mas_left).offset(2);
+        make.top.equalTo(self.contentView);
+        make.width.equalTo(@(img.size.width));
+        make.height.equalTo(@(TOOLBOXHEI));
+    }];
+    
+    
+    self.lastAddButton = button;
+    return button;
+}
+
 -(void)chatClick{
-    NSString *url = [ASConfig chat_url];
+    NSString *url = [ASConfig as_chat_url];
     if (url) {
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
     }
@@ -123,7 +121,8 @@
     if (self.addButton.tag == 0) {
         LHS(@"showaddstock");
         
-        [self.addButton setTitle:@"x"];
+        NSImage *closeimg = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"close" ofType:@"png"]];
+        [self.addButton setImage:closeimg];
         self.addButton.tag = 1;
         
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -132,6 +131,7 @@
         
         NSTextField *field = [[NSTextField alloc] init];
         field.editable = YES;
+        field.selectable = YES;
         field.placeholderString = @"股票代码+回车";
         field.delegate = self;
         [self.contentView addSubview:field];
@@ -157,7 +157,8 @@
     [self.codeField removeFromSuperview];
     self.codeField = nil;
     
-    [self.addButton setTitle:@"+"];
+    NSImage *addimg = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"add" ofType:@"png"]];
+    [self.addButton setImage:addimg];
     self.addButton.tag = 0;
     
     [self.delegate didRefresh];

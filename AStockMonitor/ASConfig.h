@@ -11,6 +11,6 @@
 @interface ASConfig : NSObject
 +(void)startGetConifg;
 
-+(NSString*)chat_url;
++(NSString*)as_chat_url;
 
 @end
