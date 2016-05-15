@@ -26,7 +26,7 @@
         [dict setObject:uuid forKey:@"uuid"];
     }
     
-    NSString *url = @"http://luckylog.sinaapp.com";
+    NSString *url = @"http://123.56.46.78:8080";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:url parameters:dict  success:^(AFHTTPRequestOperation *operation, id responseObject) {

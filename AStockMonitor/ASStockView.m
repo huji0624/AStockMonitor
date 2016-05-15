@@ -118,7 +118,9 @@
     [self.delegate didClickInfo:self.stockTag];
 }
 
--(void)deleteClick:(id)sender{    
+-(void)deleteClick:(id)sender{
+    LHS(@"stockdelete");
+    
     NSAttributedString *string = _text.attributedStringValue;
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = [NSString stringWithFormat:@"确定要删除 %@ 吗?",string.string];
@@ -131,6 +133,8 @@
 }
 
 -(void)downClick:(id)sender{
+    LHS(@"stockdown");
+    
     [self.delegate didDownClick:self.stockTag];
 }
 

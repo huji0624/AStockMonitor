@@ -25,18 +25,19 @@
     self = [super init];
     if (self) {
         self.contentView = [[NSView alloc] init];
+
+        [self addButton:@"chat" action:@selector(chatClick) size:14];
         
-        self.addButton = [self addButton:@"add" action:@selector(addStock)];
+        self.addButton = [self addButton:@"add" action:@selector(addStock) size:12];
         self.addButton.tag = 0;
-        
-        [self addButton:@"chat" action:@selector(chatClick)];
         
     }
     return self;
 }
 
--(NSButton*)addButton:(NSString*)imageName action:(SEL)action{
+-(NSButton*)addButton:(NSString*)imageName action:(SEL)action size:(CGFloat)size{
     NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageName ofType:@"png"]];
+    img.size = NSMakeSize(size, size);
     NSButton *button = [[NSButton alloc] init];
     [button setImage:img];
     [button  setTarget:self];
@@ -46,7 +47,11 @@
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.lastAddButton?self.lastAddButton.mas_right:self.contentView.mas_left).offset(2);
         make.top.equalTo(self.contentView);
-        make.width.equalTo(@(img.size.width));
+        if ([imageName isEqualToString:@"add"]) {
+            make.width.equalTo(self.contentView.mas_width).offset(-14);
+        }else{
+            make.width.equalTo(@(img.size.width));
+        }
         make.height.equalTo(@(TOOLBOXHEI));
     }];
     
@@ -56,6 +61,8 @@
 }
 
 -(void)chatClick{
+    LHS(@"chat");
+    
     NSString *url = [ASConfig as_chat_url];
     if (url) {
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
@@ -146,6 +153,8 @@
         
         [self.delegate didRefresh];
     }else{
+        LHS(@"closeadd");
+        
         [self cleanup];
     }
 }
