@@ -18,6 +18,7 @@
 #import "ASMainWindow.h"
 #import "ExcuteTimesCache.h"
 #import "ASConfig.h"
+#import "LHLongLink.h"
 
 @interface AppDelegate ()<ASMonitorViewControllerDelegate>
 
@@ -57,6 +58,43 @@
     
     [self setUpMenu];
     
+    LHLongLinkConfig *config = [[LHLongLinkConfig alloc] init];
+    config.host = @"123.56.46.78";
+    config.port = 3014;
+    [[LHLongLink link] connect:config callback:^(LHLongLinkConnectRet ret) {
+        if (ret == LHLongLinkConnectOK) {
+            
+            [[LHLongLink link] request:@"gate.gateHandler.queryEntry" params:@{@"uid":@"mach"} callback:^(id data) {
+                NSDictionary *dict = data;
+                NSNumber *code = [dict objectForKey:@"code"];
+                if (code.integerValue == 200) {
+                    
+                    NSString *host = dict[@"host"];
+                    NSNumber *port = dict[@"port"];
+                    
+                    [[LHLongLink link] disconnect];
+                    
+                    LHLongLinkConfig *chatconfig = [[LHLongLinkConfig alloc] init];
+                    chatconfig.host = host;
+                    chatconfig.port = port.integerValue;
+                    [[LHLongLink link] connect:chatconfig callback:^(LHLongLinkConnectRet ret) {
+                        if (ret == LHLongLinkConnectOK) {
+                            NSLog(@"connect chat ok.");
+                        }else{
+                            NSLog(@"connect chat fail.");
+                        }
+                    }];
+                    
+                }else{
+                    NSLog(@"err code %@",code);
+                }
+            }];
+            
+        }else{
+            NSLog(@"connect gate fail.");
+        }
+    }];
+    
     LHS(@"launch");
 }
 
@@ -83,12 +121,12 @@
     
     [[NSApp mainMenu] insertItem:mainSubItem atIndex:[NSApp mainMenu].itemArray.count - 1];
     
-    for (NSMenuItem *temp in [NSApp mainMenu].itemArray) {
-        NSMenu *wmenu = temp.submenu;
-        if ([wmenu.title isEqualToString:@"Window"]) {
-            [wmenu addItem:item3];
-        }
-    }
+//    for (NSMenuItem *temp in [NSApp mainMenu].itemArray) {
+//        NSMenu *wmenu = temp.submenu;
+//        if ([wmenu.title isEqualToString:@"Window"]) {
+//            [wmenu addItem:item3];
+//        }
+//    }
 }
 
 -(void)showFormat{
