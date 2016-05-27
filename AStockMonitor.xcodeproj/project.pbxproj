@@ -23,6 +23,8 @@
 		6A3505AE1C4B51ED0042D82B /* ASMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */; };
 		6A49F3671CA50FEC007A4043 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A49F3651CA50FEC007A4043 /* add.png */; };
 		6A49F3681CA50FEC007A4043 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A49F3661CA50FEC007A4043 /* close.png */; };
+		6A5627F31CF5685D00C1ECF6 /* ASChatMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5627F21CF5685D00C1ECF6 /* ASChatMan.m */; };
+		6A5627F81CF5714700C1ECF6 /* ASChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5627F71CF5714700C1ECF6 /* ASChatView.m */; };
 		6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */; };
 		6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A623A111BFC3B6000EDDE07 /* iVersion.m */; };
 		6A66F1421C8ED88F003BB640 /* ASConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A66F1411C8ED88F003BB640 /* ASConfig.m */; };
@@ -44,6 +46,7 @@
 		6AF6BB2F1CBB862A0032CCB3 /* LHLongLinkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB151CBB862A0032CCB3 /* LHLongLinkConfig.m */; };
 		6AF6BB521CBB86520032CCB3 /* Pomelo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB3B1CBB86520032CCB3 /* Pomelo.m */; };
 		6AF6BB531CBB86520032CCB3 /* PomeloProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB3D1CBB86520032CCB3 /* PomeloProtocol.m */; };
+		6AF86DA31CF5969B00E1B98B /* ASTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF86DA21CF5969B00E1B98B /* ASTableView.m */; };
 		6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11021BEC4D6400569A77 /* AppDelegate.m */; };
 		6AFB11061BEC4D6400569A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11051BEC4D6400569A77 /* main.m */; };
 		6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11071BEC4D6400569A77 /* Assets.xcassets */; };
@@ -82,6 +85,10 @@
 		6A49F3651CA50FEC007A4043 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		6A49F3661CA50FEC007A4043 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		6A49F39B1CACD906007A4043 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		6A5627F11CF5685D00C1ECF6 /* ASChatMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChatMan.h; sourceTree = "<group>"; };
+		6A5627F21CF5685D00C1ECF6 /* ASChatMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChatMan.m; sourceTree = "<group>"; };
+		6A5627F61CF5714700C1ECF6 /* ASChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChatView.h; sourceTree = "<group>"; };
+		6A5627F71CF5714700C1ECF6 /* ASChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChatView.m; sourceTree = "<group>"; };
 		6A623A0F1BFC3B6000EDDE07 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		6A623A101BFC3B6000EDDE07 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		6A623A111BFC3B6000EDDE07 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
@@ -116,6 +123,8 @@
 		6AF6BB3B1CBB86520032CCB3 /* Pomelo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pomelo.m; sourceTree = "<group>"; };
 		6AF6BB3C1CBB86520032CCB3 /* PomeloProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PomeloProtocol.h; sourceTree = "<group>"; };
 		6AF6BB3D1CBB86520032CCB3 /* PomeloProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PomeloProtocol.m; sourceTree = "<group>"; };
+		6AF86DA11CF5969B00E1B98B /* ASTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTableView.h; sourceTree = "<group>"; };
+		6AF86DA21CF5969B00E1B98B /* ASTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTableView.m; sourceTree = "<group>"; };
 		6AFB10FE1BEC4D6400569A77 /* 幽灵股票.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "幽灵股票.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFB11011BEC4D6400569A77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AFB11021BEC4D6400569A77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -226,6 +235,8 @@
 				6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */,
 				6A66F1401C8ED88F003BB640 /* ASConfig.h */,
 				6A66F1411C8ED88F003BB640 /* ASConfig.m */,
+				6A5627F11CF5685D00C1ECF6 /* ASChatMan.h */,
+				6A5627F21CF5685D00C1ECF6 /* ASChatMan.m */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -241,6 +252,24 @@
 				6A3505A41C492B440042D82B /* delete.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6A5627F51CF5712C00C1ECF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6A5627F61CF5714700C1ECF6 /* ASChatView.h */,
+				6A5627F71CF5714700C1ECF6 /* ASChatView.m */,
+				6AF86DA11CF5969B00E1B98B /* ASTableView.h */,
+				6AF86DA21CF5969B00E1B98B /* ASTableView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6A5627F91CF5925D00C1ECF6 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		6A623A0E1BFC3B6000EDDE07 /* iVersion */ = {
@@ -290,6 +319,8 @@
 		6AFB11001BEC4D6400569A77 /* AStockMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				6A5627F91CF5925D00C1ECF6 /* Framework */,
+				6A5627F51CF5712C00C1ECF6 /* Views */,
 				6A3505A31C492B440042D82B /* Resources */,
 				6A35059F1C491E510042D82B /* Module */,
 				6A35059E1C491E340042D82B /* Controllers */,
@@ -477,6 +508,9 @@
 				6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */,
 				6A6CF59D1C002AF600B44F75 /* ASFormatCache.m in Sources */,
 				6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */,
+				6A5627F81CF5714700C1ECF6 /* ASChatView.m in Sources */,
+				6A5627F31CF5685D00C1ECF6 /* ASChatMan.m in Sources */,
+				6AF86DA31CF5969B00E1B98B /* ASTableView.m in Sources */,
 				6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */,
 				6A3505AB1C4A4CC80042D82B /* GetStockRequest.m in Sources */,
 				6A0B25451CEACAC800F7CADB /* SocketIOTransportXHR.m in Sources */,
@@ -595,6 +629,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AStockMonitor/Framework/Twui",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AStockMonitor/AStock-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -626,6 +664,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AStockMonitor/Framework/Twui",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AStockMonitor/AStock-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

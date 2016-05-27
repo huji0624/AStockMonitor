@@ -10,6 +10,7 @@
 
 #define TOOLBOXHEI 14
 #define TOOLBOXEDITHEI 20
+#define TOOLBOXCHATHEI 80
 
 @protocol ToolBoxDelegate <NSObject>
 -(void)didRefresh;

@@ -58,8 +58,8 @@ static LHLongLink *_instance = nil;
     [_pomelo connectToHost:config.host onPort:config.port];
 }
 
--(void)send:(NSObject *)obj{
-    
+-(void)send:(NSString *)route params:(NSDictionary *)params{
+    [_pomelo notifyWithRoute:route andParams:params];
 }
 
 -(void)request:(NSString *)route params:(NSDictionary *)params callback:(LHLongLinkEventBlock)callback{
@@ -74,8 +74,10 @@ static LHLongLink *_instance = nil;
     [_pomelo disconnect];
 }
 
--(void)addEventListener:(NSString *)eventid block:(LHLongLinkEventBlock)block{
-    
+-(void)onRoute:(NSString *)route withCallback:(LHLongLinkEventBlock)block{
+    [_pomelo onRoute:route withCallback:^(id callback) {
+        block(callback);
+    }];
 }
 
 @end

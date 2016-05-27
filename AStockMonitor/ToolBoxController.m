@@ -10,13 +10,17 @@
 #import "StocksManager.h"
 #import "GetStockRequest.h"
 #import "ASConfig.h"
+#import "ASChatView.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
-@property (strong) NSButton *addButton;
 @property (strong) NSTextField *codeField;
+@property (strong) ASChatView *chatView;
 
 @property (strong) NSView *lastAddButton;
+
+@property (strong) NSButton *addButton;
+@property (strong) NSButton *chatButton;
 @end
 
 @implementation ToolBoxController
@@ -26,7 +30,8 @@
     if (self) {
         self.contentView = [[NSView alloc] init];
 
-        [self addButton:@"chat" action:@selector(chatClick) size:14];
+        self.chatButton = [self addButton:@"chat" action:@selector(chatClick) size:14];
+        self.chatButton.tag = 0;
         
         self.addButton = [self addButton:@"add" action:@selector(addStock) size:12];
         self.addButton.tag = 0;
@@ -58,15 +63,6 @@
     
     self.lastAddButton = button;
     return button;
-}
-
--(void)chatClick{
-    LHS(@"chat");
-    
-    NSString *url = [ASConfig as_chat_url];
-    if (url) {
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
-    }
 }
 
 -(NSView *)view{
@@ -163,14 +159,59 @@
     [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(TOOLBOXHEI));
     }];
+    
     [self.codeField removeFromSuperview];
     self.codeField = nil;
-    
     NSImage *addimg = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"add" ofType:@"png"]];
     [self.addButton setImage:addimg];
     self.addButton.tag = 0;
     
+    [self.chatView removeFromSuperview];
+    self.chatView = nil;
+    self.chatButton.tag = 0;
+    
     [self.delegate didRefresh];
+}
+
+-(void)chatClick{
+    LHS(@"chat");
+    
+    if (self.chatButton.tag==0) {
+        
+        self.chatButton.tag = 1;
+        
+        [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(TOOLBOXHEI + TOOLBOXCHATHEI));
+        }];
+        
+        if (self.chatView == nil) {
+            ASChatView *cv = [[ASChatView alloc] init];
+            [self.contentView addSubview:cv];
+            [cv mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.contentView.mas_left);
+                make.top.equalTo(self.chatButton.mas_bottom);
+                make.right.equalTo(self.contentView.mas_right);
+                make.height.equalTo(@(TOOLBOXCHATHEI));
+            }];
+            self.chatView = cv;
+        }else{
+            [self.contentView addSubview:self.chatView];
+        }
+        
+        [self.window makeFirstResponder:self.chatView];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.chatView addMessage:@"from" msg:@"assd"];
+            [self.chatView addMessage:@"from" msg:@"ass1222d"];
+            [self.chatView addMessage:@"from" msg:@"ooqw"];
+        });
+        
+        
+        [self.delegate didRefresh];
+        
+    }else{
+        [self cleanup];
+    }
 }
 
 @end
