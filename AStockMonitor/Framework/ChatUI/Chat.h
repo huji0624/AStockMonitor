@@ -19,7 +19,6 @@
 @property (nonatomic) NSInteger unreadedMessages;
 @property (strong, nonatomic) NSArray *messages;
 
-@property (weak) IBOutlet NSWindow *loginWindow;
 @property (weak) IBOutlet ChatWindow *chatWindow;
 
 //Окно настроек
@@ -36,15 +35,15 @@
 @property (weak) IBOutlet NSPopover *popover;
 @property (weak) IBOutlet NSScrollView *chatScrollView;
 
-- (IBAction)changeShowNotifications:(id)sender;
-- (IBAction)changeCountUnreadInDock:(id)sender;
-- (IBAction)changePlaySoundIncomingMessage:(id)sender;
-- (IBAction)changePlaySoundOutcomingMessage:(id)sender;
-- (IBAction)changeRemoveOldMessages:(id)sender;
-- (IBAction)changePlayRadioOnStart:(id)sender;
-- (IBAction)changeChatUpdateSeconds:(id)sender;
-- (IBAction)changeAlwaysOnTop:(id)sender;
-- (IBAction)openSettings:(id)sender;
+//- (IBAction)changeShowNotifications:(id)sender;
+//- (IBAction)changeCountUnreadInDock:(id)sender;
+//- (IBAction)changePlaySoundIncomingMessage:(id)sender;
+//- (IBAction)changePlaySoundOutcomingMessage:(id)sender;
+//- (IBAction)changeRemoveOldMessages:(id)sender;
+//- (IBAction)changePlayRadioOnStart:(id)sender;
+//- (IBAction)changeChatUpdateSeconds:(id)sender;
+//- (IBAction)changeAlwaysOnTop:(id)sender;
+//- (IBAction)openSettings:(id)sender;
 
 - (void)didDeleteMessageRequestFromRow:(NSInteger)row;
 - (void)didSendMessageRequest;
