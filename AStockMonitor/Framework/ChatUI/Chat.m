@@ -40,7 +40,7 @@ static Chat *shared;
     self.unreadedMessages = 0;
    
     [self registerInMacURL];
-    [[self.chatWindow firstResponder] performSelector:@selector(toggleContinuousSpellChecking:)];
+//    [[self.chatWindow firstResponder] performSelector:@selector(toggleContinuousSpellChecking:)];
     return self;
 }
 

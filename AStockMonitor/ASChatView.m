@@ -7,7 +7,7 @@
 //
 
 #import "ASChatView.h"
-#import "ASTableView.h"
+#import "ChatWindow.h"
 
 //@interface ASMsg : NSObject
 //@property (copy) NSString *from;
@@ -21,18 +21,22 @@
 @end
 
 @implementation ASChatView{
-    ASTableView *_tableView;
+    ChatWindow *_chatWindow;
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _tableView = [[ASTableView alloc] init];
-        [self addSubview:_tableView];
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
+       
+        
+        _chatWindow = [[ChatWindow alloc] init];
+        
+        
+        [self addSubview:_chatWindow];
+//        [_chatWindow mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(self);
+//        }];
         
     }
     return self;
@@ -61,12 +65,11 @@
     text.bordered = YES;
     text.stringValue = [NSString stringWithFormat:@"%@ : %@",from,msgtext];
 
-    CGSize size = [self sizeForText:text.stringValue fontSize:16 mw:_tableView.frame.size.width mh:9999];
+    CGSize size = [self sizeForText:text.stringValue fontSize:16 mw:self.frame.size.width mh:9999];
     NSRect rect = text.frame;
     rect.size = size;
     text.frame = rect;
     
-    [_tableView insertView:text];
 }
 
 -(CGSize)sizeForText:(NSString*)text fontSize:(CGFloat)fs mw:(CGFloat)mw mh:(CGFloat)mh{

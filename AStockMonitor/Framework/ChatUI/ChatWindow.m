@@ -18,10 +18,22 @@
 
 @implementation ChatWindow
 
--(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
+//-(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
+//{
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"newMessages" object:nil];
+//    return [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag];
+//}
+
+- (instancetype)init
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"newMessages" object:nil];
-    return [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag];
+    self = [super init];
+    if (self) {
+//        NSNib *nib = [[NSNib alloc] initWithNibNamed:@"ChatWindow" bundle:nil];
+//        [nib instantiateWithOwner:self topLevelObjects:nil];
+        NSArray *array = nil;
+        [[NSBundle mainBundle] loadNibNamed:@"ChatWindow" owner:self topLevelObjects:&array];
+    }
+    return self;
 }
 
 - (void)tableViewColumnDidResize:(NSNotification *)aNotification

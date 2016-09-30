@@ -11,7 +11,6 @@
 #import "GetStockRequest.h"
 #import "ASConfig.h"
 #import "ASChatView.h"
-#import "Chat.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
@@ -179,8 +178,6 @@
     
     if (self.chatButton.tag==0) {
         
-        [[[Chat shared] chatWindow] setIsVisible:YES];
-        
         self.chatButton.tag = 1;
         
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -213,9 +210,6 @@
         [self.delegate didRefresh];
         
     }else{
-        
-        [[[Chat shared] chatWindow] close];
-        
         [self cleanup];
     }
 }

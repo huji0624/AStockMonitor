@@ -75,6 +75,7 @@
 		6AB236811C5A164300F49990 /* ExcuteTimesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB236801C5A164300F49990 /* ExcuteTimesCache.m */; };
 		6AB236831C5A26F300F49990 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AB236821C5A26F300F49990 /* down.png */; };
 		6ABF8F6C1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */; };
+		6ADDD0121D9E423F00F9DE47 /* ChatWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ADDD0111D9E423F00F9DE47 /* ChatWindow.xib */; };
 		6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C131C2D1D8500E65530 /* ASStockView.m */; };
 		6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C161C2D294700E65530 /* ASInfoController.m */; };
 		6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE30C171C2D294700E65530 /* ASInfoController.xib */; };
@@ -82,7 +83,6 @@
 		6AF6BB2F1CBB862A0032CCB3 /* LHLongLinkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB151CBB862A0032CCB3 /* LHLongLinkConfig.m */; };
 		6AF6BB521CBB86520032CCB3 /* Pomelo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB3B1CBB86520032CCB3 /* Pomelo.m */; };
 		6AF6BB531CBB86520032CCB3 /* PomeloProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB3D1CBB86520032CCB3 /* PomeloProtocol.m */; };
-		6AF86DA31CF5969B00E1B98B /* ASTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF86DA21CF5969B00E1B98B /* ASTableView.m */; };
 		6AFB11031BEC4D6400569A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11021BEC4D6400569A77 /* AppDelegate.m */; };
 		6AFB11061BEC4D6400569A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB11051BEC4D6400569A77 /* main.m */; };
 		6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFB11071BEC4D6400569A77 /* Assets.xcassets */; };
@@ -193,6 +193,7 @@
 		6AB236821C5A26F300F49990 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		6ABF8F6A1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
 		6ABF8F6B1C40DFB000DCAD9E /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
+		6ADDD0111D9E423F00F9DE47 /* ChatWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatWindow.xib; sourceTree = "<group>"; };
 		6AE30C121C2D1D8500E65530 /* ASStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStockView.h; sourceTree = "<group>"; };
 		6AE30C131C2D1D8500E65530 /* ASStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStockView.m; sourceTree = "<group>"; };
 		6AE30C151C2D294700E65530 /* ASInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASInfoController.h; sourceTree = "<group>"; };
@@ -206,8 +207,6 @@
 		6AF6BB3B1CBB86520032CCB3 /* Pomelo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pomelo.m; sourceTree = "<group>"; };
 		6AF6BB3C1CBB86520032CCB3 /* PomeloProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PomeloProtocol.h; sourceTree = "<group>"; };
 		6AF6BB3D1CBB86520032CCB3 /* PomeloProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PomeloProtocol.m; sourceTree = "<group>"; };
-		6AF86DA11CF5969B00E1B98B /* ASTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTableView.h; sourceTree = "<group>"; };
-		6AF86DA21CF5969B00E1B98B /* ASTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTableView.m; sourceTree = "<group>"; };
 		6AFB10FE1BEC4D6400569A77 /* 幽灵股票.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "幽灵股票.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFB11011BEC4D6400569A77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AFB11021BEC4D6400569A77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -392,6 +391,7 @@
 				6AB236821C5A26F300F49990 /* down.png */,
 				6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */,
 				6A3505A41C492B440042D82B /* delete.png */,
+				6ADDD0111D9E423F00F9DE47 /* ChatWindow.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -401,8 +401,6 @@
 			children = (
 				6A5627F61CF5714700C1ECF6 /* ASChatView.h */,
 				6A5627F71CF5714700C1ECF6 /* ASChatView.m */,
-				6AF86DA11CF5969B00E1B98B /* ASTableView.h */,
-				6AF86DA21CF5969B00E1B98B /* ASTableView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -584,6 +582,7 @@
 				6A66F1441C8EE59B003BB640 /* chat.png in Resources */,
 				6A201FFF1D9D25680082A268 /* icon_smile.gif in Resources */,
 				6AB2367E1C5A14DE00F49990 /* 幽灵股票-帮助.html in Resources */,
+				6ADDD0121D9E423F00F9DE47 /* ChatWindow.xib in Resources */,
 				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,
 				6A2020071D9D25680082A268 /* ireful.gif in Resources */,
 				6A2020031D9D25680082A268 /* icon_weep.gif in Resources */,
@@ -688,7 +687,6 @@
 				6A5627F81CF5714700C1ECF6 /* ASChatView.m in Sources */,
 				6A5627F31CF5685D00C1ECF6 /* ASChatMan.m in Sources */,
 				6A201FBF1D9D1A7A0082A268 /* ChatWindow.m in Sources */,
-				6AF86DA31CF5969B00E1B98B /* ASTableView.m in Sources */,
 				6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */,
 				6A201FC01D9D1A7A0082A268 /* NSString+Magic.m in Sources */,
 				6A3505AB1C4A4CC80042D82B /* GetStockRequest.m in Sources */,
