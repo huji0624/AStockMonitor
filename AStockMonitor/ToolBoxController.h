@@ -14,6 +14,7 @@
 
 @protocol ToolBoxDelegate <NSObject>
 -(void)didRefresh;
+-(void)didClickChat;
 @end
 
 @interface ToolBoxController : NSObject

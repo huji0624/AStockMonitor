@@ -123,12 +123,16 @@
     });
     
     if (NSApp.keyWindow!=self.window) {
-        [self.window makeKeyAndOrderFront:nil];
+//        [self.window makeKeyAndOrderFront:nil];
     }
 }
 
 -(void)didRefresh{
     [self setWindowFrameRight];
+}
+
+-(void)didClickChat{
+    [self.delegate didClickChat];
 }
 
 -(NSArray*)format:(NSArray*)datas{

@@ -19,10 +19,12 @@
 #import "ExcuteTimesCache.h"
 #import "ASConfig.h"
 #import "ASChatMan.h"
+#import "ASChatWindow.h"
 
 @interface AppDelegate ()<ASMonitorViewControllerDelegate>
 
 @property (weak) IBOutlet ASMainWindow *window;
+@property (weak) IBOutlet ASChatWindow *chatWindow;
 @property (strong) ASMonitorViewController *monitorVC;
 @property (strong) ASFormatController *formatVC;
 @property (strong) ASInfoController *infoVC;
@@ -44,6 +46,11 @@
         [self.window showHelp:nil];
         return YES;
     }];
+    
+    //chatWindow init
+//    [self.chatWindow setLevel:NSFloatingWindowLevel];
+    self.chatWindow.title = @"幽灵感应";
+    [self.chatWindow setIsVisible:NO];
     
     self.monitorVC = [[ASMonitorViewController alloc] init];
     self.monitorVC.delegate = self;
@@ -70,6 +77,10 @@
     
     self.infoVC.stockCode = tag;
     [self.infoVC showWindow:nil];
+}
+
+-(void)didClickChat{
+    [self.chatWindow setIsVisible:!self.chatWindow.visible];
 }
 
 -(void)setUpMenu{

@@ -10,12 +10,10 @@
 #import "StocksManager.h"
 #import "GetStockRequest.h"
 #import "ASConfig.h"
-#import "ASChatView.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
 @property (strong) NSTextField *codeField;
-@property (strong) ASChatView *chatView;
 
 @property (strong) NSView *lastAddButton;
 
@@ -166,8 +164,6 @@
     [self.addButton setImage:addimg];
     self.addButton.tag = 0;
     
-    [self.chatView removeFromSuperview];
-    self.chatView = nil;
     self.chatButton.tag = 0;
     
     [self.delegate didRefresh];
@@ -176,42 +172,21 @@
 -(void)chatClick{
     LHS(@"chat");
     
-    if (self.chatButton.tag==0) {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+//    [panel setDirectory:NSHomeDirectory()];
+    [panel setAllowsMultipleSelection:NO];
+    [panel setCanChooseDirectories:NO];
+    [panel setCanChooseFiles:NO];
+    [panel setAllowedFileTypes:@[@"png",@"jpg",@"PNG",@"JPG"]];
+    [panel setAllowsOtherFileTypes:NO];
+    if ([panel runModal] == NSOKButton) {
+        NSString *path = [panel.URLs.firstObject path];
+        //code
+        NSImage *img = [[NSImage alloc] initWithContentsOfFile:path];
         
-        self.chatButton.tag = 1;
-        
-        [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(TOOLBOXHEI + TOOLBOXCHATHEI));
-        }];
-        
-        if (self.chatView == nil) {
-            ASChatView *cv = [[ASChatView alloc] init];
-            [self.contentView addSubview:cv];
-            [cv mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.contentView.mas_left);
-                make.top.equalTo(self.chatButton.mas_bottom);
-                make.right.equalTo(self.contentView.mas_right);
-                make.height.equalTo(@(TOOLBOXCHATHEI));
-            }];
-            self.chatView = cv;
-        }else{
-            [self.contentView addSubview:self.chatView];
-        }
-        
-        [self.window makeFirstResponder:self.chatView];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.chatView addMessage:@"from" msg:@"assd"];
-            [self.chatView addMessage:@"from" msg:@"ass1222d"];
-            [self.chatView addMessage:@"from" msg:@"ooqw"];
-        });
-        
-        
-        [self.delegate didRefresh];
-        
-    }else{
-        [self cleanup];
     }
+    
+//    [self.delegate didClickChat];
 }
 
 @end

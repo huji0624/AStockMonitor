@@ -7,7 +7,7 @@
 //
 
 #import "ChatMessageCellTextScrollView.h"
-#import "Chat.h"
+#import "ASChatWindow.h"
 
 @implementation ChatMessageCellTextScrollView
 
@@ -32,7 +32,7 @@
 
 - (void)scrollWheel:(NSEvent *)theEvent
 {
-    [[[Chat shared] chatScrollView] scrollWheel:theEvent];
+    [[[ASChatWindow window] chatScrollView] scrollWheel:theEvent];
 }
 
 
