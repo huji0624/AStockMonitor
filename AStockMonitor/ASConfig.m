@@ -44,4 +44,9 @@ static NSTimer *_timer = nil;
 +(NSString *)as_chat_url{
     return _config.as_chat_url;
 }
+
++(NSString *)as_host{
+    return @"http://123.56.46.78";
+}
+
 @end

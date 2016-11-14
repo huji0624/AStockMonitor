@@ -10,6 +10,7 @@
 #import "StocksManager.h"
 #import "GetStockRequest.h"
 #import "ASConfig.h"
+#import "ASChatMan.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
@@ -171,22 +172,44 @@
 
 -(void)chatClick{
     LHS(@"chat");
-    
-    NSOpenPanel *panel = [NSOpenPanel openPanel];
-//    [panel setDirectory:NSHomeDirectory()];
-    [panel setAllowsMultipleSelection:NO];
-    [panel setCanChooseDirectories:NO];
-    [panel setCanChooseFiles:NO];
-    [panel setAllowedFileTypes:@[@"png",@"jpg",@"PNG",@"JPG"]];
-    [panel setAllowsOtherFileTypes:NO];
-    if ([panel runModal] == NSOKButton) {
-        NSString *path = [panel.URLs.firstObject path];
-        //code
-        NSImage *img = [[NSImage alloc] initWithContentsOfFile:path];
-        
+    NSUserDefaults *df =[NSUserDefaults standardUserDefaults];
+    NSString *cid = [df objectForKey:@"chat_id"];
+    if (cid) {
+        //打开面板
+        [self openChat];
+    }else{
+        //cid不存在.自动在server生成一个.
+        NSString *url = [NSString stringWithFormat:@"%@/newchatuser",[ASConfig as_host]];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:url parameters:nil  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *dict = responseObject;
+            NSNumber *res = dict[@"res"];
+            if (res.integerValue == 0) {
+                NSString *chat_id = dict[@"chat_id"];
+                NSString *image_url = dict[@"image_url"];
+                
+                [df setObject:chat_id forKey:@"chat_id"];
+                [df setObject:image_url forKey:@"image_url"];
+                [df synchronize];
+                
+                NSLog(@"synchronize %@ %@",chat_id,image_url);
+                
+                [[ASChatMan man] connectChat];
+                
+            }else{
+                NSAlert *alert = [[NSAlert alloc] init];
+                alert.messageText = [NSString stringWithFormat:@"服务器错误 %@",res];
+                [alert runModal];
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"newchatuser %@",[error localizedDescription]);
+        }];
     }
+}
+
+-(void)openChat{
     
-//    [self.delegate didClickChat];
 }
 
 @end

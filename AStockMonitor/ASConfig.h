@@ -13,4 +13,6 @@
 
 +(NSString*)as_chat_url;
 
++(NSString*)as_host;
+
 @end

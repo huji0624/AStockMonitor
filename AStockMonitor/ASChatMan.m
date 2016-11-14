@@ -35,13 +35,19 @@ ASChatMan *_instance = nil;
 
 -(void)connectChat{
     
+    NSString *cid = [[NSUserDefaults standardUserDefaults] objectForKey:@"chat_id"];
+    if (cid==nil) {
+        NSLog(@"no cid");
+        return;
+    }
+    
     LHLongLinkConfig *config = [[LHLongLinkConfig alloc] init];
     config.host = @"123.56.46.78";
     config.port = 3014;
     [[LHLongLink link] connect:config callback:^(LHLongLinkConnectRet ret) {
         if (ret == LHLongLinkConnectOK) {
             
-            [[LHLongLink link] request:@"gate.gateHandler.queryEntry" params:@{@"uid":@"mach"} callback:^(id data) {
+            [[LHLongLink link] request:@"gate.gateHandler.queryEntry" params:@{@"uid":cid} callback:^(id data) {
                 NSDictionary *dict = data;
                 NSNumber *code = [dict objectForKey:@"code"];
                 if (code.integerValue == 200) {
@@ -58,8 +64,10 @@ ASChatMan *_instance = nil;
                         if (ret == LHLongLinkConnectOK) {
                             NSLog(@"connect chat ok.");
                             
-                            [[LHLongLink link] request:@"connector.entryHandler.enter" params:@{@"username":@"mach",@"rid":@"ghoststock"} callback:^(id data) {
+                            [[LHLongLink link] request:@"connector.entryHandler.enter" params:@{@"username":cid,@"rid":@"ghoststock"} callback:^(id data) {
+                                
                                 NSLog(@"enter:%@",data);
+                                
                                 NSDictionary *dict = data;
                                 NSArray *users = dict[@"users"];
                                 _userCount = users.count;
