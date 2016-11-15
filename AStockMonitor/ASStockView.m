@@ -72,13 +72,14 @@
         }];
         [_delete mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(text.mas_right);
-            make.height.equalTo(text.mas_height);
+//            make.height.equalTo(text.mas_height);
             make.centerY.equalTo(button.mas_centerY);
             make.width.equalTo(text.mas_height).multipliedBy(1.5f);
         }];
         [_down mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(_delete.mas_left).offset(-2);
             make.height.equalTo(self.mas_height);
+            make.centerY.equalTo(button.mas_centerY);
             make.width.equalTo(self.mas_height).multipliedBy(1.2f);
         }];
         
@@ -102,6 +103,7 @@
     [_text setCell:cell];
     [_text mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(fsize.floatValue*1.1));
+        make.centerY.equalTo(_button.mas_centerY);
     }];
     
     _button.font = [NSFont systemFontOfSize:fsize.floatValue];;

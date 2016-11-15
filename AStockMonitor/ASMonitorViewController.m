@@ -161,15 +161,20 @@
         //当前涨幅
         NSString *price = data[@"当前价格"];
         NSString *yClose = data[@"昨日收盘价"];
-        CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
         NSAttributedString *perStr = nil;
-        if (percent>0) {
-            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor redColor]}];
-        }else if (percent<0){
-            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor greenColor]}];
+        if (price.floatValue == 0) {
+            perStr = [[NSAttributedString alloc] initWithString:@"停牌" attributes:@{NSForegroundColorAttributeName:[NSColor grayColor]}];
         }else{
-            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor blackColor]}];
+            CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
+            if (percent>0) {
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor redColor]}];
+            }else if (percent<0){
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor greenColor]}];
+            }else{
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor blackColor]}];
+            }
         }
+        
         [text appendAttributedString:perStr];
         
         NSMutableDictionary *finalInfo = [NSMutableDictionary dictionary];
