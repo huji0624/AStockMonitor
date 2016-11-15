@@ -75,6 +75,8 @@
     if (self.frontEditor.stringValue.integerValue) {
         [[NSUserDefaults standardUserDefaults] setObject:self.frontEditor.stringValue forKey:@"fontSize"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"didChangeFont" object:nil];
     }
     
     [[ASFormatCache cache] saveCurrentFormat:self.formatEditor.stringValue];

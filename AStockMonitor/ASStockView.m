@@ -25,7 +25,7 @@
     self = [super init];
     if (self) {
         
-        self.translatesAutoresizingMaskIntoConstraints = YES;
+        self.translatesAutoresizingMaskIntoConstraints = NO;
         
         NSTextField *text = [[NSTextField alloc] init];
         text.editable = NO;
@@ -85,6 +85,7 @@
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(button.mas_left);
             make.right.equalTo(text.mas_right);
+            make.height.equalTo(text.mas_height);
         }];
     }
     return self;
@@ -101,9 +102,6 @@
     [_text setCell:cell];
     [_text mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(fsize.floatValue*1.1));
-    }];
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(_text.mas_height);
     }];
     
     _button.font = [NSFont systemFontOfSize:fsize.floatValue];;

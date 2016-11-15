@@ -31,6 +31,8 @@
 
 -(void)dealloc{
     self.timer = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (instancetype)init
@@ -43,6 +45,8 @@
         } repeats:YES];
         
         self.stockViews = [NSMutableArray array];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeFont) name:@"didChangeFont" object:nil];
     }
     return self;
 }
@@ -238,11 +242,7 @@
         }
     }
     
-    for (ASStockView *view in tmp) {
-        view.delegate = nil;
-        [view removeFromSuperview];
-        [self.stockViews removeObject:view];
-    }
+    [self cleanUp:tmp];
 }
 
 -(void)didClickInfo:(id)tag{
@@ -256,5 +256,18 @@
 -(void)didDownClick:(id)tag{
     [[StocksManager manager] makeTop:tag];
     [self requestForStocks];
+}
+
+-(void)cleanUp:(NSArray*)tmp{
+    for (ASStockView *view in tmp) {
+        view.delegate = nil;
+        [view removeFromSuperview];
+        [self.stockViews removeObject:view];
+    }
+}
+
+-(void)didChangeFont{
+    NSMutableArray *tmp = [NSMutableArray arrayWithArray:self.stockViews];
+    [self cleanUp:tmp];
 }
 @end
