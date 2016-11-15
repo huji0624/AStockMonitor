@@ -49,6 +49,7 @@
 		6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C131C2D1D8500E65530 /* ASStockView.m */; };
 		6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C161C2D294700E65530 /* ASInfoController.m */; };
 		6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE30C171C2D294700E65530 /* ASInfoController.xib */; };
+		6AF14B7E1DDAAA3E007D776E /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF14B7D1DDAAA3E007D776E /* config.png */; };
 		6AF6BB2E1CBB862A0032CCB3 /* LHLongLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB131CBB862A0032CCB3 /* LHLongLink.m */; };
 		6AF6BB2F1CBB862A0032CCB3 /* LHLongLinkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB151CBB862A0032CCB3 /* LHLongLinkConfig.m */; };
 		6AF6BB521CBB86520032CCB3 /* Pomelo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB3B1CBB86520032CCB3 /* Pomelo.m */; };
@@ -137,6 +138,7 @@
 		6AE30C151C2D294700E65530 /* ASInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASInfoController.h; sourceTree = "<group>"; };
 		6AE30C161C2D294700E65530 /* ASInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASInfoController.m; sourceTree = "<group>"; };
 		6AE30C171C2D294700E65530 /* ASInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASInfoController.xib; sourceTree = "<group>"; };
+		6AF14B7D1DDAAA3E007D776E /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
 		6AF6BB121CBB862A0032CCB3 /* LHLongLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLongLink.h; sourceTree = "<group>"; };
 		6AF6BB131CBB862A0032CCB3 /* LHLongLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHLongLink.m; sourceTree = "<group>"; };
 		6AF6BB141CBB862A0032CCB3 /* LHLongLinkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLongLinkConfig.h; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		6A3505A31C492B440042D82B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6AF14B7D1DDAAA3E007D776E /* config.png */,
 				6AA16A531DBCBD04003198DB /* no-avatar.png */,
 				6A49F3651CA50FEC007A4043 /* add.png */,
 				6A49F3661CA50FEC007A4043 /* close.png */,
@@ -477,6 +480,7 @@
 				6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */,
 				6AB2367C1C5A11F900F49990 /* ASHelpController.xib in Resources */,
 				6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */,
+				6AF14B7E1DDAAA3E007D776E /* config.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

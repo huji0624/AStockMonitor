@@ -27,7 +27,6 @@
         
         self.translatesAutoresizingMaskIntoConstraints = YES;
         
-        CGFloat hei = 18;
         NSTextField *text = [[NSTextField alloc] init];
         text.editable = NO;
         text.translatesAutoresizingMaskIntoConstraints = NO;
@@ -69,13 +68,13 @@
             make.width.equalTo(self.mas_height);
         }];
         [text mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(self.mas_height);
             make.left.equalTo(button.mas_right);
         }];
         [_delete mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.mas_right);
-            make.height.equalTo(self.mas_height);
-            make.width.equalTo(self.mas_height).multipliedBy(1.5f);
+            make.right.equalTo(text.mas_right);
+            make.height.equalTo(text.mas_height);
+            make.centerY.equalTo(button.mas_centerY);
+            make.width.equalTo(text.mas_height).multipliedBy(1.5f);
         }];
         [_down mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(_delete.mas_left).offset(-2);
@@ -83,10 +82,9 @@
             make.width.equalTo(self.mas_height).multipliedBy(1.2f);
         }];
         
-        
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(text.mas_width).offset(hei);
-            make.height.equalTo(@(hei));
+            make.left.equalTo(button.mas_left);
+            make.right.equalTo(text.mas_right);
         }];
     }
     return self;
@@ -95,8 +93,20 @@
 -(void)setTag:(id)stockTag info:(NSAttributedString *)info{
     self.stockTag = stockTag;
     
+    NSString *fsize = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontSize"];
+    
     _text.attributedStringValue = info;
-    [_text setCell:[[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info]];
+    RSVerticallyCenteredTextFieldCell *cell = [[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info];
+    cell.font = [NSFont systemFontOfSize:fsize.floatValue];;
+    [_text setCell:cell];
+    [_text mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(fsize.floatValue*1.1));
+    }];
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(_text.mas_height);
+    }];
+    
+    _button.font = [NSFont systemFontOfSize:fsize.floatValue];;
     
     if (self.trackingAreas.count == 0 && self.frame.size.width != 0 ) {
         NSTrackingArea *track = [[NSTrackingArea alloc] initWithRect:self.bounds options: (NSTrackingMouseEnteredAndExited|NSTrackingActiveAlways) owner:self userInfo:nil];

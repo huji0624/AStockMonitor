@@ -9,9 +9,10 @@
 #import "ASFormatController.h"
 #import "ASFormatCache.h"
 
-@interface ASFormatController ()
+@interface ASFormatController ()<NSTextFieldDelegate>
 @property (strong) IBOutlet NSTextView *formatKeysLabel;
 @property (strong) IBOutlet NSTextField *formatEditor;
+@property (strong) IBOutlet NSTextField *frontEditor;
 @end
 
 @implementation ASFormatController
@@ -43,6 +44,13 @@
     self.formatKeysLabel.string = string;
     
     self.formatEditor.stringValue = [[ASFormatCache cache] currentFormat];
+    
+    self.frontEditor.stringValue = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontSize"];
+    
+    NSNumberFormatter * formater = [[NSNumberFormatter alloc] init];
+    formater.numberStyle         = NSNumberFormatterDecimalStyle;
+    formater.minimum              = @(0);
+    self.frontEditor.formatter = formater;
 }
 
 -(NSString*)checkFormat:(NSString*)fms{
@@ -64,6 +72,10 @@
         return;
     }
     
+    if (self.frontEditor.stringValue.integerValue) {
+        [[NSUserDefaults standardUserDefaults] setObject:self.frontEditor.stringValue forKey:@"fontSize"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     [[ASFormatCache cache] saveCurrentFormat:self.formatEditor.stringValue];
     
