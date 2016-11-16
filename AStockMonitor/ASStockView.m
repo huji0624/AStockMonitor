@@ -98,12 +98,13 @@
     NSString *fsize = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontSize"];
     
     _text.attributedStringValue = info;
-    RSVerticallyCenteredTextFieldCell *cell = [[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info];
-    cell.font = [NSFont systemFontOfSize:fsize.floatValue];;
-    [_text setCell:cell];
+//    RSVerticallyCenteredTextFieldCell *cell = [[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info];
+//    cell.font = [NSFont systemFontOfSize:fsize.floatValue];;
+//    [_text setCell:cell];
+    _text.font = [NSFont systemFontOfSize:fsize.floatValue];
     [_text mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(fsize.floatValue*1.1));
-        make.centerY.equalTo(_button.mas_centerY);
+        make.height.equalTo(@(fsize.floatValue*1.2));
+        make.top.equalTo(self.mas_top);
     }];
     
     _button.font = [NSFont systemFontOfSize:fsize.floatValue];;
