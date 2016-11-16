@@ -439,7 +439,7 @@
 						DevelopmentTeam = A48REQN6XP;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
