@@ -8,7 +8,7 @@
 
 #import "ASStockView.h"
 #import <Masonry.h>
-#import "RSVerticallyCenteredTextFieldCell.h"
+#import "ColorButton.h"
 
 @interface ASStockView ()
 @property id stockTag;
@@ -41,13 +41,14 @@
         button.bordered = NO;
         _button = button;
         
-        _delete = [[NSButton alloc] init];
+        _delete = [[ColorButton alloc] init];
         [_delete setTarget:self];
         [_delete setAction:@selector(deleteClick:)];
         _delete.bordered = NO;
         _delete.hidden = YES;
-        NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"delete" ofType:@"png"]];
-        [_delete setImage:img];
+        [_delete setAttributedTitle:[[NSAttributedString alloc] initWithString:@"删除" attributes:@{NSForegroundColorAttributeName:[NSColor whiteColor]}]];
+//        NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"delete" ofType:@"png"]];
+//        [_delete setImage:img];
         
         _down = [[NSButton alloc] init];
         [_down setTarget:self];
@@ -74,7 +75,7 @@
             make.right.equalTo(text.mas_right);
 //            make.height.equalTo(text.mas_height);
             make.centerY.equalTo(button.mas_centerY);
-            make.width.equalTo(text.mas_height).multipliedBy(1.5f);
+            make.width.equalTo(_delete.mas_height).multipliedBy(1.1f);
         }];
         [_down mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(_delete.mas_left).offset(-2);
@@ -103,7 +104,7 @@
 //    [_text setCell:cell];
     _text.font = [NSFont systemFontOfSize:fsize.floatValue];
     [_text mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(fsize.floatValue*1.2));
+        make.height.equalTo(@(fsize.floatValue*1.3));
         make.top.equalTo(self.mas_top);
     }];
     

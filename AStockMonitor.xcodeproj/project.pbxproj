@@ -23,7 +23,6 @@
 		6A201FD51D9D23B50082A268 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FD41D9D23B50082A268 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A35059C1C48FA1A0042D82B /* MacDevTool.m */; };
 		6A3505A21C491E7F0042D82B /* StocksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A11C491E7F0042D82B /* StocksManager.m */; };
-		6A3505A51C492B440042D82B /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3505A41C492B440042D82B /* delete.png */; };
 		6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A71C4931310042D82B /* ToolBoxController.m */; };
 		6A3505AB1C4A4CC80042D82B /* GetStockRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AA1C4A4CC80042D82B /* GetStockRequest.m */; };
 		6A3505AE1C4B51ED0042D82B /* ASMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505AD1C4B51ED0042D82B /* ASMainWindow.m */; };
@@ -50,6 +49,7 @@
 		6AE30C181C2D294700E65530 /* ASInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE30C161C2D294700E65530 /* ASInfoController.m */; };
 		6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE30C171C2D294700E65530 /* ASInfoController.xib */; };
 		6AF14B7E1DDAAA3E007D776E /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF14B7D1DDAAA3E007D776E /* config.png */; };
+		6AF14B811DDBF77A007D776E /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF14B801DDBF77A007D776E /* ColorButton.m */; };
 		6AF6BB2E1CBB862A0032CCB3 /* LHLongLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB131CBB862A0032CCB3 /* LHLongLink.m */; };
 		6AF6BB2F1CBB862A0032CCB3 /* LHLongLinkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB151CBB862A0032CCB3 /* LHLongLinkConfig.m */; };
 		6AF6BB521CBB86520032CCB3 /* Pomelo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6BB3B1CBB86520032CCB3 /* Pomelo.m */; };
@@ -97,7 +97,6 @@
 		6A35059C1C48FA1A0042D82B /* MacDevTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacDevTool.m; sourceTree = "<group>"; };
 		6A3505A01C491E7F0042D82B /* StocksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StocksManager.h; sourceTree = "<group>"; };
 		6A3505A11C491E7F0042D82B /* StocksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StocksManager.m; sourceTree = "<group>"; };
-		6A3505A41C492B440042D82B /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		6A3505A61C4931310042D82B /* ToolBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBoxController.h; sourceTree = "<group>"; };
 		6A3505A71C4931310042D82B /* ToolBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBoxController.m; sourceTree = "<group>"; };
 		6A3505A91C4A4CC80042D82B /* GetStockRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStockRequest.h; sourceTree = "<group>"; };
@@ -139,6 +138,8 @@
 		6AE30C161C2D294700E65530 /* ASInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASInfoController.m; sourceTree = "<group>"; };
 		6AE30C171C2D294700E65530 /* ASInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASInfoController.xib; sourceTree = "<group>"; };
 		6AF14B7D1DDAAA3E007D776E /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
+		6AF14B7F1DDBF77A007D776E /* ColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorButton.h; sourceTree = "<group>"; };
+		6AF14B801DDBF77A007D776E /* ColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorButton.m; sourceTree = "<group>"; };
 		6AF6BB121CBB862A0032CCB3 /* LHLongLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLongLink.h; sourceTree = "<group>"; };
 		6AF6BB131CBB862A0032CCB3 /* LHLongLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHLongLink.m; sourceTree = "<group>"; };
 		6AF6BB141CBB862A0032CCB3 /* LHLongLinkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLongLinkConfig.h; sourceTree = "<group>"; };
@@ -292,7 +293,6 @@
 				6A66F1431C8EE59B003BB640 /* chat.png */,
 				6AB236821C5A26F300F49990 /* down.png */,
 				6AB2367D1C5A14DE00F49990 /* 幽灵股票-帮助.html */,
-				6A3505A41C492B440042D82B /* delete.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -302,6 +302,8 @@
 			children = (
 				6AA16A501DBCAC75003198DB /* ASChatWindow.h */,
 				6AA16A511DBCAC75003198DB /* ASChatWindow.m */,
+				6AF14B7F1DDBF77A007D776E /* ColorButton.h */,
+				6AF14B801DDBF77A007D776E /* ColorButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -466,7 +468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A3505A51C492B440042D82B /* delete.png in Resources */,
 				6AA16A541DBCBD04003198DB /* no-avatar.png in Resources */,
 				6AB236831C5A26F300F49990 /* down.png in Resources */,
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
@@ -553,6 +554,7 @@
 				6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */,
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
 				6A0B25441CEACAC800F7CADB /* SocketIOTransportWebsocket.m in Sources */,
+				6AF14B811DDBF77A007D776E /* ColorButton.m in Sources */,
 				6AB236811C5A164300F49990 /* ExcuteTimesCache.m in Sources */,
 				6A201FBE1D9D1A7A0082A268 /* ChatMessageCellTextScrollView.m in Sources */,
 				6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */,
