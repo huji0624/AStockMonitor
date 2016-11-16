@@ -31,6 +31,8 @@
 
 -(void)dealloc{
     self.timer = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (instancetype)init
@@ -43,6 +45,8 @@
         } repeats:YES];
         
         self.stockViews = [NSMutableArray array];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeFont) name:@"didChangeFont" object:nil];
     }
     return self;
 }
@@ -157,15 +161,20 @@
         //当前涨幅
         NSString *price = data[@"当前价格"];
         NSString *yClose = data[@"昨日收盘价"];
-        CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
         NSAttributedString *perStr = nil;
-        if (percent>0) {
-            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor redColor]}];
-        }else if (percent<0){
-            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor greenColor]}];
+        if (price.floatValue == 0) {
+            perStr = [[NSAttributedString alloc] initWithString:@"停牌" attributes:@{NSForegroundColorAttributeName:[NSColor grayColor]}];
         }else{
-            perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor blackColor]}];
+            CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
+            if (percent>0) {
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor redColor]}];
+            }else if (percent<0){
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor greenColor]}];
+            }else{
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor blackColor]}];
+            }
         }
+        
         [text appendAttributedString:perStr];
         
         NSMutableDictionary *finalInfo = [NSMutableDictionary dictionary];
@@ -238,11 +247,7 @@
         }
     }
     
-    for (ASStockView *view in tmp) {
-        view.delegate = nil;
-        [view removeFromSuperview];
-        [self.stockViews removeObject:view];
-    }
+    [self cleanUp:tmp];
 }
 
 -(void)didClickInfo:(id)tag{
@@ -256,5 +261,18 @@
 -(void)didDownClick:(id)tag{
     [[StocksManager manager] makeTop:tag];
     [self requestForStocks];
+}
+
+-(void)cleanUp:(NSArray*)tmp{
+    for (ASStockView *view in tmp) {
+        view.delegate = nil;
+        [view removeFromSuperview];
+        [self.stockViews removeObject:view];
+    }
+}
+
+-(void)didChangeFont{
+    NSMutableArray *tmp = [NSMutableArray arrayWithArray:self.stockViews];
+    [self cleanUp:tmp];
 }
 @end

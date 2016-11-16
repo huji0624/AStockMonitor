@@ -8,7 +8,7 @@
 
 #import "ASStockView.h"
 #import <Masonry.h>
-#import "RSVerticallyCenteredTextFieldCell.h"
+#import "ColorButton.h"
 
 @interface ASStockView ()
 @property id stockTag;
@@ -25,9 +25,8 @@
     self = [super init];
     if (self) {
         
-        self.translatesAutoresizingMaskIntoConstraints = YES;
+        self.translatesAutoresizingMaskIntoConstraints = NO;
         
-        CGFloat hei = 18;
         NSTextField *text = [[NSTextField alloc] init];
         text.editable = NO;
         text.translatesAutoresizingMaskIntoConstraints = NO;
@@ -42,13 +41,14 @@
         button.bordered = NO;
         _button = button;
         
-        _delete = [[NSButton alloc] init];
+        _delete = [[ColorButton alloc] init];
         [_delete setTarget:self];
         [_delete setAction:@selector(deleteClick:)];
         _delete.bordered = NO;
         _delete.hidden = YES;
-        NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"delete" ofType:@"png"]];
-        [_delete setImage:img];
+        [_delete setAttributedTitle:[[NSAttributedString alloc] initWithString:@"删除" attributes:@{NSForegroundColorAttributeName:[NSColor whiteColor]}]];
+//        NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"delete" ofType:@"png"]];
+//        [_delete setImage:img];
         
         _down = [[NSButton alloc] init];
         [_down setTarget:self];
@@ -69,24 +69,25 @@
             make.width.equalTo(self.mas_height);
         }];
         [text mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(self.mas_height);
             make.left.equalTo(button.mas_right);
         }];
         [_delete mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.mas_right);
-            make.height.equalTo(self.mas_height);
-            make.width.equalTo(self.mas_height).multipliedBy(1.5f);
+            make.right.equalTo(text.mas_right);
+//            make.height.equalTo(text.mas_height);
+            make.centerY.equalTo(button.mas_centerY);
+            make.width.equalTo(_delete.mas_height).multipliedBy(1.1f);
         }];
         [_down mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(_delete.mas_left).offset(-2);
             make.height.equalTo(self.mas_height);
+            make.centerY.equalTo(button.mas_centerY);
             make.width.equalTo(self.mas_height).multipliedBy(1.2f);
         }];
         
-        
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(text.mas_width).offset(hei);
-            make.height.equalTo(@(hei));
+            make.left.equalTo(button.mas_left);
+            make.right.equalTo(text.mas_right);
+            make.height.equalTo(text.mas_height);
         }];
     }
     return self;
@@ -95,8 +96,19 @@
 -(void)setTag:(id)stockTag info:(NSAttributedString *)info{
     self.stockTag = stockTag;
     
+    NSString *fsize = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontSize"];
+    
     _text.attributedStringValue = info;
-    [_text setCell:[[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info]];
+//    RSVerticallyCenteredTextFieldCell *cell = [[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info];
+//    cell.font = [NSFont systemFontOfSize:fsize.floatValue];;
+//    [_text setCell:cell];
+    _text.font = [NSFont systemFontOfSize:fsize.floatValue];
+    [_text mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(fsize.floatValue*1.3));
+        make.top.equalTo(self.mas_top);
+    }];
+    
+    _button.font = [NSFont systemFontOfSize:fsize.floatValue];;
     
     if (self.trackingAreas.count == 0 && self.frame.size.width != 0 ) {
         NSTrackingArea *track = [[NSTrackingArea alloc] initWithRect:self.bounds options: (NSTrackingMouseEnteredAndExited|NSTrackingActiveAlways) owner:self userInfo:nil];

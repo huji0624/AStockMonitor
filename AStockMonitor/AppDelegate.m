@@ -11,7 +11,6 @@
 #import <Masonry.h>
 #import "ASConstant.h"
 #import <AFHTTPRequestOperationManager.h>
-#import "ASFormatController.h"
 #import "LHRealTimeStatistics.h"
 #import "ASInfoController.h"
 #import "StocksManager.h"
@@ -26,7 +25,6 @@
 @property (weak) IBOutlet ASMainWindow *window;
 @property (weak) IBOutlet ASChatWindow *chatWindow;
 @property (strong) ASMonitorViewController *monitorVC;
-@property (strong) ASFormatController *formatVC;
 @property (strong) ASInfoController *infoVC;
 @end
 
@@ -63,9 +61,11 @@
     }
     self.window.alphaValue = alpha.floatValue;
     
-    [self setUpMenu];
-    
-    [[ASChatMan man] connectChat];
+    //init
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"fontSize"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"12" forKey:@"fontSize"];
+    }
+//    [[ASChatMan man] connectChat];
     
     LHS(@"launch");
 }
@@ -81,38 +81,6 @@
 
 -(void)didClickChat{
     [self.chatWindow setIsVisible:!self.chatWindow.visible];
-}
-
--(void)setUpMenu{
-    
-    NSMenuItem *item3 = [[NSMenuItem alloc] initWithTitle:@"调整格式" action:@selector(showFormat) keyEquivalent:@"edit_format"];
-    item3.target = self;
-    
-    NSMenu *menu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"功能"];
-    [menu addItem:item3];
-    
-    NSMenuItem *mainSubItem = [[NSMenuItem alloc] initWithTitle:@"功能" action:nil keyEquivalent:@""];
-    mainSubItem.submenu = menu;
-    mainSubItem.target = menu;
-    
-    [[NSApp mainMenu] insertItem:mainSubItem atIndex:[NSApp mainMenu].itemArray.count - 1];
-    
-//    for (NSMenuItem *temp in [NSApp mainMenu].itemArray) {
-//        NSMenu *wmenu = temp.submenu;
-//        if ([wmenu.title isEqualToString:@"Window"]) {
-//            [wmenu addItem:item3];
-//        }
-//    }
-}
-
--(void)showFormat{
-    LHS(@"showFormat");
-    
-    if (!self.formatVC) {
-        self.formatVC = [[ASFormatController alloc] initWithWindowNibName:@"ASFormatController"];
-    }
-    
-    [self.formatVC showWindow:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

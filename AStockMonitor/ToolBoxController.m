@@ -11,6 +11,7 @@
 #import "GetStockRequest.h"
 #import "ASConfig.h"
 #import "ASChatMan.h"
+#import "ASFormatController.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
@@ -20,6 +21,8 @@
 
 @property (strong) NSButton *addButton;
 @property (strong) NSButton *chatButton;
+
+@property (strong) ASFormatController *formatVC;
 @end
 
 @implementation ToolBoxController
@@ -29,11 +32,15 @@
     if (self) {
         self.contentView = [[NSView alloc] init];
 
-        self.chatButton = [self addButton:@"chat" action:@selector(chatClick) size:14];
-        self.chatButton.tag = 0;
+//        self.chatButton = [self addButton:@"chat" action:@selector(chatClick) size:14];
+//        self.chatButton.tag = 0;
+        
+        [self addButton:@"config" action:@selector(configClick) size:10];
         
         self.addButton = [self addButton:@"add" action:@selector(addStock) size:12];
         self.addButton.tag = 0;
+        
+        
         
     }
     return self;
@@ -210,6 +217,16 @@
 
 -(void)openChat{
     
+}
+
+-(void)configClick{
+    LHS(@"showFormat");
+    
+    if (!self.formatVC) {
+        self.formatVC = [[ASFormatController alloc] initWithWindowNibName:@"ASFormatController"];
+    }
+    
+    [self.formatVC showWindow:nil];
 }
 
 @end

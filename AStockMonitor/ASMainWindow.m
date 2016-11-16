@@ -26,8 +26,8 @@
 -(void)setWindowAlpha:(CGFloat)alpha{
     if (alpha>1.0) {
         alpha = 1.0f;
-    }else if (alpha<0.1){
-        alpha = 0.1;
+    }else if (alpha<0.05){
+        alpha = 0.05;
     }
     [[NSUserDefaults standardUserDefaults] setObject:@(alpha) forKey:ASAlphaValueKey];
     self.alphaValue = alpha;
