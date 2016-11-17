@@ -436,7 +436,7 @@
 				TargetAttributes = {
 					6AFB10FD1BEC4D6400569A77 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = A48REQN6XP;
+						DevelopmentTeam = 2ZW287E2MF;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -683,6 +683,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 2ZW287E2MF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AStockMonitor/Framework/Twui",
@@ -718,6 +719,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 2ZW287E2MF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AStockMonitor/Framework/Twui",
