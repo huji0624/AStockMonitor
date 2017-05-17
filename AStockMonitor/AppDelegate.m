@@ -18,14 +18,14 @@
 #import "ExcuteTimesCache.h"
 #import "ASConfig.h"
 #import "ASChatMan.h"
-#import "ASChatWindow.h"
+//#import "ASChatWindow.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()<ASMonitorViewControllerDelegate>
 
 @property (weak) IBOutlet ASMainWindow *window;
-@property (weak) IBOutlet ASChatWindow *chatWindow;
+//@property (weak) IBOutlet ASChatWindow *chatWindow;
 @property (strong) ASMonitorViewController *monitorVC;
 @property (strong) ASInfoController *infoVC;
 @end
@@ -51,8 +51,8 @@
     
     //chatWindow init
 //    [self.chatWindow setLevel:NSFloatingWindowLevel];
-    self.chatWindow.title = @"幽灵感应";
-    [self.chatWindow setIsVisible:NO];
+//    self.chatWindow.title = @"幽灵感应";
+//    [self.chatWindow setIsVisible:NO];
     
     self.monitorVC = [[ASMonitorViewController alloc] init];
     self.monitorVC.delegate = self;
@@ -83,9 +83,9 @@
     [self.infoVC showWindow:nil];
 }
 
--(void)didClickChat{
-    [self.chatWindow setIsVisible:!self.chatWindow.visible];
-}
+//-(void)didClickChat{
+//    [self.chatWindow setIsVisible:!self.chatWindow.visible];
+//}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
