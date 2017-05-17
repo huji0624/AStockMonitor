@@ -136,7 +136,7 @@
 }
 
 -(void)didClickChat{
-    [self.delegate didClickChat];
+    //[self.delegate didClickChat];
 }
 
 -(NSArray*)format:(NSArray*)datas{

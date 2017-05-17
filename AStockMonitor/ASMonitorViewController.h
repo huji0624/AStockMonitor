@@ -10,7 +10,7 @@
 
 @protocol ASMonitorViewControllerDelegate <NSObject>
 -(void)didClickInfo:(id)tag;
--(void)didClickChat;
+//-(void)didClickChat;
 @end
 
 @interface ASMonitorViewController : NSObject
