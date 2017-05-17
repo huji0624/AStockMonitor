@@ -19,6 +19,8 @@
 #import "ASConfig.h"
 #import "ASChatMan.h"
 #import "ASChatWindow.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()<ASMonitorViewControllerDelegate>
 
@@ -31,6 +33,8 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [Fabric with:@[[CrashlyticsKit class]]];
+    
     [ASConfig startGetConifg];
     
     // Insert code here to initialize your application
