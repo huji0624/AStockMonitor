@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define ASDefaultFormat @"股票名字"
-#define ASFormatSep @"-"
+#define ASFormatSep @"#"
 
 @interface ASFormatCache : NSObject
 +(instancetype)cache;
