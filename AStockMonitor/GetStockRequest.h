@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <AFHTTPRequestOperationManager.h>
 
-typedef void(^GetStockRequestBlock)(NSArray *stocks);
+@interface GetStock : NSObject
+@property (nonatomic,strong) NSDictionary *max;
+@property (nonatomic,strong) NSArray *stocks;
+@end
+
+typedef void(^GetStockRequestBlock)(GetStock *stocks);
 
 @interface GetStockRequest : NSObject
 -(AFHTTPRequestOperation *)requestForStocks:(NSArray*)stocks block:(GetStockRequestBlock)block;

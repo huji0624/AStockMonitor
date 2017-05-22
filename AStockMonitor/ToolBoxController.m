@@ -12,6 +12,7 @@
 #import "ASConfig.h"
 #import "ASChatMan.h"
 #import "ASFormatController.h"
+#import "ASHelpController.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
@@ -23,6 +24,7 @@
 @property (strong) NSButton *chatButton;
 
 @property (strong) ASFormatController *formatVC;
+@property (strong) ASHelpController *helpVC;
 @end
 
 @implementation ToolBoxController
@@ -35,6 +37,7 @@
 //        self.chatButton = [self addButton:@"chat" action:@selector(chatClick) size:14];
 //        self.chatButton.tag = 0;
         
+        [self addButton:@"help" action:@selector(helpClick) size:10];
         [self addButton:@"config" action:@selector(configClick) size:10];
         
         self.addButton = [self addButton:@"add" action:@selector(addStock) size:12];
@@ -98,10 +101,10 @@
     [self.window makeFirstResponder:nil];
     
     GetStockRequest *req = [[GetStockRequest alloc] init];
-    [req requestForStocks:@[sh,sz] block:^(NSArray *stocks) {
+    [req requestForStocks:@[sh,sz] block:^(GetStock *stocks) {
         if (stocks) {
-            if (stocks.count>0) {
-                for (NSDictionary *info in stocks) {
+            if (stocks.stocks.count>0) {
+                for (NSDictionary *info in stocks.stocks) {
                      [[StocksManager manager] addStocks:@[info[@"股票代码"]]];
                 }
                 [self cleanup];
@@ -227,6 +230,13 @@
     }
     
     [self.formatVC showWindow:nil];
+}
+
+-(void)helpClick{
+    if (!self.helpVC) {
+        self.helpVC = [[ASHelpController alloc] initWithWindowNibName:@"ASHelpController"];
+    }
+    [self.helpVC showWindow:nil];
 }
 
 @end

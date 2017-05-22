@@ -96,7 +96,7 @@
         }
         
         GetStockRequest *req = [[GetStockRequest alloc] init];
-        self.request = [req requestForStocks:stockslist block:^(NSArray *stocks) {
+        self.request = [req requestForStocks:stockslist block:^(GetStock *stocks) {
             if (stocks) {
                 [self updateResponse:stocks];
             }
@@ -108,7 +108,7 @@
     }
 }
 
--(void)updateResponse:(NSArray*)datas{
+-(void)updateResponse:(GetStock*)datas{
     
     NSArray *formats = [self format:datas];
     
@@ -139,9 +139,9 @@
     //[self.delegate didClickChat];
 }
 
--(NSArray*)format:(NSArray*)datas{
+-(NSArray*)format:(GetStock*)datas{
     NSMutableArray *array = [NSMutableArray array];
-    for (NSDictionary *data in datas) {
+    for (NSDictionary *data in datas.stocks) {
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] init];
         NSArray *format = [self formats];
         for (NSString *key in format) {
@@ -188,41 +188,6 @@
 
 -(NSArray*)formats{
     return [[[ASFormatCache cache] currentFormat] componentsSeparatedByString:ASFormatSep];
-}
-
--(NSArray*)parse:(NSString*)text{
-    NSMutableArray *array = [NSMutableArray array];
-    
-    NSArray *lines = [text componentsSeparatedByString:@"\n"];
-    for (NSString *line in lines) {
-        if (line.length>0) {
-            NSArray *parts = [line componentsSeparatedByString:@"\""];
-            if (parts.count>=2) {
-                NSArray *item = [parts[1] componentsSeparatedByString:@","];
-                
-                NSString *first = parts[0];
-                NSString *code = [first substringWithRange:NSMakeRange(first.length-9, 8)];
-                
-                if (item.count>1) {
-                    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-                    
-                    NSArray *keys = [[ASFormatCache cache] allKeys];
-                    for (NSString *key in keys) {
-                        NSNumber *index = [[ASFormatCache cache] objectForKey:key];
-                        if (index.intValue>=0 && index.intValue < item.count) {
-                            dict[key] = item[index.intValue];
-                        }
-                    }
-                    
-                    dict[@"股票代码"] = code;
-                    
-                    [array addObject:dict];
-                }
-            }
-        }
-    }
-    
-    return array;
 }
 
 -(void)refresh:(NSArray*)array{

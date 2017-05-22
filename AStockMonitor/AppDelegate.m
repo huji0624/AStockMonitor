@@ -45,10 +45,6 @@
     self.window.movableByWindowBackground = YES;
     self.window.titlebarAppearsTransparent = YES;
     self.window.styleMask = NSBorderlessWindowMask;
-    [ExcuteTimesCache excute:@"showHelp" showTimes:1 action:^BOOL(NSUInteger timesIndex) {
-        [self.window showHelp:nil];
-        return YES;
-    }];
     
     //chatWindow init
 //    [self.chatWindow setLevel:NSFloatingWindowLevel];

@@ -21,6 +21,7 @@
 		6A201FD11D9D22480082A268 /* NSAttributedString+Magic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FCE1D9D22480082A268 /* NSAttributedString+Magic.m */; };
 		6A201FD21D9D22480082A268 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FD01D9D22480082A268 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A201FD51D9D23B50082A268 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FD41D9D23B50082A268 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6A2CA3DD1ED2C7160034FB0F /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2CA3DC1ED2C7160034FB0F /* help.png */; };
 		6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A35059C1C48FA1A0042D82B /* MacDevTool.m */; };
 		6A3505A21C491E7F0042D82B /* StocksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A11C491E7F0042D82B /* StocksManager.m */; };
 		6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A71C4931310042D82B /* ToolBoxController.m */; };
@@ -92,6 +93,7 @@
 		6A201FD01D9D22480082A268 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		6A201FD31D9D23B50082A268 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		6A201FD41D9D23B50082A268 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		6A2CA3DC1ED2C7160034FB0F /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
 		6A35059A1C48D1450042D82B /* AStock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AStock-Prefix.pch"; sourceTree = "<group>"; };
 		6A35059B1C48FA1A0042D82B /* MacDevTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacDevTool.h; sourceTree = "<group>"; };
 		6A35059C1C48FA1A0042D82B /* MacDevTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacDevTool.m; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		6A3505A31C492B440042D82B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A2CA3DC1ED2C7160034FB0F /* help.png */,
 				6AF14B7D1DDAAA3E007D776E /* config.png */,
 				6AA16A531DBCBD04003198DB /* no-avatar.png */,
 				6A49F3651CA50FEC007A4043 /* add.png */,
@@ -480,6 +483,7 @@
 				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
 				6A6CF5981C00246800B44F75 /* ASFormatController.xib in Resources */,
 				6A6CF59A1C00278100B44F75 /* formatTable.plist in Resources */,
+				6A2CA3DD1ED2C7160034FB0F /* help.png in Resources */,
 				6AB2367C1C5A11F900F49990 /* ASHelpController.xib in Resources */,
 				6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */,
 				6AF14B7E1DDAAA3E007D776E /* config.png in Resources */,

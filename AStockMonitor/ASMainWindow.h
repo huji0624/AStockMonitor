@@ -9,5 +9,4 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ASMainWindow : NSWindow
--(void)showHelp:(id)help;
 @end

@@ -8,10 +8,9 @@
 
 #import "ASMainWindow.h"
 #import "ASConstant.h"
-#import "ASHelpController.h"
 
 @implementation ASMainWindow{
-    ASHelpController *_help;
+    
 }
 -(BOOL)canBecomeKeyWindow{
     return YES;
@@ -31,12 +30,5 @@
     }
     [[NSUserDefaults standardUserDefaults] setObject:@(alpha) forKey:ASAlphaValueKey];
     self.alphaValue = alpha;
-}
--(void)showHelp:(id)help{
-    if (!_help) {
-        ASHelpController *hp = [[ASHelpController alloc] initWithWindowNibName:@"ASHelpController"];
-        _help = hp;
-    }
-    [_help showWindow:self];
 }
 @end
