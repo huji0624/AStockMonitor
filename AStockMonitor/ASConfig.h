@@ -10,9 +10,12 @@
 
 @interface ASConfig : NSObject
 +(void)startGetConifg;
++(void)doGetConfig:(dispatch_block_t)block;
 
 +(NSString*)as_chat_url;
 
 +(NSString*)as_host;
+
++(NSString*)as_donations;
 
 @end

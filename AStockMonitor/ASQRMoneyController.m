@@ -7,6 +7,7 @@
 //
 
 #import "ASQRMoneyController.h"
+#import "ASConfig.h"
 
 @interface ASQRMoneyController ()
 
@@ -18,6 +19,19 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    
+    self.donations.editable = NO;
+}
+
+-(void)showWindow:(id)sender{
+    [super showWindow:sender];
+    
+    [ASConfig doGetConfig:^{
+        NSString *donations = [ASConfig as_donations];
+        if (donations) {
+            self.donations.string = donations;
+        }
+    }];
 }
 
 @end

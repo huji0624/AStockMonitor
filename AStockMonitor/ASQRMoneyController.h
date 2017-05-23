@@ -9,5 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ASQRMoneyController : NSWindowController
-
+@property (strong) IBOutlet NSTextView *donations;
 @end
