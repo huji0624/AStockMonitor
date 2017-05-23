@@ -22,6 +22,10 @@
 		6A201FD21D9D22480082A268 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FD01D9D22480082A268 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A201FD51D9D23B50082A268 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FD41D9D23B50082A268 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A2CA3DD1ED2C7160034FB0F /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2CA3DC1ED2C7160034FB0F /* help.png */; };
+		6A2CA3DF1ED3FD6B0034FB0F /* wallet.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2CA3DE1ED3FD6B0034FB0F /* wallet.png */; };
+		6A2CA3E11ED3FE440034FB0F /* qr_money.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6A2CA3E01ED3FE440034FB0F /* qr_money.jpeg */; };
+		6A2CA3E51ED3FEAF0034FB0F /* ASQRMoneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CA3E31ED3FEAF0034FB0F /* ASQRMoneyController.m */; };
+		6A2CA3E61ED3FEAF0034FB0F /* ASQRMoneyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2CA3E41ED3FEAF0034FB0F /* ASQRMoneyController.xib */; };
 		6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A35059C1C48FA1A0042D82B /* MacDevTool.m */; };
 		6A3505A21C491E7F0042D82B /* StocksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A11C491E7F0042D82B /* StocksManager.m */; };
 		6A3505A81C4931310042D82B /* ToolBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3505A71C4931310042D82B /* ToolBoxController.m */; };
@@ -94,6 +98,11 @@
 		6A201FD31D9D23B50082A268 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		6A201FD41D9D23B50082A268 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		6A2CA3DC1ED2C7160034FB0F /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
+		6A2CA3DE1ED3FD6B0034FB0F /* wallet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallet.png; sourceTree = "<group>"; };
+		6A2CA3E01ED3FE440034FB0F /* qr_money.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = qr_money.jpeg; sourceTree = "<group>"; };
+		6A2CA3E21ED3FEAF0034FB0F /* ASQRMoneyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQRMoneyController.h; sourceTree = "<group>"; };
+		6A2CA3E31ED3FEAF0034FB0F /* ASQRMoneyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASQRMoneyController.m; sourceTree = "<group>"; };
+		6A2CA3E41ED3FEAF0034FB0F /* ASQRMoneyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASQRMoneyController.xib; sourceTree = "<group>"; };
 		6A35059A1C48D1450042D82B /* AStock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AStock-Prefix.pch"; sourceTree = "<group>"; };
 		6A35059B1C48FA1A0042D82B /* MacDevTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacDevTool.h; sourceTree = "<group>"; };
 		6A35059C1C48FA1A0042D82B /* MacDevTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacDevTool.m; sourceTree = "<group>"; };
@@ -264,6 +273,9 @@
 				6AB236781C5A11F900F49990 /* ASHelpController.h */,
 				6AB236791C5A11F900F49990 /* ASHelpController.m */,
 				6AB2367A1C5A11F900F49990 /* ASHelpController.xib */,
+				6A2CA3E21ED3FEAF0034FB0F /* ASQRMoneyController.h */,
+				6A2CA3E31ED3FEAF0034FB0F /* ASQRMoneyController.m */,
+				6A2CA3E41ED3FEAF0034FB0F /* ASQRMoneyController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +300,8 @@
 		6A3505A31C492B440042D82B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A2CA3E01ED3FE440034FB0F /* qr_money.jpeg */,
+				6A2CA3DE1ED3FD6B0034FB0F /* wallet.png */,
 				6A2CA3DC1ED2C7160034FB0F /* help.png */,
 				6AF14B7D1DDAAA3E007D776E /* config.png */,
 				6AA16A531DBCBD04003198DB /* no-avatar.png */,
@@ -475,9 +489,11 @@
 				6AA16A541DBCBD04003198DB /* no-avatar.png in Resources */,
 				6AB236831C5A26F300F49990 /* down.png in Resources */,
 				6AFB11081BEC4D6400569A77 /* Assets.xcassets in Resources */,
+				6A2CA3E11ED3FE440034FB0F /* qr_money.jpeg in Resources */,
 				6A49F3671CA50FEC007A4043 /* add.png in Resources */,
 				6A66F1441C8EE59B003BB640 /* chat.png in Resources */,
 				6AB2367E1C5A14DE00F49990 /* 幽灵股票-帮助.html in Resources */,
+				6A2CA3DF1ED3FD6B0034FB0F /* wallet.png in Resources */,
 				6A623A121BFC3B6000EDDE07 /* iVersion.bundle in Resources */,
 				6A49F3681CA50FEC007A4043 /* close.png in Resources */,
 				6AFB110B1BEC4D6400569A77 /* MainMenu.xib in Resources */,
@@ -487,6 +503,7 @@
 				6AB2367C1C5A11F900F49990 /* ASHelpController.xib in Resources */,
 				6AE30C191C2D294700E65530 /* ASInfoController.xib in Resources */,
 				6AF14B7E1DDAAA3E007D776E /* config.png in Resources */,
+				6A2CA3E61ED3FEAF0034FB0F /* ASQRMoneyController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +590,7 @@
 				6AFB11141BEC502500569A77 /* ASMonitorViewController.m in Sources */,
 				6A0B25441CEACAC800F7CADB /* SocketIOTransportWebsocket.m in Sources */,
 				6AF14B811DDBF77A007D776E /* ColorButton.m in Sources */,
+				6A2CA3E51ED3FEAF0034FB0F /* ASQRMoneyController.m in Sources */,
 				6AB236811C5A164300F49990 /* ExcuteTimesCache.m in Sources */,
 				6A201FBE1D9D1A7A0082A268 /* ChatMessageCellTextScrollView.m in Sources */,
 				6A35059D1C48FA1A0042D82B /* MacDevTool.m in Sources */,

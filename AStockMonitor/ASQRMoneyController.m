@@ -1,0 +1,23 @@
+//
+//  ASQRMoneyController.m
+//  AStockMonitor
+//
+//  Created by __huji on 23/5/2017.
+//  Copyright © 2017 huji. All rights reserved.
+//
+
+#import "ASQRMoneyController.h"
+
+@interface ASQRMoneyController ()
+
+@end
+
+@implementation ASQRMoneyController
+
+- (void)windowDidLoad {
+    [super windowDidLoad];
+    
+    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+@end

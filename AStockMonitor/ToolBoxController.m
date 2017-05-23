@@ -13,6 +13,7 @@
 #import "ASChatMan.h"
 #import "ASFormatController.h"
 #import "ASHelpController.h"
+#import "ASQRMoneyController.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
@@ -25,6 +26,7 @@
 
 @property (strong) ASFormatController *formatVC;
 @property (strong) ASHelpController *helpVC;
+@property (strong) ASQRMoneyController *qrVC;
 @end
 
 @implementation ToolBoxController
@@ -39,6 +41,7 @@
         
         [self addButton:@"help" action:@selector(helpClick) size:10];
         [self addButton:@"config" action:@selector(configClick) size:10];
+        [self addButton:@"wallet" action:@selector(qrClick) size:10];
         
         self.addButton = [self addButton:@"add" action:@selector(addStock) size:12];
         self.addButton.tag = 0;
@@ -237,6 +240,13 @@
         self.helpVC = [[ASHelpController alloc] initWithWindowNibName:@"ASHelpController"];
     }
     [self.helpVC showWindow:nil];
+}
+
+-(void)qrClick{
+    if (!self.qrVC) {
+        self.qrVC = [[ASQRMoneyController alloc] initWithWindowNibName:@"ASQRMoneyController"];
+    }
+    [self.qrVC showWindow:nil];
 }
 
 @end
