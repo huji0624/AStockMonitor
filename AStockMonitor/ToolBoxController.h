@@ -23,4 +23,6 @@
 @property (weak) NSWindow *window;
 
 -(NSView*)view;
+
+-(void)helpClick;
 @end

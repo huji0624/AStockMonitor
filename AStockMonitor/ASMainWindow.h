@@ -9,4 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ASMainWindow : NSWindow
+
+-(IBAction)showHelp:(id)sender;
+
 @end

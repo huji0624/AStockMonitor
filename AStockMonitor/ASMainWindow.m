@@ -8,6 +8,8 @@
 
 #import "ASMainWindow.h"
 #import "ASConstant.h"
+#import "ToolBoxController.h"
+#import "OpenEnv.h"
 
 @implementation ASMainWindow{
     
@@ -30,5 +32,10 @@
     }
     [[NSUserDefaults standardUserDefaults] setObject:@(alpha) forKey:ASAlphaValueKey];
     self.alphaValue = alpha;
+}
+
+-(void)showHelp:(id)sender{
+    ToolBoxController *tool = [OPEV getID:@"tool" defaultValue:nil];
+    [tool helpClick];
 }
 @end

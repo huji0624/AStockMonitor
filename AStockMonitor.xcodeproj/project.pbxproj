@@ -15,6 +15,7 @@
 		6A0B25451CEACAC800F7CADB /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B25401CEACAC800F7CADB /* SocketIOTransportXHR.m */; };
 		6A0B25481CEACB2700F7CADB /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B25471CEACB2700F7CADB /* SRWebSocket.m */; };
 		6A172DF71C2A81D7000A25F0 /* LHRealTimeStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A172DF61C2A81D7000A25F0 /* LHRealTimeStatistics.m */; };
+		6A18215D1EE02712007DF4B9 /* OpenEnv.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A18215C1EE02712007DF4B9 /* OpenEnv.m */; };
 		6A201FBD1D9D1A7A0082A268 /* ChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FB51D9D1A7A0082A268 /* ChatMessageCell.m */; };
 		6A201FBE1D9D1A7A0082A268 /* ChatMessageCellTextScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FB71D9D1A7A0082A268 /* ChatMessageCellTextScrollView.m */; };
 		6A201FC01D9D1A7A0082A268 /* NSString+Magic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A201FBB1D9D1A7A0082A268 /* NSString+Magic.m */; };
@@ -82,6 +83,8 @@
 		6A0B25471CEACB2700F7CADB /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		6A172DF51C2A81D7000A25F0 /* LHRealTimeStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHRealTimeStatistics.h; sourceTree = "<group>"; };
 		6A172DF61C2A81D7000A25F0 /* LHRealTimeStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHRealTimeStatistics.m; sourceTree = "<group>"; };
+		6A18215B1EE02712007DF4B9 /* OpenEnv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEnv.h; sourceTree = "<group>"; };
+		6A18215C1EE02712007DF4B9 /* OpenEnv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEnv.m; sourceTree = "<group>"; };
 		6A201FB41D9D1A7A0082A268 /* ChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageCell.h; sourceTree = "<group>"; };
 		6A201FB51D9D1A7A0082A268 /* ChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageCell.m; sourceTree = "<group>"; };
 		6A201FB61D9D1A7A0082A268 /* ChatMessageCellTextScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageCellTextScrollView.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 		6A172DF41C2A8182000A25F0 /* LHToolKit */ = {
 			isa = PBXGroup;
 			children = (
+				6A18215B1EE02712007DF4B9 /* OpenEnv.h */,
+				6A18215C1EE02712007DF4B9 /* OpenEnv.m */,
 				6AF6BB111CBB862A0032CCB3 /* LHLongLink */,
 				6AB2367F1C5A164300F49990 /* ExcuteTimesCache.h */,
 				6AB236801C5A164300F49990 /* ExcuteTimesCache.m */,
@@ -598,6 +603,7 @@
 				6A623A131BFC3B6000EDDE07 /* iVersion.m in Sources */,
 				6A5627F31CF5685D00C1ECF6 /* ASChatMan.m in Sources */,
 				6AE30C141C2D1D8500E65530 /* ASStockView.m in Sources */,
+				6A18215D1EE02712007DF4B9 /* OpenEnv.m in Sources */,
 				6A201FC01D9D1A7A0082A268 /* NSString+Magic.m in Sources */,
 				6A3505AB1C4A4CC80042D82B /* GetStockRequest.m in Sources */,
 				6A0B25451CEACAC800F7CADB /* SocketIOTransportXHR.m in Sources */,

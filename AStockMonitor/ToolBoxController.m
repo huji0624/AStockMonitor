@@ -14,6 +14,7 @@
 #import "ASFormatController.h"
 #import "ASHelpController.h"
 #import "ASQRMoneyController.h"
+#import "OpenEnv.h"
 
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
@@ -46,7 +47,9 @@
         self.addButton = [self addButton:@"add" action:@selector(addStock) size:12];
         self.addButton.tag = 0;
         
-        
+        [OPEV addEnvID:@"tool" target:self call:^id(id params) {
+            return self;
+        } des:@"工具"];
         
     }
     return self;
