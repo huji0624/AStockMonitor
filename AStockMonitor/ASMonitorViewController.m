@@ -149,12 +149,7 @@
         for (NSString *key in format) {
             id v = data[key];
             if (v) {
-                if ([v isKindOfClass:[NSAttributedString class]]) {
-                    [texts addObject:v];
-                }else{
-                    [texts addObject:[[NSAttributedString alloc] initWithString:v]];
-                    
-                }
+                [texts addObject:v];
                 
                 [maxs addObject:datas.max[key]];
             }else{
@@ -167,7 +162,7 @@
         NSString *yClose = data[@"昨日收盘价"];
         NSAttributedString *perStr = nil;
         NSMutableParagraphStyle *paragStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-        [paragStyle setAlignment:NSTextAlignmentRight];
+        [paragStyle setAlignment:NSTextAlignmentCenter];
         if (price.floatValue == 0) {
             perStr = [[NSAttributedString alloc] initWithString:@"停牌" attributes:@{NSForegroundColorAttributeName:[NSColor grayColor],NSParagraphStyleAttributeName:paragStyle}];
         }else{

@@ -118,17 +118,16 @@
         }
         
         NSTextField *text = [[NSTextField alloc] init];
-//        text.editable = YES;
-//        if ([max isEqualToString:@"-10.00%"]) {
-//            text.alignment = NSTextAlignmentRight;
-//        }else{
-//            text.alignment = NSTextAlignmentCenter;
-//        }
         text.editable = NO;
         text.translatesAutoresizingMaskIntoConstraints = NO;
-        text.bordered = NO;
+        text.bordered = YES;
         text.bezeled = NO;
-        text.attributedStringValue = label;
+        if ([label isMemberOfClass:[NSAttributedString class]]) {
+            text.attributedStringValue = label;
+        }else{
+            text.alignment = NSTextAlignmentLeft;
+            text.stringValue = (NSString*)label;
+        }
         text.font = thefont;
         [text mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@(maxwid));
