@@ -17,5 +17,5 @@
 @interface ASStockView : NSView
 @property (weak) id<ASStockViewDelegate> delegate;
 
--(void)setTag:(id)stockTag info:(NSAttributedString*)info;
+-(void)setTag:(id)stockTag info:(NSArray*)info maxs:(NSArray*)maxs;
 @end

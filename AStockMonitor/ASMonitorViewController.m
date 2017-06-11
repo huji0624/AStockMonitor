@@ -142,17 +142,21 @@
 -(NSArray*)format:(GetStock*)datas{
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *data in datas.stocks) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] init];
+        NSMutableArray *texts = [NSMutableArray arrayWithCapacity:20];
+        NSMutableArray *maxs = [NSMutableArray arrayWithCapacity:20];
+        
         NSArray *format = [self formats];
         for (NSString *key in format) {
             id v = data[key];
             if (v) {
                 if ([v isKindOfClass:[NSAttributedString class]]) {
-                    [text appendAttributedString:v];
+                    [texts addObject:v];
                 }else{
-                    [text appendAttributedString:[[NSAttributedString alloc] initWithString:v]];
+                    [texts addObject:[[NSAttributedString alloc] initWithString:v]];
+                    
                 }
-                [text appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+                
+                [maxs addObject:datas.max[key]];
             }else{
                 NSLog(@"format key %@ value %@ , %@",key,v,data);
             }
@@ -175,11 +179,13 @@
             }
         }
         
-        [text appendAttributedString:perStr];
+        [texts addObject:perStr];
+        [maxs addObject:@"-10.00%"];
         
         NSMutableDictionary *finalInfo = [NSMutableDictionary dictionary];
-        finalInfo[@"text"] = text;
+        finalInfo[@"texts"] = texts;
         finalInfo[@"key"] = data[@"股票代码"];
+        finalInfo[@"maxs"] = maxs;
         
         [array addObject:finalInfo];
     }
@@ -196,17 +202,18 @@
     
     for (NSDictionary *info in array) {
         
-        NSAttributedString *text = info[@"text"];
+        NSArray *texts = info[@"texts"];
         NSString *key = info[@"key"];
+        NSArray *maxs = info[@"maxs"];
         
         ASStockView *stock = [tmp firstObject];
         if (stock) {
-            [stock setTag:key info:text];
+            [stock setTag:key info:texts maxs:maxs];
             [tmp removeObjectAtIndex:0];
         }else{
             ASStockView *container = [[ASStockView alloc] init];
             container.delegate = self;
-            [container setTag:key info:text];
+            [container setTag:key info:texts maxs:maxs];
             [self.stackView addView:container inGravity:NSStackViewGravityTop];
             [self.stockViews addObject:container];
         }

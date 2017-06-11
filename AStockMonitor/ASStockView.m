@@ -9,6 +9,7 @@
 #import "ASStockView.h"
 #import <Masonry.h>
 #import "ColorButton.h"
+#import "MacDevTool.h"
 
 @interface ASStockView ()
 @property id stockTag;
@@ -16,9 +17,11 @@
 
 @implementation ASStockView{
     NSButton *_button;
-    NSTextField *_text;
+    NSStackView *_stack;
     NSButton *_delete;
     NSButton *_down;
+//    NSTextField *_text;
+//    NSMutableArray *_labels;
 }
 
 -(instancetype)init{
@@ -27,12 +30,25 @@
         
         self.translatesAutoresizingMaskIntoConstraints = NO;
         
-        NSTextField *text = [[NSTextField alloc] init];
-        text.editable = NO;
-        text.translatesAutoresizingMaskIntoConstraints = NO;
-        text.alignment = NSTextAlignmentCenter;
-        text.bordered = NO;
-        _text = text;
+//        _labels = [NSMutableArray array];
+        
+        _stack = [[NSStackView alloc] init];
+        _stack.orientation = NSUserInterfaceLayoutOrientationHorizontal;
+        _stack.spacing = 0;
+        [MacDevTool setBackground:_stack color:[NSColor whiteColor]];
+        
+//        NSTextField *text = [[NSTextField alloc] init];
+//        text.editable = YES;
+//        text.alignment = NSTextAlignmentRight;
+//        text.editable = NO;
+//        text.translatesAutoresizingMaskIntoConstraints = NO;
+//        text.bordered = NO;
+//        text.bezeled = NO;
+//        text.attributedStringValue = label;
+//        text.font = thefont;
+//        [text mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.width.equalTo(@(maxwid));
+//        }];
         
         NSButton *button = [[NSButton alloc] init];
         [button setTitle:@"i"];
@@ -47,8 +63,6 @@
         _delete.bordered = NO;
         _delete.hidden = YES;
         [_delete setAttributedTitle:[[NSAttributedString alloc] initWithString:@"删除" attributes:@{NSForegroundColorAttributeName:[NSColor whiteColor]}]];
-//        NSImage *img = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"delete" ofType:@"png"]];
-//        [_delete setImage:img];
         
         _down = [[NSButton alloc] init];
         [_down setTarget:self];
@@ -59,7 +73,7 @@
         [_down setImage:downimg];
         
         [self addSubview:button];
-        [self addSubview:text];
+        [self addSubview:_stack];
         [self addSubview:_delete];
         [self addSubview:_down];
         
@@ -68,11 +82,12 @@
             make.left.equalTo(self.mas_left);
             make.width.equalTo(self.mas_height);
         }];
-        [text mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_stack mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(button.mas_right);
+            make.top.equalTo(self.mas_top);
         }];
         [_delete mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(text.mas_right);
+            make.right.equalTo(_stack.mas_right);
 //            make.height.equalTo(text.mas_height);
             make.centerY.equalTo(button.mas_centerY);
             make.width.equalTo(_delete.mas_height).multipliedBy(1.1f);
@@ -86,26 +101,63 @@
         
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(button.mas_left);
-            make.right.equalTo(text.mas_right);
-            make.height.equalTo(text.mas_height);
+            make.right.equalTo(_stack.mas_right);
+            make.height.equalTo(_stack.mas_height);
         }];
     }
     return self;
 }
 
--(void)setTag:(id)stockTag info:(NSAttributedString *)info{
+-(void)setTag:(id)stockTag info:(NSArray *)info maxs:(NSArray *)maxs{
+    NSAssert(info.count==maxs.count, @"info and maxs must have save count.");
+    
     self.stockTag = stockTag;
     
-    NSString *fsize = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontSize"];
+    NSArray *subs = [NSArray arrayWithArray:_stack.views];
+    for (NSView *view in subs) {
+        [view removeFromSuperview];
+    }
     
-    _text.attributedStringValue = info;
-//    RSVerticallyCenteredTextFieldCell *cell = [[RSVerticallyCenteredTextFieldCell alloc] initTextCell:(NSString*)info];
-//    cell.font = [NSFont systemFontOfSize:fsize.floatValue];;
-//    [_text setCell:cell];
-    _text.font = [NSFont systemFontOfSize:fsize.floatValue];
-    [_text mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(fsize.floatValue*1.3));
-        make.top.equalTo(self.mas_top);
+    NSString *fsize = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontSize"];
+    CGFloat maxhei = 0;
+    for (int i =0 ; i<info.count; i++) {
+        NSAttributedString *label = info[i];
+        NSString *max = maxs[i];
+        
+        NSFont *thefont = [NSFont systemFontOfSize:fsize.floatValue];
+        
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObject:thefont forKey:NSFontAttributeName];
+        NSSize size = [max boundingRectWithSize:NSMakeSize(999, 999) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+        
+        CGFloat maxwid = size.width+8;
+        if(size.height>maxhei){
+            maxhei = size.height;
+        }
+        
+        NSTextField *text = [[NSTextField alloc] init];
+//        text.editable = YES;
+//        if ([max isEqualToString:@"-10.00%"]) {
+//            text.alignment = NSTextAlignmentRight;
+//        }else{
+//            text.alignment = NSTextAlignmentCenter;
+//        }
+        text.editable = NO;
+        text.translatesAutoresizingMaskIntoConstraints = NO;
+        text.bordered = NO;
+        text.bezeled = NO;
+        text.attributedStringValue = label;
+        text.font = thefont;
+        [text mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@(maxwid));
+        }];
+        
+        [_stack addView:text inGravity:NSStackViewGravityLeading];
+    }
+    
+    
+    [_stack mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(maxhei));
+//        make.width.equalTo(@(wid));
     }];
     
     _button.font = [NSFont systemFontOfSize:fsize.floatValue];;
@@ -133,7 +185,7 @@
 -(void)deleteClick:(id)sender{
     LHS(@"stockdelete");
     
-    NSAttributedString *string = _text.attributedStringValue;
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:self.stockTag];
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = [NSString stringWithFormat:@"确定要删除 %@ 吗?",string.string];
     [alert addButtonWithTitle:@"确定"];
