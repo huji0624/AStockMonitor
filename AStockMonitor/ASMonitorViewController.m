@@ -166,16 +166,18 @@
         NSString *price = data[@"当前价格"];
         NSString *yClose = data[@"昨日收盘价"];
         NSAttributedString *perStr = nil;
+        NSMutableParagraphStyle *paragStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        [paragStyle setAlignment:NSTextAlignmentRight];
         if (price.floatValue == 0) {
-            perStr = [[NSAttributedString alloc] initWithString:@"停牌" attributes:@{NSForegroundColorAttributeName:[NSColor grayColor]}];
+            perStr = [[NSAttributedString alloc] initWithString:@"停牌" attributes:@{NSForegroundColorAttributeName:[NSColor grayColor],NSParagraphStyleAttributeName:paragStyle}];
         }else{
             CGFloat percent = (price.floatValue - yClose.floatValue) / yClose.floatValue * 100;
             if (percent>0) {
-                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor redColor]}];
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor redColor],NSParagraphStyleAttributeName:paragStyle}];
             }else if (percent<0){
-                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor greenColor]}];
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor greenColor],NSParagraphStyleAttributeName:paragStyle}];
             }else{
-                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor blackColor]}];
+                perStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.2f%%",percent] attributes:@{NSForegroundColorAttributeName:[NSColor blackColor],NSParagraphStyleAttributeName:paragStyle}];
             }
         }
         

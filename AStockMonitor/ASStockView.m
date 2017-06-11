@@ -20,8 +20,6 @@
     NSStackView *_stack;
     NSButton *_delete;
     NSButton *_down;
-//    NSTextField *_text;
-//    NSMutableArray *_labels;
 }
 
 -(instancetype)init{
@@ -30,25 +28,10 @@
         
         self.translatesAutoresizingMaskIntoConstraints = NO;
         
-//        _labels = [NSMutableArray array];
-        
         _stack = [[NSStackView alloc] init];
         _stack.orientation = NSUserInterfaceLayoutOrientationHorizontal;
         _stack.spacing = 0;
         [MacDevTool setBackground:_stack color:[NSColor whiteColor]];
-        
-//        NSTextField *text = [[NSTextField alloc] init];
-//        text.editable = YES;
-//        text.alignment = NSTextAlignmentRight;
-//        text.editable = NO;
-//        text.translatesAutoresizingMaskIntoConstraints = NO;
-//        text.bordered = NO;
-//        text.bezeled = NO;
-//        text.attributedStringValue = label;
-//        text.font = thefont;
-//        [text mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.width.equalTo(@(maxwid));
-//        }];
         
         NSButton *button = [[NSButton alloc] init];
         [button setTitle:@"i"];
