@@ -10,5 +10,6 @@ pod 'JSONModel'
 pod 'BlocksKit'
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'EGOCache'
 end
 

@@ -10,6 +10,7 @@
 #import <JSONModel.h>
 #import <AFHTTPRequestOperationManager.h>
 #import <BlocksKit.h>
+#import <EGOCache.h>
 
 @interface ConfigModel : JSONModel
 @property (nonatomic,copy) NSString *as_chat_url;
@@ -26,6 +27,9 @@ static NSTimer *_timer = nil;
 
 @implementation ASConfig
 +(void)startGetConifg{
+    [EGOCache globalCache].defaultTimeoutInterval = 60*60*24*10;
+    _config = (ConfigModel*)[[EGOCache globalCache] objectForKey:@"conf"];
+    
     [self doGetConfig:nil];
     
     if (!_timer) {
@@ -41,6 +45,8 @@ static NSTimer *_timer = nil;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _config = [[ConfigModel alloc] initWithDictionary:responseObject error:nil];
+        
+        [[EGOCache globalCache] setObject:_config forKey:@"conf"];
         
         if (block) {
             block();
