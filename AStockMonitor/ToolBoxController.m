@@ -42,7 +42,7 @@
         
         [self addButton:@"help" action:@selector(helpClick) size:10];
         [self addButton:@"config" action:@selector(configClick) size:10];
-        if ([ASConfig as_donation_conf]) {
+        if ([[ASConfig as_donation_conf] isEqualToString:@"0"]) {
             [self addButton:@"wallet" action:@selector(qrClick) size:10];
         }
         
