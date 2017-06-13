@@ -41,7 +41,7 @@ static NSTimer *_timer = nil;
 }
 
 +(void)doGetConfig:(dispatch_block_t)block{
-    NSString *url = @"http://www.whoslab.me/config.html";
+    NSString *url = [NSString stringWithFormat:@"http://www.whoslab.me/config.html?rand=%@",@(arc4random())];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
