@@ -45,9 +45,11 @@ static NSTimer *_timer = nil;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        _config = [[ConfigModel alloc] initWithDictionary:responseObject error:nil];
-        
-        [[EGOCache globalCache] setObject:_config forKey:@"conf"];
+        ConfigModel *conf = [[ConfigModel alloc] initWithDictionary:responseObject error:nil];
+        if(conf){
+            _config = conf;
+            [[EGOCache globalCache] setObject:_config forKey:@"conf"];
+        }
         
         if (block) {
             block();
