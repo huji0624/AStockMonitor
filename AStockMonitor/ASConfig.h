@@ -18,4 +18,6 @@
 
 +(NSString*)as_donations;
 
++(NSString*)as_donation_conf;
+
 @end

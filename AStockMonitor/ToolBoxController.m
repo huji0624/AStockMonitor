@@ -42,7 +42,9 @@
         
         [self addButton:@"help" action:@selector(helpClick) size:10];
         [self addButton:@"config" action:@selector(configClick) size:10];
-        [self addButton:@"wallet" action:@selector(qrClick) size:10];
+        if ([ASConfig as_donation_conf]) {
+            [self addButton:@"wallet" action:@selector(qrClick) size:10];
+        }
         
         self.addButton = [self addButton:@"add" action:@selector(addStock) size:12];
         self.addButton.tag = 0;

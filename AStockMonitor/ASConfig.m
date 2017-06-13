@@ -15,6 +15,7 @@
 @interface ConfigModel : JSONModel
 @property (nonatomic,copy) NSString *as_chat_url;
 @property (nonatomic,copy) NSString *as_donations;
+@property (nonatomic,copy) NSString *as_donation_conf;
 @end
 @implementation ConfigModel
 +(BOOL)propertyIsOptional:(NSString *)propertyName{
@@ -70,6 +71,10 @@ static NSTimer *_timer = nil;
 
 +(NSString*)as_donations{
     return _config.as_donations;
+}
+
++(NSString *)as_donation_conf{
+    return _config.as_donation_conf;
 }
 
 @end
