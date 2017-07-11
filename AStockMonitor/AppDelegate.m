@@ -41,10 +41,16 @@
     // Insert code here to initialize your application
     self.window.backgroundColor = [NSColor colorWithWhite:0.95 alpha:1];
     [self.window setLevel:NSFloatingWindowLevel];
-    self.window.titleVisibility = NSWindowTitleHidden;
+    if ([[ASConfig as_donation_conf] isEqualToString:@"0"]) {
+        self.window.titleVisibility = NSWindowTitleHidden;
+        self.window.titlebarAppearsTransparent = YES;
+        self.window.styleMask = NSBorderlessWindowMask;
+    }else{
+        self.window.titleVisibility = NSWindowTitleVisible;
+        self.window.titlebarAppearsTransparent = NO;
+        self.window.styleMask = NSTitledWindowMask;
+    }
     self.window.movableByWindowBackground = YES;
-    self.window.titlebarAppearsTransparent = YES;
-    self.window.styleMask = NSBorderlessWindowMask;
     
     //chatWindow init
 //    [self.chatWindow setLevel:NSFloatingWindowLevel];

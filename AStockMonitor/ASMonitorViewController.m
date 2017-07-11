@@ -16,6 +16,7 @@
 #import "StocksManager.h"
 #import "ToolBoxController.h"
 #import "GetStockRequest.h"
+#import "ASConfig.h"
 
 @interface ASMonitorViewController ()<ASStockViewDelegate,ToolBoxDelegate>
 @property (strong) NSTimer *timer;
@@ -54,7 +55,8 @@
 -(void)setUpMainWindow:(NSWindow *)window{
     NSView *view = [[NSView alloc] init];
     [MacDevTool setBackground:view color:[NSColor clearColor]];
-    [window.contentView addSubview:view];
+//    [window.contentView addSubview:view];
+    window.contentView = view;
     
     CGFloat hei = TOOLBOXHEI;
     
@@ -81,9 +83,9 @@
         make.height.equalTo(@(hei));
     }];
     
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(window.contentView);
-    }];
+//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(window.contentView);
+//    }];
 
     self.window = window;
 }
@@ -121,7 +123,11 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.stackView.frame.size.width!=0) {
             NSRect frame = self.window.frame;
-            frame.size = NSMakeSize(self.stackView.frame.size.width, self.stackView.frame.size.height + self.toolBox.view.frame.size.height);
+            if ([[ASConfig as_donation_conf] isEqualToString:@"0"]) {
+                frame.size = NSMakeSize(self.stackView.frame.size.width, self.stackView.frame.size.height + self.toolBox.view.frame.size.height);
+            }else{
+                frame.size = NSMakeSize(self.stackView.frame.size.width, self.stackView.frame.size.height + self.toolBox.view.frame.size.height+23);
+            }
             [self.window setFrame:frame display:YES animate:YES];
         }
     });

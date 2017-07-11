@@ -76,6 +76,7 @@ static NSTimer *_timer = nil;
 }
 
 +(NSString *)as_donation_conf{
+//    return @"0";
     return _config.as_donation_conf;
 }
 
