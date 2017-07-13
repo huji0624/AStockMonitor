@@ -48,7 +48,10 @@
     }else{
         self.window.titleVisibility = NSWindowTitleVisible;
         self.window.titlebarAppearsTransparent = NO;
-        self.window.styleMask = NSTitledWindowMask;
+        self.window.styleMask = NSWindowStyleMaskMiniaturizable|NSWindowStyleMaskClosable|NSWindowStyleMaskTitled;
+        [[self.window standardWindowButton:NSWindowZoomButton] setHidden:YES];
+        [[self.window standardWindowButton:NSWindowCloseButton] setHidden:NO];
+        [[self.window standardWindowButton:NSWindowMiniaturizeButton] setHidden:NO];
     }
     self.window.movableByWindowBackground = YES;
     
