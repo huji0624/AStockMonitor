@@ -78,6 +78,24 @@
 //    [[ASChatMan man] connectChat];
     
     LHS(@"launch");
+    
+    [self setUpMenu];
+}
+
+-(void)setUpMenu{
+    
+    NSMenuItem *item3 = [[NSMenuItem alloc] initWithTitle:@"打开窗口" action:@selector(showWindow) keyEquivalent:@"edit_format"];
+    item3.target = self;
+    for (NSMenuItem *temp in [NSApp mainMenu].itemArray) {
+        NSMenu *wmenu = temp.submenu;
+        if ([wmenu.title isEqualToString:@"Window"]) {
+            [wmenu addItem:item3];
+        }
+    }
+}
+
+-(void)showWindow{
+    [self.window makeKeyAndOrderFront:nil];
 }
 
 -(void)didClickInfo:(id)tag{
