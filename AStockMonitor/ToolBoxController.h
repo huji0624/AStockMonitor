@@ -25,4 +25,5 @@
 -(NSView*)view;
 
 -(void)helpClick;
+-(void)openAddStockIfOK;
 @end

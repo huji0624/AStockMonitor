@@ -10,6 +10,7 @@
 #import "ASConstant.h"
 #import "ToolBoxController.h"
 #import "OpenEnv.h"
+#import <Carbon/Carbon.h>
 
 @implementation ASMainWindow{
     
@@ -22,6 +23,9 @@
         [self setWindowAlpha:self.alphaValue - 0.05f];
     }else if ([theEvent.characters isEqualToString:@"]"]){
         [self setWindowAlpha:self.alphaValue + 0.05f];
+    }else if (theEvent.keyCode == 36){
+        ToolBoxController *tool = [OPEV getID:@"tool" defaultValue:nil];
+        [tool openAddStockIfOK];
     }
 }
 -(void)setWindowAlpha:(CGFloat)alpha{

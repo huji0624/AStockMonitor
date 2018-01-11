@@ -142,7 +142,7 @@
         if (stocks) {
             if (stocks.stocks.count>0) {
                 for (NSDictionary *info in stocks.stocks) {
-                     [[StocksManager manager] addStocks:@[info[@"股票代码"]]];
+                    [[StocksManager manager] addStocks:@[info[@"股票代码"]]];
                 }
                 [self cleanup];
             }else{
@@ -165,6 +165,12 @@
     [alert runModal];
     
     LHS(err);
+}
+
+-(void)openAddStockIfOK{
+    if (self.addButton.tag == 0) {
+        [self addStock];
+    }
 }
 
 -(void)addStock{
