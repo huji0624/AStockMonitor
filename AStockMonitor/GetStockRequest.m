@@ -64,7 +64,7 @@
                         if (index && index.intValue>=0 && index.intValue < item.count) {
                             [self setDict:key value:item[index.intValue] dict:dict max:max];
                         }else{
-                            [self setDict:key value:@"#" dict:dict max:max];
+                            [self setDict:key value:@"-" dict:dict max:max];
                         }
                     }
                     NSString *key = @"股票代码";

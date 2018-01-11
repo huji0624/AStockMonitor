@@ -7,10 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel.h>
+
+@interface ConfigModel : JSONModel
+@property (nonatomic,copy) NSString *as_chat_url;
+@property (nonatomic,copy) NSString *as_donations;
+@property (nonatomic,copy) NSString *as_donation_conf;
+@end
+
+typedef void(^GetConfigBlock)(ConfigModel *model);
 
 @interface ASConfig : NSObject
 +(void)startGetConifg;
-+(void)doGetConfig:(dispatch_block_t)block;
++(void)doGetConfig:(GetConfigBlock)block;
 
 +(NSString*)as_chat_url;
 

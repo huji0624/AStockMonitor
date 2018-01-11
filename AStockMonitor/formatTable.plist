@@ -4,11 +4,35 @@
 <dict>
 	<key>h</key>
 	<dict>
+		<key>成交股票数</key>
+		<integer>12</integer>
+		<key>成交金额</key>
+		<integer>11</integer>
+		<key>当前价格</key>
+		<integer>6</integer>
+		<key>今日开盘价</key>
+		<integer>2</integer>
+		<key>昨日收盘价</key>
+		<integer>3</integer>
+		<key>今日最低价</key>
+		<integer>5</integer>
+		<key>今日最高价</key>
+		<integer>4</integer>
 		<key>股票名字</key>
-		<integer>0</integer>
+		<integer>1</integer>
 	</dict>
 	<key>m</key>
 	<dict>
+		<key>成交股票数</key>
+		<integer>10</integer>
+		<key>今日最高价</key>
+		<integer>6</integer>
+		<key>今日最低价</key>
+		<integer>7</integer>
+		<key>昨日收盘价</key>
+		<integer>26</integer>
+		<key>今日开盘价</key>
+		<integer>5</integer>
 		<key>当前价格</key>
 		<integer>1</integer>
 		<key>股票名字</key>

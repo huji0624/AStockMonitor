@@ -141,6 +141,8 @@
 
 -(void)didRefresh{
     [self setWindowFrameRight];
+    
+    [self requestForStocks];
 }
 
 -(void)didClickChat{

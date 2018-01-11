@@ -26,8 +26,11 @@
 -(void)showWindow:(id)sender{
     [super showWindow:sender];
     
-    [ASConfig doGetConfig:^{
-        NSString *donations = [ASConfig as_donations];
+    NSString *d = [ASConfig as_donations];
+    if(d) self.donations.string = d;
+    
+    [ASConfig doGetConfig:^(ConfigModel *model) {
+        NSString *donations = [model as_donations];
         if (donations) {
             self.donations.string = donations;
         }
