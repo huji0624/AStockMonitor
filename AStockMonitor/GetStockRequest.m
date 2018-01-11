@@ -46,22 +46,29 @@
                 NSArray *item = [parts[1] componentsSeparatedByString:@","];
                 
                 NSString *first = parts[0];
-                NSString *code = [first substringWithRange:NSMakeRange(first.length-9, 8)];
+                NSString *mid = [first componentsSeparatedByString:@"var hq_str_"][1];
+                NSString *code = [mid componentsSeparatedByString:@"="][0];
                 
                 if (item.count>1) {
                     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-                    
                     NSArray *keys = [[ASFormatCache cache] allKeys];
                     for (NSString *key in keys) {
-                        NSNumber *index = [[ASFormatCache cache] objectForKey:key];
-                        if (index.intValue>=0 && index.intValue < item.count) {
+                        NSNumber *index = nil;
+                        if ([code hasPrefix:@"gb_"]) {
+                            index = [[ASFormatCache cache] objectForKey:key market:@"m"];
+                        }else if([code hasPrefix:@"rt_hk"]){
+                            index = [[ASFormatCache cache] objectForKey:key market:@"h"];
+                        }else{
+                            index = [[ASFormatCache cache] objectForKey:key market:@"a"];
+                        }
+                        if (index && index.intValue>=0 && index.intValue < item.count) {
                             [self setDict:key value:item[index.intValue] dict:dict max:max];
+                        }else{
+                            [self setDict:key value:@"#" dict:dict max:max];
                         }
                     }
-                    
                     NSString *key = @"股票代码";
                     [self setDict:key value:code dict:dict max:max];
-                    
                     [array addObject:dict];
                 }
             }

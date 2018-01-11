@@ -19,6 +19,8 @@
 @interface ToolBoxController () <NSTextFieldDelegate>
 @property (strong) NSView *contentView;
 @property (strong) NSTextField *codeField;
+@property (strong) NSTextField *marketText;
+@property (assign) NSInteger markettag;
 
 @property (strong) NSView *lastAddButton;
 
@@ -88,19 +90,43 @@
 -(BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector{
     if (commandSelector == @selector(insertNewline:)) {
         NSString *code = textView.string;
-        if (code.length == 6){
-            [self valideStock:code];
+        if (self.markettag == 0 && code.length == 6){
+            [self valideAndAddStock:code sz:[NSString stringWithFormat:@"sz%@",code] sh:[NSString stringWithFormat:@"sh%@",code]];
+        }else if(self.markettag == 1){
+            code = [code lowercaseString];
+            NSLog(@"mg code %@",code);
+            [self valideAndAddStock:[code copy] sz:[NSString stringWithFormat:@"gb_%@",code] sh:nil];
+        }else if(self.markettag == 2){
+            [self valideAndAddStock:[code copy] sz:[NSString stringWithFormat:@"rt_hk%@",code] sh:nil];
         }else{
             [self error:[NSString stringWithFormat:@"股票代码错误,%@",code]];
         }
         
         return YES;
+    }else if(commandSelector == @selector(insertTab:)){
+        if (self.markettag == 0) {
+            self.markettag = 1;
+        }else if (self.markettag == 1){
+            self.markettag = 2;
+        }else{
+            self.markettag = 0;
+        }
+        self.marketText.stringValue = [self marketTextWithTag:self.markettag];
+        return YES;
+    }else if(commandSelector == @selector(cancelOperation:)){
+        [self cleanup];
     }
     return NO;
 }
 
--(void)valideStock:(NSString*)code{
-   [self valideAndAddStock:code sz:[NSString stringWithFormat:@"sz%@",code] sh:[NSString stringWithFormat:@"sh%@",code]];
+-(NSString*)marketTextWithTag:(NSInteger)tag{
+    if (tag == 1) {
+        return @"美股  Tab切换";
+    }else if (tag == 2){
+        return @"港股  Tab切换";
+    }else{
+        return @"A股  Tab切换";
+    }
 }
 
 -(void)valideAndAddStock:(NSString*)ori sz:(NSString*)sz sh:(NSString*)sh{
@@ -109,7 +135,10 @@
     [self.window makeFirstResponder:nil];
     
     GetStockRequest *req = [[GetStockRequest alloc] init];
-    [req requestForStocks:@[sh,sz] block:^(GetStock *stocks) {
+    NSMutableArray *reqs = [NSMutableArray array];
+    if(sz) [reqs addObject:sz];
+    if(sh) [reqs addObject:sh];
+    [req requestForStocks:reqs block:^(GetStock *stocks) {
         if (stocks) {
             if (stocks.stocks.count>0) {
                 for (NSDictionary *info in stocks.stocks) {
@@ -117,6 +146,7 @@
                 }
                 [self cleanup];
             }else{
+                NSLog(@"股票代码有误 %@",ori);
                 [self error:[NSString stringWithFormat:@"股票代码有误,%@",ori]];
             }
         }else{
@@ -149,6 +179,22 @@
             make.height.equalTo(@(TOOLBOXHEI + TOOLBOXEDITHEI));
         }];
         
+        NSTextField *market = [[NSTextField alloc] init];
+        market.editable = NO;
+        market.translatesAutoresizingMaskIntoConstraints = NO;
+        market.bordered = YES;
+        market.bezeled = NO;
+        market.alignment = NSTextAlignmentCenter;
+        market.stringValue = [self marketTextWithTag:self.markettag];
+        self.marketText = market;
+        [self.contentView addSubview:self.marketText];
+        [self.marketText mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left);
+            make.top.equalTo(self.addButton.mas_bottom);
+            make.right.equalTo(self.contentView.mas_right);
+            make.height.equalTo(@(TOOLBOXEDITHEI/2));
+        }];
+        
         NSTextField *field = [[NSTextField alloc] init];
         field.editable = YES;
         field.selectable = YES;
@@ -157,9 +203,9 @@
         [self.contentView addSubview:field];
         [field mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left);
-            make.top.equalTo(self.addButton.mas_bottom);
+            make.top.equalTo(self.marketText.mas_bottom);
             make.right.equalTo(self.contentView.mas_right);
-            make.height.equalTo(@(TOOLBOXEDITHEI));
+            make.height.equalTo(@(TOOLBOXEDITHEI/2));
         }];
         [self.window makeFirstResponder:field];
         self.codeField = field;
@@ -176,6 +222,9 @@
     [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(TOOLBOXHEI));
     }];
+    
+    [self.marketText removeFromSuperview];
+    self.marketText = nil;
     
     [self.codeField removeFromSuperview];
     self.codeField = nil;

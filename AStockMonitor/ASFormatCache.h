@@ -14,8 +14,8 @@
 @interface ASFormatCache : NSObject
 +(instancetype)cache;
 
--(NSArray*)allKeys;
--(NSNumber*)objectForKey:(NSString*)key;
+-(NSArray *)allKeys;
+-(NSNumber *)objectForKey:(NSString *)key market:(NSString*)market;
 
 -(NSString*)currentFormat;
 -(void)saveCurrentFormat:(NSString*)string;

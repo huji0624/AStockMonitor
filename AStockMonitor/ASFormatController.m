@@ -56,7 +56,7 @@
 -(NSString*)checkFormat:(NSString*)fms{
     NSArray *f = [fms componentsSeparatedByString:ASFormatSep];
     for (NSString *key in f) {
-        if (![[ASFormatCache cache] objectForKey:key]) {
+        if (![[ASFormatCache cache] objectForKey:key market:@"a"]) {
             return [NSString stringWithFormat:@"没有这个数据 %@",key];
         }
     }

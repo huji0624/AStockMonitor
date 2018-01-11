@@ -34,11 +34,18 @@ static ASFormatCache *_instance =nil;
 }
 
 -(NSArray *)allKeys{
-    return _formatTable.allKeys;
+    NSMutableSet *keys = [NSMutableSet set];
+    NSArray *marketkeys = _formatTable.allKeys;
+    for (NSString *mkey in marketkeys) {
+        NSDictionary *tmp = _formatTable[mkey];
+        [keys addObjectsFromArray:tmp.allKeys];
+    }
+    return keys.allObjects;
 }
 
--(NSNumber *)objectForKey:(NSString *)key{
-    return _formatTable[key];
+-(NSNumber *)objectForKey:(NSString *)key market:(NSString*)market{
+    NSDictionary *tmp = _formatTable[market];
+    return tmp[key];
 }
 
 -(NSString *)currentFormat{

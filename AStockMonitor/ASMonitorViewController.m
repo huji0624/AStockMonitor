@@ -41,7 +41,7 @@
     self = [super init];
     if (self) {
         self.firstLoad = YES;
-        self.timer = [NSTimer bk_scheduledTimerWithTimeInterval:2 block:^(NSTimer *timer) {
+        self.timer = [NSTimer bk_scheduledTimerWithTimeInterval:5 block:^(NSTimer *timer) {
             [self requestForStocks];
         } repeats:YES];
         
@@ -88,6 +88,8 @@
 //    }];
 
     self.window = window;
+    
+    [self requestForStocks];
 }
 
 -(void)requestForStocks{
@@ -232,6 +234,7 @@
 }
 -(void)didDeleteStock:(id)tag{
     [[StocksManager manager] removeStock:tag];
+    [self requestForStocks];
 }
 -(void)didDownClick:(id)tag{
     [[StocksManager manager] makeTop:tag];
@@ -249,5 +252,6 @@
 -(void)didChangeFont{
     NSMutableArray *tmp = [NSMutableArray arrayWithArray:self.stockViews];
     [self cleanUp:tmp];
+    [self requestForStocks];
 }
 @end
