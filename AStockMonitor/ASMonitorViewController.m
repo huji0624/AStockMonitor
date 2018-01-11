@@ -92,7 +92,7 @@
 
 -(void)requestForStocks{
     NSArray *stockslist = [[StocksManager manager] stocks];
-    if (stockslist && self.request == nil) {
+    if (stockslist && stockslist.count>0 && self.request == nil) {
         if (self.firstLoad) {
             [DJProgressHUD showStatus:@"" FromView:self.stackView];
         }
